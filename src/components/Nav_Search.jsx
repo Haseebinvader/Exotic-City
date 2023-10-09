@@ -1,5 +1,5 @@
 import { Grid, Hidden, Typography } from '@mui/material'
-import LOGO from '../assets/png/LOGO.png'
+import LOGO from '../assets/jpeg/LOGO.jpg'
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
@@ -19,24 +19,25 @@ const Nav_Search = () => {
 
             <Hidden mdDown>
                 <Grid item>
-                    <img src={LOGO}></img>
+                    <img src={LOGO} style={{ width: '140px' }} />
                 </Grid>
             </Hidden>
 
             <Grid item >
                 <TextField
-                    sx={{ backgroundColor: '#F5F5F5', width: '25rem', borderRadius: '2rem' }}
+                    sx={{ backgroundColor: '#F5F5F5', width: '25rem', border: 'none' }} // Removed borderColor property
                     size='small'
                     variant="outlined"
-                    value="Search for brand or product"
+                    value="Search our catalog"
                     InputProps={{
                         endAdornment: (
-                            <IconButton sx={{ backgroundColor: '#f7a92e', color: '#fff' }}>
+                            <IconButton sx={{ backgroundColor: '#E6E6E6', color: '#fff' }}>
                                 <SearchIcon />
                             </IconButton>
                         ),
                     }}
                 />
+
 
             </Grid>
             <Hidden mdDown>
