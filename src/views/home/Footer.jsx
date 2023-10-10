@@ -6,7 +6,7 @@ const Footer = () => {
   const sections = [
     { title: 'Contact Us', items: ['Av. de l Expansion 1', '4432 Alleur', '04 228 04 00', 'info@exoticcity.be',] },
     { title: 'Navigation', items: ['Legal notice', 'Privacy', 'Services', 'Contact us', 'Brands'] },
-    { title: 'Food Products', items: ['DRINKS', 'PRESERVED FOOD', 'FRESH FOOD', 'FROZEN FOOD'] },
+    { title: 'Food Products', items: ['DRINKS', 'PRESERVED FOOD', 'FRESH FOOD', 'FROZEN FOODs'] },
     { title: 'Cosmetics Products', items: ['BODY CARE', 'MEN CARE', 'CHILDREN CARE'] },
     { title: 'Hair Products', items: ['HAIR CARE', 'ACCESSORIES', 'MIXED HAIR', 'SYNTHETIC HAIR', 'NATURAL HAIR',] },
     { title: 'Nominated', items: [<img src={logo} alt="Nominated Logo" key="logo" />] },
