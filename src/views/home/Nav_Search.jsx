@@ -1,5 +1,5 @@
 import { Grid, Hidden, Typography } from '@mui/material'
-import LOGO from '../assets/jpeg/LOGO.jpg'
+import LOGO from '../../assets/jpeg/LOGO.jpg'
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';

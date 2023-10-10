@@ -4,18 +4,18 @@ import 'slick-carousel/slick/slick-theme.css';
 import { Box } from '@mui/material';
 
 // Import your brand images
-import brand1 from '../assets/brands/africa.jpg';
-import brand2 from '../assets/brands/care.jpg';
-import brand3 from '../assets/brands/chez.jpg';
-import brand4 from '../assets/brands/congo.jpg';
-import brand5 from '../assets/brands/desi.jpg';
-import brand6 from '../assets/brands/exotic.jpg';
-import brand7 from '../assets/brands/mr.jpg';
-import brand8 from '../assets/brands/nuts.jpg';
-import brand9 from '../assets/brands/royal.jpg';
-import brand10 from '../assets/brands/thai.jpg';
-import brand11 from '../assets/brands/utouch.jpg';
-import brand12 from '../assets/brands/village.jpg';
+import brand1 from '../../assets/brands/africa.jpg';
+import brand2 from '../../assets/brands/care.jpg';
+import brand3 from '../../assets/brands/chez.jpg';
+import brand4 from '../../assets/brands/congo.jpg';
+import brand5 from '../../assets/brands/desi.jpg';
+import brand6 from '../../assets/brands/exotic.jpg';
+import brand7 from '../../assets/brands/mr.jpg';
+import brand8 from '../../assets/brands/nuts.jpg';
+import brand9 from '../../assets/brands/royal.jpg';
+import brand10 from '../../assets/brands/thai.jpg';
+import brand11 from '../../assets/brands/utouch.jpg';
+import brand12 from '../../assets/brands/village.jpg';
 
 // Array of dummy image URLs
 const dummyImages = [

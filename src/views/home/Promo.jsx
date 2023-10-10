@@ -1,6 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
-import Image from '../assets/png/mrexotic.png';
-import background from '../assets/png/background.jpg'
+// import Image from '../assets/png/mrexotic.png';
+import Image from '../../assets/png/mrexotic.png'
+import background from '../../assets/png/background.jpg'
 const Promo = () => {
     const containerStyle = {
         position: "relative",
