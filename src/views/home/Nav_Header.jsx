@@ -12,6 +12,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import './Styles.css'
 import Cosmetic_Dropdown from './Cosmetic_Dropdown';
 import Hair_Dropdown from './Hair_DropDown';
+import Brand_Dropdown from './Brand_Dropdown';
 
 const Nav_Header = () => {
     // States
@@ -19,6 +20,7 @@ const Nav_Header = () => {
     const [isFood, setisFood] = useState(false)
     const [isCosmetic, setisCosmetic] = useState(false)
     const [isHair, setisHair] = useState(false)
+    const [isBrand, setisBrand] = useState(false)
     const language = ['Deutsch', 'English', 'Francias', 'Nederlands']
 
     // Functions
@@ -26,23 +28,24 @@ const Nav_Header = () => {
     const toggleLanguage = () => { setisLanguage(!islanguage) }
     const toggleCosmetics = () => { setisCosmetic(!isCosmetic) }
     const toggleHair = () => { setisHair(!isHair) }
+    const toggleBrand = () => { setisBrand(!isBrand) }
 
     const navitems = [
-        'EXCLUSIVE BRANDS', 'ABOUT US', 'SERVICES', 'CONTACT'
+        'ABOUT US', 'SERVICES', 'CONTACT'
     ]
 
     return (
         <Hidden lgDown>
-            <Grid container xs={12} sx={{ pl: '11.5rem', paddingTop: '1.8rem' }}>
+            <Grid container xs={12} sx={{ pl: '3rem', paddingTop: '1.8rem' }}>
                 <Grid item >
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem', cursor: 'pointer' }}>
                         <Typography sx={{ fontSize: '14px' }}> <HomeIcon /> </Typography>
-                        <Box style={{ position: 'relative' }}>
+                        <Box >
                             <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleFood}>
                                 FOOD <KeyboardArrowDownIcon />
                             </Typography>
                             {isFood && (
-                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '75rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
+                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
                                     <Food_Dropdown />
                                 </Box>)}
                         </Box>
@@ -51,7 +54,7 @@ const Nav_Header = () => {
                                 COSMETICS <KeyboardArrowDownIcon />
                             </Typography>
                             {isCosmetic && (
-                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '75rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
+                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
                                     <Cosmetic_Dropdown />
                                 </Box>)}
                         </Box>
@@ -60,8 +63,17 @@ const Nav_Header = () => {
                                 HAIR <KeyboardArrowDownIcon />
                             </Typography>
                             {isHair && (
-                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '75rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
-                                    <Hair_Dropdown/>
+                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
+                                    <Hair_Dropdown />
+                                </Box>)}
+                        </Box>
+                        <Box style={{ position: 'relative' }}>
+                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleBrand}>
+                                EXCLUSIVE BRANDS <KeyboardArrowDownIcon />
+                            </Typography>
+                            {isBrand && (
+                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
+                                    <Brand_Dropdown />
                                 </Box>)}
                         </Box>
                         {navitems.map((item, index) => (

@@ -21,7 +21,7 @@ const items = [
 
 const Food_Dropdown = () => {
   return (
-    <Grid container sx={{ display: 'flex', justifyContent: 'space-around', textAlign: 'left', gap: '2rem', height: '10rem', width: '100%' }}>
+    <Grid container sx={{ display: 'flex', justifyContent: 'space-around', textAlign: 'left',   height: '10rem', width: '100%' }}>
       {items.map((section, index) => (
         <Grid item key={index}>
           <Typography sx={{ '&:hover': { color: '#F7A92E' }, color: 'red', fontWeight: '600' }}>{section.title}</Typography>
