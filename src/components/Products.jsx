@@ -22,7 +22,7 @@ const Products = () => {
     return (
         <>
             <Typography textAlign={'center'} pt={'2rem'} color={'orange'} fontSize={'30px'} fontWeight={'600'}>Products</Typography>
-            <Grid container sx={{ display: 'flex', justifyContent: 'space-evenly', pt: '2rem', width: '100%' }} xs={8} lg={12}>
+            <Grid container sx={{ display: 'flex', justifyContent: 'space-evenly', pt: '2rem', width: '100%' }} xs={12} >
                 <Grid item >
                     <Box border={'2px solid orange'} borderRadius={'50px'} width={'6rem'} height={'6rem'} textAlign={'center'} backgroundColor={'White'}>
                         <img src={NEW} width={90} />

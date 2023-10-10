@@ -34,13 +34,17 @@ const BrandCarousel = () => {
   };
 
   return (
-    <Slider {...settings}>
-      {dummyImages.map((image, index) => (
-        <Box key={index} textAlign="center">
-          <img src={image} alt={`Brand ${index}`} style={{ maxWidth: '90%' }} />
-        </Box>
-      ))}
-    </Slider>
+    <>
+      <div style={{ maxWidth: '95%', margin: '0 auto' }}>
+        <Slider {...settings}>
+          {dummyImages.map((image, index) => (
+            <Box key={index} textAlign="center">
+              <img src={image} alt={`Brand ${index}`} style={{ maxWidth: '100%' }} />
+            </Box>
+          ))}
+        </Slider>
+      </div>
+    </>
   );
 };
 

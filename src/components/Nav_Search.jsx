@@ -10,7 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 const Nav_Search = () => {
 
     return (
-        <Grid container sx={{ width: '92%', display: 'flex', justifyContent: 'space-evenly', pt: '1.2rem' }}>
+        <Grid container sx={{ width: '92%', display: 'flex', justifyContent: 'space-evenly', pt: '1.2rem' }} xs={12}>
             <Hidden mdUp>
                 <Grid item display={'flex'} alignItems={'center'}>
                     <MenuIcon />
