@@ -15,11 +15,15 @@ const Nav_Header = () => {
     // States
     const [islanguage, setisLanguage] = useState(false)
     const [isProducts, setisProducts] = useState(false)
-
-
     const language = ['Deutsch', 'English', 'Francias', 'Nederlands']
+
+    // Functions
     const toggleProducts = () => { setisProducts(!isProducts) }
     const toggleLanguage = () => { setisLanguage(!islanguage) }
+
+    const navitems = [
+        'COSMETICS', 'HAIR', 'EXCLUSIVE BRANDS', 'ABOUT US', 'SERVICES', 'CONTACT'
+    ]
 
     return (
         <Hidden lgDown>
@@ -36,12 +40,9 @@ const Nav_Header = () => {
                                     <Products_DropDown />
                                 </Box>)}
                         </Box>
-                        <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }}> COSMETICS</Typography>
-                        <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }}> HAIR </Typography>
-                        <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }}> EXCLUSIVE BRANDS </Typography>
-                        <Typography sx={{ fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }}> ABOUT US </Typography>
-                        <Typography sx={{ fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }}> SERVICES </Typography>
-                        <Typography sx={{ fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }}> CONTACT </Typography>
+                        {navitems.map((item, index) => (
+                            <Typography key={index} sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }}>{item}</Typography>
+                        ))}
                         <Box>
                             <InputLabel
                                 sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#5B5B5B', fontWeight: '600' }}
