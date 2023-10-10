@@ -6,6 +6,7 @@ import Products from '../views/home/Products'
 import BrandCarousel from '../views/home/BrandsCarousel'
 import Promo from '../views/home/Promo'
 import Footer from '../views/home/Footer'
+import Services from '../views/home/Services'
 const Home = () => {
     return (
         <>
@@ -13,6 +14,7 @@ const Home = () => {
             <Nav_Header />
             <Nav_Search />
             <Banner />
+            <Services />
             <Products />
             <BrandCarousel />
             <Promo />

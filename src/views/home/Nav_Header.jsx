@@ -7,22 +7,28 @@ import MenuItem from '@mui/material/MenuItem';
 import { Typography } from '@mui/material';
 import Hidden from '@mui/material/Hidden';
 import LanguageIcon from '@mui/icons-material/Language';
-import Products_DropDown from './Products_Dropdown';
+import Food_Dropdown from './Food_Dropdown';
 import HomeIcon from '@mui/icons-material/Home';
 import './Styles.css'
+import Cosmetic_Dropdown from './Cosmetic_Dropdown';
+import Hair_Dropdown from './Hair_DropDown';
 
 const Nav_Header = () => {
     // States
     const [islanguage, setisLanguage] = useState(false)
-    const [isProducts, setisProducts] = useState(false)
+    const [isFood, setisFood] = useState(false)
+    const [isCosmetic, setisCosmetic] = useState(false)
+    const [isHair, setisHair] = useState(false)
     const language = ['Deutsch', 'English', 'Francias', 'Nederlands']
 
     // Functions
-    const toggleProducts = () => { setisProducts(!isProducts) }
+    const toggleFood = () => { setisFood(!isFood) }
     const toggleLanguage = () => { setisLanguage(!islanguage) }
+    const toggleCosmetics = () => { setisCosmetic(!isCosmetic) }
+    const toggleHair = () => { setisHair(!isHair) }
 
     const navitems = [
-        'COSMETICS', 'HAIR', 'EXCLUSIVE BRANDS', 'ABOUT US', 'SERVICES', 'CONTACT'
+        'EXCLUSIVE BRANDS', 'ABOUT US', 'SERVICES', 'CONTACT'
     ]
 
     return (
@@ -32,12 +38,30 @@ const Nav_Header = () => {
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem', cursor: 'pointer' }}>
                         <Typography sx={{ fontSize: '14px' }}> <HomeIcon /> </Typography>
                         <Box style={{ position: 'relative' }}>
-                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleProducts}>
+                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleFood}>
                                 FOOD <KeyboardArrowDownIcon />
                             </Typography>
-                            {isProducts && (
-                                <Box sx={{ backgroundColor: '#193460', position: 'absolute', color: '#fff', width: '45rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
-                                    <Products_DropDown />
+                            {isFood && (
+                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '75rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
+                                    <Food_Dropdown />
+                                </Box>)}
+                        </Box>
+                        <Box style={{ position: 'relative' }}>
+                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleCosmetics}>
+                                COSMETICS <KeyboardArrowDownIcon />
+                            </Typography>
+                            {isCosmetic && (
+                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '75rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
+                                    <Cosmetic_Dropdown />
+                                </Box>)}
+                        </Box>
+                        <Box style={{ position: 'relative' }}>
+                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleHair}>
+                                HAIR <KeyboardArrowDownIcon />
+                            </Typography>
+                            {isHair && (
+                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '75rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
+                                    <Hair_Dropdown/>
                                 </Box>)}
                         </Box>
                         {navitems.map((item, index) => (
