@@ -7,49 +7,52 @@ import MenuItem from '@mui/material/MenuItem';
 import { Typography } from '@mui/material';
 import Hidden from '@mui/material/Hidden';
 import LanguageIcon from '@mui/icons-material/Language';
-import Food_Dropdown from './Food_Dropdown';
+import Product_Dropdown from './Product_Dropdown';
 import HomeIcon from '@mui/icons-material/Home';
+import { Link } from 'react-router-dom';
+
 import './Styles.css'
-import Cosmetic_Dropdown from './Cosmetic_Dropdown';
-import Hair_Dropdown from './Hair_DropDown';
+// import Cosmetic_Dropdown from './Cosmetic_Dropdown';
+// import Hair_Dropdown from './Hair_DropDown';
 import Brand_Dropdown from './Brand_Dropdown';
 
 const Nav_Header = () => {
     // States
     const [islanguage, setisLanguage] = useState(false)
-    const [isFood, setisFood] = useState(false)
-    const [isCosmetic, setisCosmetic] = useState(false)
-    const [isHair, setisHair] = useState(false)
+    const [isProduct, setisProduct] = useState(false)
+
+    // const [isCosmetic, setisCosmetic] = useState(false)
+    // const [isHair, setisHair] = useState(false)
     const [isBrand, setisBrand] = useState(false)
-    const language = ['Deutsch', 'English', 'Francias', 'Nederlands']
+    const language = ['DEUTSCH', 'ENGLISH', 'FRANCIAS', 'NEDERLANDS']
 
     // Functions
-    const toggleFood = () => { setisFood(!isFood) }
-    const toggleLanguage = () => { setisLanguage(!islanguage) }
-    const toggleCosmetics = () => { setisCosmetic(!isCosmetic) }
-    const toggleHair = () => { setisHair(!isHair) }
-    const toggleBrand = () => { setisBrand(!isBrand) }
+    const toggleProduct = () => { setisProduct(!isProduct); setisLanguage(false); setisBrand(false) }
+    const toggleLanguage = () => { setisLanguage(!islanguage); setisProduct(false); setisBrand(false) }
+    // const toggleCosmetics = () => { setisCosmetic(!isCosmetic) }
+    // const toggleHair = () => { setisHair(!isHair) }
+    const toggleBrand = () => { setisBrand(!isBrand); setisLanguage(false); setisProduct(false) }
 
     const navitems = [
-        'ABOUT US', 'SERVICES', 'CONTACT'
+        'FAQS', 'ABOUT US', 'SERVICES', 'CONTACT'
     ]
 
     return (
         <Hidden lgDown>
-            <Grid container xs={12} sx={{ pl: '3rem', paddingTop: '1.8rem' }}>
+            <Grid container xs={12} sx={{ pl: '8rem', paddingTop: '1.8rem' }}>
                 <Grid item >
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem', cursor: 'pointer' }}>
-                        <Typography sx={{ fontSize: '14px' }}> <HomeIcon /> </Typography>
+                        <Typography sx={{ fontSize: '14px' }}> <Link to='/'><HomeIcon sx={{color: '#000'}}/></Link>  </Typography>
                         <Box >
-                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleFood}>
-                                FOOD <KeyboardArrowDownIcon />
+                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleProduct}>
+                                PRODUCTS <KeyboardArrowDownIcon />
                             </Typography>
-                            {isFood && (
-                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
-                                    <Food_Dropdown />
+                            {isProduct && (
+                                <Box sx={{ backgroundColor: '#fff', border: '1px solid lightgrey',position: 'absolute', color: '#000', padding: '1rem', borderRadius: '4px', zIndex: 10, ml: '4rem', width: '12rem' }}>
+                                    <Product_Dropdown />
                                 </Box>)}
                         </Box>
-                        <Box style={{ position: 'relative' }}>
+                        {/* <Box style={{ position: 'relative' }}>
                             <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleCosmetics}>
                                 COSMETICS <KeyboardArrowDownIcon />
                             </Typography>
@@ -57,8 +60,8 @@ const Nav_Header = () => {
                                 <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
                                     <Cosmetic_Dropdown />
                                 </Box>)}
-                        </Box>
-                        <Box style={{ position: 'relative' }}>
+                        </Box> */}
+                        {/* <Box style={{ position: 'relative' }}>
                             <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleHair}>
                                 HAIR <KeyboardArrowDownIcon />
                             </Typography>
@@ -66,13 +69,13 @@ const Nav_Header = () => {
                                 <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
                                     <Hair_Dropdown />
                                 </Box>)}
-                        </Box>
+                        </Box> */}
                         <Box style={{ position: 'relative' }}>
                             <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleBrand}>
                                 EXCLUSIVE BRANDS <KeyboardArrowDownIcon />
                             </Typography>
                             {isBrand && (
-                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
+                                <Box sx={{ backgroundColor: '#fff', border: '1px solid lightgrey', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
                                     <Brand_Dropdown />
                                 </Box>)}
                         </Box>
@@ -86,9 +89,9 @@ const Nav_Header = () => {
                                 <LanguageIcon sx={{ fontSize: '17px' }} /> EN <KeyboardArrowDownIcon />
                             </InputLabel>
                             {islanguage && (
-                                <Box sx={{ border: '1px solid #ccc', borderRadius: '4px', position: 'absolute', backgroundColor: '#193460', zIndex: 1, marginTop: '5px', color: '#fff' }} >
+                                <Box sx={{ border: '1px solid #ccc', borderRadius: '4px', position: 'absolute', backgroundColor: '#fff', zIndex: 1, marginTop: '5px', color: 'red' }} >
                                     {language.map((category) => (
-                                        <MenuItem key={category} onClick={() => console.log(category)} sx={{ borderTop: 'none' }}> {category}  </MenuItem>
+                                        <MenuItem key={category} onClick={() => console.log(category)} sx={{ borderTop: 'none', fontSize: '12px', fontWeight: '600' }}> {category}  </MenuItem>
                                     ))}
                                 </Box>
                             )}

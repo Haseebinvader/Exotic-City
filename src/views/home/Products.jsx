@@ -47,9 +47,9 @@ const Products = () => {
             <Typography sx={{ textAlign: 'center', pt: '2rem', color: 'orange', fontSize: '30px', fontWeight: '600', backgroundColor: '#17315B', mt: '0.1rem' }}>Products</Typography>
             <Grid container sx={{ display: 'flex', justifyContent: 'space-evenly', pt: '2rem', width: '100%', backgroundColor: '#17315B' }}>
                 {/* Row 1 */}
-                <Grid container item xs={2} md={12} lg={12} justifyContent="space-evenly">
+                <Grid container item xs={4} md={12} lg={12} justifyContent="space-evenly" height='100%'>
                     {itemsInRow1.map((item, index) => (
-                        <Grid item key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <Grid item key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pt: '3rem' }}>
                             <Box sx={{ border: '2px solid orange', borderRadius: '50px', width: '6rem', height: '6rem', textAlign: 'center', backgroundColor: 'White' }} >
                                 <img src={item.image} width={90} alt={`Item ${index}`} />
                                 <Typography sx={{ color: 'orange', pt: '10px', fontSize: '12px' }}> {item.label} </Typography>
@@ -59,9 +59,9 @@ const Products = () => {
                 </Grid>
 
                 {/* Row 2 */}
-                <Grid container item xs={2} md={12} lg={12} justifyContent="space-evenly" >
+                <Grid container item xs={4} md={12} lg={12} justifyContent="space-evenly" height='100%'>
                     {itemsInRow2.map((item, index) => (
-                        <Grid item key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: '5rem' }}>
+                        <Grid item key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pt: '3rem' }}>
                             <Box sx={{ border: '2px solid orange', borderRadius: '50px', width: '6rem', height: '6rem', textAlign: 'center', backgroundColor: 'White' }} >
                                 <img src={item.image} width={90} alt={`Item ${index}`} />
                                 <Typography sx={{ color: 'orange', pt: '10px', fontSize: '12px'  }} >{item.label} </Typography>

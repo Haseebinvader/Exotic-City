@@ -18,7 +18,7 @@ const Services = () => {
                 <Box style={{ width: '100% ', height: '2px', backgroundColor: 'red', margin: '8px 0', }} ></Box>
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: '4rem' }}>
-                    <Typography><img src={services} /></Typography>
+                    <Typography><img src={services} width='90%' /></Typography>
                     <Typography width='18rem' fontSize='14px'>We specialize in African and Asian food products, operating as wholesaler and distributor in Belgium. We provide delivery across Europe and Scandinavian countries, our client portfolio exists in Germany, France, Netherlands, Austria, Switzerland, Sweden, Denmark, Finland and Norway. Exotic City offers over 6000 products in dry, frozen and fresh categories. Reserved for professionals (traders or restaurateurs), all our goods are available in self-service cash & carry that is a One Stop shop warehouse.
                     </Typography>
                 </Box>
