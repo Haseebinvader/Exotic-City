@@ -12,8 +12,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom';
 
 import './Styles.css'
-// import Cosmetic_Dropdown from './Cosmetic_Dropdown';
-// import Hair_Dropdown from './Hair_DropDown';
+
 import Brand_Dropdown from './Brand_Dropdown';
 
 const Nav_Header = () => {
@@ -21,56 +20,33 @@ const Nav_Header = () => {
     const [islanguage, setisLanguage] = useState(false)
     const [isProduct, setisProduct] = useState(false)
 
-    // const [isCosmetic, setisCosmetic] = useState(false)
-    // const [isHair, setisHair] = useState(false)
+
     const [isBrand, setisBrand] = useState(false)
     const language = ['DEUTSCH', 'ENGLISH', 'FRANCIAS', 'NEDERLANDS']
 
     // Functions
     const toggleProduct = () => { setisProduct(!isProduct); setisLanguage(false); setisBrand(false) }
     const toggleLanguage = () => { setisLanguage(!islanguage); setisProduct(false); setisBrand(false) }
-    // const toggleCosmetics = () => { setisCosmetic(!isCosmetic) }
-    // const toggleHair = () => { setisHair(!isHair) }
     const toggleBrand = () => { setisBrand(!isBrand); setisLanguage(false); setisProduct(false) }
 
-    const navitems = [
-        'FAQS', 'ABOUT US', 'SERVICES', 'CONTACT'
-    ]
+
 
     return (
         <Hidden lgDown>
             <Grid container xs={12} sx={{ pl: '8rem', paddingTop: '1.8rem' }}>
                 <Grid item >
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem', cursor: 'pointer' }}>
-                        <Typography sx={{ fontSize: '14px' }}> <Link to='/'><HomeIcon sx={{color: '#000'}}/></Link>  </Typography>
+                        <Typography sx={{ fontSize: '14px' }}> <Link to='/'><HomeIcon sx={{ color: '#000' }} /></Link>  </Typography>
                         <Box >
-                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleProduct}>
+                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleProduct }>
                                 PRODUCTS <KeyboardArrowDownIcon />
                             </Typography>
                             {isProduct && (
-                                <Box sx={{ backgroundColor: '#fff', border: '1px solid lightgrey',position: 'absolute', color: '#000', padding: '1rem', borderRadius: '4px', zIndex: 10, ml: '4rem', width: '12rem' }}>
+                                <Box sx={{ backgroundColor: '#fff', border: '1px solid lightgrey', position: 'absolute', color: '#000', padding: '1rem', borderRadius: '4px', zIndex: 10, ml: '4rem', width: '12rem' }}>
                                     <Product_Dropdown />
                                 </Box>)}
                         </Box>
-                        {/* <Box style={{ position: 'relative' }}>
-                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleCosmetics}>
-                                COSMETICS <KeyboardArrowDownIcon />
-                            </Typography>
-                            {isCosmetic && (
-                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
-                                    <Cosmetic_Dropdown />
-                                </Box>)}
-                        </Box> */}
-                        {/* <Box style={{ position: 'relative' }}>
-                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleHair}>
-                                HAIR <KeyboardArrowDownIcon />
-                            </Typography>
-                            {isHair && (
-                                <Box sx={{ backgroundColor: '#fff', position: 'absolute', color: '#000', width: '60rem', height: '18rem', padding: '1rem', borderRadius: '4px', zIndex: 10 }}>
-                                    <Hair_Dropdown />
-                                </Box>)}
-                        </Box> */}
-                        <Box style={{ position: 'relative' }}>
+                        <Box sx={{ position: 'relative' }}>
                             <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleBrand}>
                                 EXCLUSIVE BRANDS <KeyboardArrowDownIcon />
                             </Typography>
@@ -79,9 +55,29 @@ const Nav_Header = () => {
                                     <Brand_Dropdown />
                                 </Box>)}
                         </Box>
-                        {navitems.map((item, index) => (
-                            <Typography key={index} sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }}>{item}</Typography>
-                        ))}
+
+                        <Box>
+                            <Link to='/About'>
+                                <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
+                                    ABOUT US
+                                </Typography>
+                            </Link>
+                        </Box>
+                        <Box>
+                            <Link to='/Services'>
+                                <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
+                                    SERVICES
+                                </Typography>
+                            </Link>
+                        </Box>
+                        <Box>
+                            <Link to='/Contact'>
+                                <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
+                                    CONTACT US
+                                </Typography>
+                            </Link>
+                        </Box>
+
                         <Box>
                             <InputLabel
                                 sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#5B5B5B', fontWeight: '600' }}

@@ -7,19 +7,25 @@ import image5 from '../../assets/jpeg/banner5.jpg';
 import image6 from '../../assets/jpeg/banner6.jpg';
 import image7 from '../../assets/jpeg/banner7.jpg';
 import image8 from '../../assets/jpeg/banner8.jpg';
+import { Grid } from "@mui/material";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const images = [image5, image1, image2, image3, image4, image6, image7, image8];
 
 const ImageCarousel = () => {
     return (
-        <Carousel autoPlay animation="slide" indicators={false} navButtonsAlwaysVisible >
-            {images.map((image, index) => (
-                <CarouselItem key={index}>
-                    <img src={image} alt={`Image ${index}`} className="img-responsive" style={{ maxWidth: '100%', height: '100%' }} />
-                </CarouselItem>
-            ))}
-        </Carousel>
+        <Grid container >
+            <Grid item>
+                <Carousel autoPlay animation="slide" indicators={false} navButtonsAlwaysVisible>
+                    {images.map((image, index) => (
+                        <CarouselItem key={index}>
+                            <img src={image} alt={`Image ${index}`} className="img-responsive" style={{ maxWidth: '100%' }} />
+                        </CarouselItem>
+                    ))}
+                </Carousel>
+            </Grid>
+        </Grid>
+
     );
 };
 
