@@ -11,12 +11,12 @@ const Nav_Search = () => {
 
     return (
         <Grid container sx={{ width: '100%', display: 'flex', justifyContent: 'space-around', pt: '1.2rem', height: '6rem', textAlign: 'center' }} xs={12}>
-            <Hidden mdUp><Grid item alignItems='center'><MenuIcon /></Grid>  </Hidden>
+            <Hidden mdUp><Grid item alignItems='center'><MenuIcon /></Grid></Hidden>
             <Grid item> <img src={LOGO} style={{ width: '140px' }} /></Grid>
             <Hidden mdDown>
 
                 <Grid item > <TextField
-                    sx={{ backgroundColor: '#F5F5F5', width: '30rem', border: 'none', position: 'end' }} size='small' variant="outlined" value="Search our catalog"
+                    sx={{ backgroundColor: '#F5F5F5', width: '30rem', border: 'none', position: 'end' }} size='small' variant="outlined" placeholder="Search Catalog"
                     InputProps={{ endAdornment: (<IconButton sx={{ backgroundColor: '#E6E6E6', color: '#fff' }}><SearchIcon /></IconButton>) }} />
                 </Grid>
             </Hidden>

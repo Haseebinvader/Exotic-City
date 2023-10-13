@@ -36,11 +36,10 @@ const Food_Card = () => {
                         <img src={item.Image} alt={item.Name} />
                         <Typography sx={{ fontSize: '14px' }}>{item.Name}</Typography>
                         <Typography sx={{ fontSize: '12px' }}>{item.size}</Typography>
-                        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center',  gap: '1rem', border: '1px solid lightgrey', mt: '1rem', width: '10.6rem', ml: '3.1rem'}}>
+                        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', border: '1px solid lightgrey', mt: '1rem', width: '10.6rem', ml: '3.1rem' }}>
                             <Button onClick={() => handleDecrement(index)} sx={{ backgroundColor: 'orange', color: 'white', '&:hover': { backgroundColor: 'orange' } }}>-</Button>
                             <Typography>{isIncrement[index]}</Typography>
                             <Button onClick={() => handleIncrement(index)} sx={{ backgroundColor: 'green', color: 'white', '&:hover': { backgroundColor: 'green' } }}>+</Button>
-
                         </Box>
                     </Card>
                 </Grid>

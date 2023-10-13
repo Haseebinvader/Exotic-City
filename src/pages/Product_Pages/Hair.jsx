@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material"
 import Drinks_Img from '../../assets/jpeg/DRINKS.jpg'
-// import Filters from "../../views/products/filters"
+import Filters from "../../views/products/filters"
 import Hair_Card from "../../views/products/Hair_Card"
 const Hair = () => {
     return (
@@ -9,7 +9,7 @@ const Hair = () => {
                 <img src={Drinks_Img} width='1510px' />
                 <Typography sx={{ textAlign: 'center', fontSize: '30px', fontWeight: '600', color: '#fff', backgroundColor: 'orange' }}>HAIR</Typography>
             </Grid>
-            {/* <Filters /> */}
+            <Filters />
             <Hair_Card />
         </Grid>
 
