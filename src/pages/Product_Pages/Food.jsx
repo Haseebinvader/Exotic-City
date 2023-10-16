@@ -8,17 +8,23 @@ const Food = () => {
     const handleChange = (event, value) => {
         setPage(value);
     };
+
+    const [query, setQuery] = useState('');
+
+    const handleSearch = (newQuery) => {
+        setQuery(newQuery);
+    };
     return (
         <Grid container>
             <Grid item  >
                 <img src={Drinks_Img} style={{ maxWidth: '100%' }} />
                 <Typography sx={{ textAlign: 'center', fontSize: '30px', fontWeight: '600', color: '#fff', backgroundColor: 'orange' }}>DRINKS</Typography>
             </Grid>
-            <Filters />
-            <Food_Card />
+            <Filters handleSearch={handleSearch} />
+            <Food_Card query={query} />
             <Hidden lgUp>
                 <Grid item>
-                    <Box sx={{width: '100%', pl: '1rem' }}>
+                    <Box sx={{ width: '100%', pl: '1rem' }}>
                         <Typography textAlign='center'> Per Page: <span style={{ border: '2px solid #000' }}>{page}</span> </Typography>
                         <Pagination count={10} page={page} onChange={handleChange} />
                     </Box>

@@ -8,15 +8,21 @@ import SearchIcon from '@mui/icons-material/Search';
 import { categories, sub_categories, brand } from '../../Data/Project_Data';
 
 
-export default function SingleSelect() {
+// eslint-disable-next-line react/prop-types
+export default function Filter({ handleSearch }) {
+    // States
     const [page, setPage] = useState(1);
-    const handleChange = (event, value) => {
-        setPage(value);
-    };
+    const handleChange = (event, value) => { setPage(value); };
     const [category, setCategory] = useState('Category');
     const [subCategory, setSubCategory] = useState('Sub Category');
     const [selectedBrand, setSelectedBrand] = useState('Brand');
+    const [query, setQuery] = useState('');
 
+    // Functions
+
+    const search = () => {
+        handleSearch(query);
+    };
     return (
         <Fragment>
             <Grid container>
@@ -27,11 +33,27 @@ export default function SingleSelect() {
                             <Box sx={{ width: '90vw', height: '2px', backgroundColor: 'orange', margin: '8px 0' }} ></Box>
                         </Box>
                         <Box sx={{ ml: '4rem', mt: '1rem' }}>
-                            <TextField sx={{ backgroundColor: '#F5F5F5', border: 'none', width: 'auto' }} size='small' variant="outlined" placeholder="Search Products"
-                                InputProps={{ endAdornment: (<IconButton sx={{ backgroundColor: '#E6E6E6', color: '#fff' }}><SearchIcon /></IconButton>) }} />
+                            <TextField
+                                sx={{ backgroundColor: '#F5F5F5', border: 'none', width: 'auto' }}
+                                size='small'
+                                variant="outlined"
+                                placeholder="Search Products"
+                                InputProps={{
+                                    endAdornment: (
+                                        <IconButton
+                                            sx={{ backgroundColor: '#E6E6E6', color: '#fff' }}
+                                            onClick={search}
+                                        >
+                                            <SearchIcon />
+                                        </IconButton>
+                                    ),
+                                }}
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                            />
                         </Box>
                     </Grid>
-                </Hidden>
+                </Hidden >
                 <Grid item>
                     <Box sx={{ ml: '4rem', mt: '1rem' }}>
                         <Typography sx={{ textAlign: 'left', fontSize: '25px', fontWeight: '600' }}>Order Before</Typography>
@@ -40,7 +62,7 @@ export default function SingleSelect() {
                 <Box sx={{ width: '90vw', height: '2px', backgroundColor: 'orange', margin: '8px 0', ml: '4rem', mt: '1rem', mr: '4rem' }} ></Box>
                 <Grid container sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', mt: '1.5rem' }}>
                     <Grid container sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '2%', }} >
-                        <Grid item sx={{display: 'flex', gap: '1rem'}}>
+                        <Grid item sx={{ display: 'flex', gap: '1rem' }}>
                             <Box>
                                 <FormControl >
                                     <Select size='small' value={category} onChange={(e) => setCategory(e.target.value)} sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}>
@@ -74,7 +96,7 @@ export default function SingleSelect() {
                         </Grid>
                     </Hidden>
                 </Grid>
-            </Grid>
-        </Fragment>
+            </Grid >
+        </Fragment >
     );
 }

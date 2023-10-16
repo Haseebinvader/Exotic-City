@@ -19,8 +19,6 @@ const Nav_Header = () => {
     // States
     const [islanguage, setisLanguage] = useState(false)
     const [isProduct, setisProduct] = useState(false)
-
-
     const [isBrand, setisBrand] = useState(false)
     const language = ['DEUTSCH', 'ENGLISH', 'FRANCIAS', 'NEDERLANDS']
 
@@ -28,9 +26,6 @@ const Nav_Header = () => {
     const toggleProduct = () => { setisProduct(!isProduct); setisLanguage(false); setisBrand(false) }
     const toggleLanguage = () => { setisLanguage(!islanguage); setisProduct(false); setisBrand(false) }
     const toggleBrand = () => { setisBrand(!isBrand); setisLanguage(false); setisProduct(false) }
-
-
-
     return (
         <Hidden lgDown>
             <Grid container xs={12} sx={{ pl: '8rem', paddingTop: '1.8rem' }}>
@@ -38,7 +33,7 @@ const Nav_Header = () => {
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem', cursor: 'pointer' }}>
                         <Typography sx={{ fontSize: '14px' }}> <Link to='/'><HomeIcon sx={{ color: '#000' }} /></Link>  </Typography>
                         <Box >
-                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleProduct }>
+                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleProduct}>
                                 PRODUCTS <KeyboardArrowDownIcon />
                             </Typography>
                             {isProduct && (

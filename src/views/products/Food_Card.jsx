@@ -1,11 +1,9 @@
 import { Box, Card, Grid, Typography, Button } from "@mui/material";
-
 import { useState } from "react";
 import { food_data } from "../../Data/Project_Data";
 
-
-
-const Food_Card = () => {
+// eslint-disable-next-line react/prop-types
+const Food_Card = ({ query }) => {
     // States
     const [isIncrement, setisIncrement] = useState(Array(food_data.length).fill(0));
 
@@ -13,10 +11,14 @@ const Food_Card = () => {
     const handleIncrement = (index) => { const newisIncrement = [...isIncrement]; newisIncrement[index] += 1; setisIncrement(newisIncrement); };
     const handleDecrement = (index) => { const newIncrements = [...isIncrement]; newIncrements[index] -= 1; setisIncrement(newIncrements); };
 
+    // Filter the food_data based on the search query
+    const filteredFoodData = food_data.filter((item) =>
+        item.Name.includes(query)
+    );
 
     return (
         <Grid container sx={{ display: 'flex', justifyContent: 'center', p: '4rem' }}>
-            {food_data.map((item, index) => (
+            {filteredFoodData.map((item, index) => (
                 <Grid item xs={8} sm={6} md={4} lg={3} key={item.id}>
                     <Card sx={{ maxWidth: 330, height: 'auto', textAlign: 'center', mb: '2rem', mt: '2rem' }}>
                         <img src={item.Image} alt={item.Name} width='80%' />
