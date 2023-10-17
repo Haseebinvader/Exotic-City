@@ -69,7 +69,7 @@ const Product_Dropdown = () => {
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
-                  <Link to="/Cosmetics" style={{ textDecoration: 'none' }}>
+                  <Link to="/Drinks" style={{ textDecoration: 'none' }}>
                     <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }}>{item}</Typography>
                   </Link>
                   <Box />
@@ -82,7 +82,7 @@ const Product_Dropdown = () => {
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
-                  <Link to="/Hair" style={{ textDecoration: 'none' }}>
+                  <Link to="/Drinks" style={{ textDecoration: 'none' }}>
                     <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }}>{item}</Typography>
                   </Link>
                   <Box />

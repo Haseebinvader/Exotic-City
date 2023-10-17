@@ -10,6 +10,22 @@ export const Home_Data = {
 import drink1 from '../assets/jpeg/DRINK1.jpg'
 import drink2 from '../assets/png/DRINK2.png';
 import drink3 from '../assets/png/DRINK3.png';
+import cosmetic1 from '../assets/jpeg/creme.jpg'
+import cosmetic2 from '../assets/jpeg/olive.jpg'
+import cosmetic3 from '../assets/jpeg/revlon.jpg'
+import cosmetic4 from '../assets/jpeg/snf.jpg'
+import cosmetic5 from '../assets/jpeg/vatika.jpg'
+import hair1 from '../assets/jpeg/hair1.jpg'
+import hair2 from '../assets/jpeg/hair2.jpg'
+import hair3 from '../assets/jpeg/hair3.jpg'
+import hair4 from '../assets/jpeg/hair3.jpg'
+import cash_carry from '../assets/png/Cash-Carry.png'
+import Distribution from '../assets/png/Distribution.png'
+import Express from '../assets/png/Express.png'
+import International from '../assets/png/International.png'
+import Logistic from '../assets/png/Logistique.png'
+import winwin from '../assets/png/Win-Win.png'
+
 export const food_data = [
     { id: 1, Name: 'OLD JAMAICA GINGER Dew', size: '4 x 6 x 250 ml', Image: drink1 },
     { id: 2, Name: 'OLD JAMAICA GINGER 7up', size: '4 x 6 x 250 ml', Image: drink2 },
@@ -23,54 +39,34 @@ export const food_data = [
     { id: 10, Name: 'OLD JAMAICA GINGER Coca COla', size: '4 x 6 x 250 ml', Image: drink2 },
     { id: 11, Name: 'OLD JAMAICA GINGER Fanta', size: '4 x 6 x 250 ml', Image: drink1 },
     { id: 12, Name: 'OLD JAMAICA GINGER Marinda', size: '4 x 6 x 250 ml', Image: drink2 },
+    { id: 13, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
+    { id: 14, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic2 },
+    { id: 15, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic3 },
+    { id: 16, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic4 },
+    { id: 17, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
+    { id: 18, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
+    { id: 19, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic2 },
+    { id: 20, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
+    { id: 21, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
+    { id: 22, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic3 },
+    { id: 23, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
+    { id: 24, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
+    { id: 25, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
+    { id: 26, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
+    { id: 27, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair3 },
+    { id: 28, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
+    { id: 29, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
+    { id: 30, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
+    { id: 31, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
+    { id: 32, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
+    { id: 33, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
+    { id: 34, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
+    { id: 35, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair3 },
+    { id: 36, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
 ];
-
-
-import cosmetic1 from '../assets/jpeg/creme.jpg'
-import cosmetic2 from '../assets/jpeg/olive.jpg'
-import cosmetic3 from '../assets/jpeg/revlon.jpg'
-import cosmetic4 from '../assets/jpeg/snf.jpg'
-import cosmetic5 from '../assets/jpeg/vatika.jpg'
-
-export const cosmetic_data = [
-    { id: 1, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
-    { id: 2, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic2 },
-    { id: 3, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic3 },
-    { id: 4, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic4 },
-    { id: 5, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
-    { id: 6, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
-    { id: 7, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic2 },
-    { id: 8, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
-    { id: 9, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
-    { id: 10, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic3 },
-    { id: 11, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
-    { id: 12, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
-];
-
-import hair1 from '../assets/jpeg/hair1.jpg'
-import hair2 from '../assets/jpeg/hair2.jpg'
-import hair3 from '../assets/jpeg/hair3.jpg'
-import hair4 from '../assets/jpeg/hair3.jpg'
-export const hair_data = [
-    { id: 1, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
-    { id: 2, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
-    { id: 3, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair3 },
-    { id: 4, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
-    { id: 5, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
-    { id: 6, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
-    { id: 7, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
-    { id: 8, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
-    { id: 9, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
-    { id: 10, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
-    { id: 11, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair3 },
-    { id: 12, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
-];
-
-
 export const categories = ['Category', 'Oliver Hansen', 'Van Henry', 'April Tucker', 'Ralph Hubbard', 'Omar Alexander', 'Carlos Abbott'];
 export const sub_categories = ['Sub Category', 'Oliver Hansen', 'Van Henry', 'April Tucker', 'Ralph Hubbard', 'Omar Alexander', 'Carlos Abbott'];
 export const brand = ['Brand', 'Oliver Hansen', 'Van Henry', 'April Tucker', 'Ralph Hubbard', 'Omar Alexander', 'Carlos Abbott'];
-
 export const About_Data = {
     "About_Title": "L’HISTOIRE D’UN HOMME",
     "Exotic_Description": "Exotic City, c’est d’abord le rêve de Javed Kausar. Il y a 25 ans, ce fils d’épicier d’origine pakistanaise a compris, avant que le concept soit en vogue, l’importance de fédérer différentes cultures autour de la cuisine du monde. De nightshop à épicerie du monde En 1993, 4 ans après son arrivée en Belgique, Javed Kausar apprend le métier de commerçant en travaillant aux côtés de son père dans le magasin d’alimentation familial.Dès 1998, il en reprend les rennes, affine le concept initié par son père, développe une communauté qui partage ses valeurs et sa vision du métissage culturel.Une communauté qui trouve dans son offre de produits une porte ouverte vers le monde, mais surtout des solutions centrées sur les attentes et les besoins des particuliers, ainsi que des professionnels de la distribution ou de la restauration",
@@ -81,15 +77,6 @@ export const About_Data = {
     "Brand_Title": "LA CRÉATION D’UNE RÉFÉRENCE",
     "Brand_Description": "Fort d’une expérience de plusieurs dizaines d’années dans la production et la distribution d’aliments, de boissons et de produits de soin en provenance d’Asie et d’Afrique, Exotic City est devenu une référence majeure dans son secteur. Une large gamme de produits, un label de qualité Notre longue expérience dans le secteur de l’alimentation et des produits cosmétiques nous a permis de nous positionner en tant que distributeur exclusif d’une large gamme de produits exotiques parmi les meilleurs du marché. Soucieux de vous offrir des références au cœur de vos attentes et de l’évolution des goûts des consommateurs, Exotic City développe également ses propres gammes. "
 }
-
-
-import cash_carry from '../assets/png/Cash-Carry.png'
-import Distribution from '../assets/png/Distribution.png'
-import Express from '../assets/png/Express.png'
-import International from '../assets/png/International.png'
-import Logistic from '../assets/png/Logistique.png'
-import winwin from '../assets/png/Win-Win.png'
-
 export const Services_Data = {
     "Cash_Cary_Title": "Cash & Carry",
     "Cash_Cary_Description": "Envie de découvrir notre large assortiment de produits et de vous fournir en marchandises? Simple d’utilisation, le libre-service de notre entrepôt vous accueille pour vous faire découvrir notre gamme complète de produits. Vous pouvez ainsi juger sur pièces de leur qualité parmi un grand nombre de références, juger la couleur, l’apparence, comparer les différentes marques, le tout en prenant votre temps. Et vous choisissez les marchandises qui vous intéressent.",
