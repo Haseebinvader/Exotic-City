@@ -5,7 +5,7 @@ import { Box, Grid, Hidden, IconButton, TextField, Typography } from '@mui/mater
 import { Fragment, useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import SearchIcon from '@mui/icons-material/Search';
-import { categories, sub_categories, brand } from '../../Data/Project_Data';
+import { categories, Food_Sub, brand, Cosmetic_Sub, Hair_Sub } from '../../Data/Project_Data';
 
 
 // eslint-disable-next-line react/prop-types
@@ -22,6 +22,13 @@ export default function Filter({ handleSearch }) {
 
     const search = () => {
         handleSearch(query);
+    };
+
+    const handleCategoryChange = (e) => {
+        setCategory(e.target.value);
+
+        // Reset the sub-category when the category changes
+        setSubCategory('Sub Category');
     };
     return (
         <Fragment>
@@ -64,23 +71,64 @@ export default function Filter({ handleSearch }) {
                     <Grid container sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '2%', }} >
                         <Grid item sx={{ display: 'flex', gap: '1rem' }}>
                             <Box>
-                                <FormControl >
-                                    <Select size='small' value={category} onChange={(e) => setCategory(e.target.value)} sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}>
-                                        {categories.map((name) => (<MenuItem key={name} value={name} >{name}</MenuItem>))}
+                                <FormControl>
+                                    <Select
+                                        size='small'
+                                        value={category}
+                                        onChange={handleCategoryChange}
+                                        sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}
+                                    >
+                                        {categories.map((name) => (
+                                            <MenuItem key={name} value={name}>
+                                                {name}
+                                            </MenuItem>
+                                        ))}
                                     </Select>
                                 </FormControl>
                             </Box>
                             <Box>
                                 <FormControl>
-                                    <Select size='small' value={subCategory} onChange={(e) => setSubCategory(e.target.value)} sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}>
-                                        {sub_categories.map((name) => (<MenuItem key={name} value={name}>{name}</MenuItem>))}
+                                    <Select
+                                        size='small'
+                                        value={subCategory}
+                                        onChange={(e) => setSubCategory(e.target.value)}
+                                        sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}
+                                    >
+                                        {category === 'Food'
+                                            ? Food_Sub.map((name) => (
+                                                <MenuItem key={name} value={name}>
+                                                    {name}
+                                                </MenuItem>
+                                            ))
+                                            : category === 'Cosmetics'
+                                                ? Cosmetic_Sub.map((name) => (
+                                                    <MenuItem key={name} value={name}>
+                                                        {name}
+                                                    </MenuItem>
+                                                ))
+                                                : category === 'Hair'
+                                                    ? Hair_Sub.map((name) => (
+                                                        <MenuItem key={name} value={name}>
+                                                            {name}
+                                                        </MenuItem>
+                                                    ))
+                                                    : null}
                                     </Select>
                                 </FormControl>
                             </Box>
                             <Box>
-                                <FormControl >
-                                    <Select size='small' value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)} sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}>
-                                        {brand.map((name) => (<MenuItem key={name} value={name}>{name}</MenuItem>))}
+                                <FormControl>
+                                    <Select
+                                        size='small'
+                                        value={selectedBrand}
+                                        onChange={(e) => setSelectedBrand(e.target.value)}
+                                        sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}
+                                    >
+                                        {brand.map((name) => (
+                                            <MenuItem key={name} value={name}>
+                                                {name}
+                                            </MenuItem>
+                                        ))}
                                     </Select>
                                 </FormControl>
                             </Box>

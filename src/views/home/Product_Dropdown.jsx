@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { Box, Grid, Typography } from "@mui/material";
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -20,7 +22,7 @@ const items = [
 
 ];
 
-const Product_Dropdown = () => {
+const Product_Dropdown = ({ product, language }) => {
   // States
   const [isFood, setIsFood] = useState(false);
   const [isCosmetics, setIsCosmetics] = useState(false);
@@ -56,7 +58,7 @@ const Product_Dropdown = () => {
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
                   <Link to="/Drinks" style={{ textDecoration: 'none' }}>
-                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }}>{item}</Typography>
+                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
                   </Link>
                   <Box />
                 </Box>
@@ -70,7 +72,7 @@ const Product_Dropdown = () => {
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
                   <Link to="/Drinks" style={{ textDecoration: 'none' }}>
-                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }}>{item}</Typography>
+                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
                   </Link>
                   <Box />
                 </Box>
@@ -83,7 +85,7 @@ const Product_Dropdown = () => {
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
                   <Link to="/Drinks" style={{ textDecoration: 'none' }}>
-                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }}>{item}</Typography>
+                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
                   </Link>
                   <Box />
                 </Box>
@@ -95,7 +97,7 @@ const Product_Dropdown = () => {
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
-                  <Typography sx={{ '&:hover': { color: 'red' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }}>{item}</Typography>
+                  <Typography sx={{ '&:hover': { color: 'red' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
                   <Box />
                 </Box>
               ))}

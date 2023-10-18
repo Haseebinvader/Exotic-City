@@ -38,7 +38,7 @@ const Nav_Header = () => {
                             </Typography>
                             {isProduct && (
                                 <Box sx={{ backgroundColor: '#fff', border: '1px solid lightgrey', position: 'absolute', color: '#000', padding: '1rem', borderRadius: '4px', zIndex: 10, ml: '4rem', width: '12rem' }}>
-                                    <Product_Dropdown />
+                                    <Product_Dropdown product={setisProduct} language={setisLanguage}/>
                                 </Box>)}
                         </Box>
                         <Box sx={{ position: 'relative' }}>
@@ -52,21 +52,21 @@ const Nav_Header = () => {
                         </Box>
 
                         <Box>
-                            <Link to='/About'>
+                            <Link to='/About' style={{textDecoration: 'none'}}>
                                 <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     ABOUT US
                                 </Typography>
                             </Link>
                         </Box>
                         <Box>
-                            <Link to='/Services'>
+                            <Link to='/Services' style={{textDecoration: 'none'}}>
                                 <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     SERVICES
                                 </Typography>
                             </Link>
                         </Box>
                         <Box>
-                            <Link to='/Contact'>
+                            <Link to='/Contact' style={{textDecoration: 'none'}}>
                                 <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     CONTACT US
                                 </Typography>
@@ -77,12 +77,12 @@ const Nav_Header = () => {
                             <InputLabel
                                 sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#5B5B5B', fontWeight: '600' }}
                                 onClick={toggleLanguage} >
-                                <LanguageIcon sx={{ fontSize: '17px' }} /> EN <KeyboardArrowDownIcon />
+                                <LanguageIcon sx={{ fontSize: '17px' }} /> {islanguage} <KeyboardArrowDownIcon />
                             </InputLabel>
                             {islanguage && (
                                 <Box sx={{ border: '1px solid #ccc', borderRadius: '4px', position: 'absolute', backgroundColor: '#fff', zIndex: 1, marginTop: '5px', color: 'red' }} >
                                     {language.map((category) => (
-                                        <MenuItem key={category} onClick={() => console.log(category)} sx={{ borderTop: 'none', fontSize: '12px', fontWeight: '600' }}> {category}  </MenuItem>
+                                        <MenuItem key={category} onClick={() => (setisLanguage(false))} sx={{ borderTop: 'none', fontSize: '12px', fontWeight: '600' }}> {category}  </MenuItem>
                                     ))}
                                 </Box>
                             )}

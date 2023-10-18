@@ -27,7 +27,6 @@ import Logistic from '../assets/png/Logistique.png'
 import winwin from '../assets/png/Win-Win.png'
 
 export const food_data = [
-    { id: 1, Name: 'OLD JAMAICA GINGER Dew', size: '4 x 6 x 250 ml', Image: drink1 },
     { id: 2, Name: 'OLD JAMAICA GINGER 7up', size: '4 x 6 x 250 ml', Image: drink2 },
     { id: 3, Name: 'OLD JAMAICA GINGER Coca Cola', size: '4 x 6 x 250 ml', Image: drink3 },
     { id: 4, Name: 'OLD JAMAICA GINGER Sprite', size: '4 x 6 x 250 ml', Image: drink1 },
@@ -35,38 +34,45 @@ export const food_data = [
     { id: 6, Name: 'OLD JAMAICA GINGER Fanta', size: '4 x 6 x 250 ml', Image: drink2 },
     { id: 7, Name: 'OLD JAMAICA GINGER Marinda', size: '4 x 6 x 250 ml', Image: drink3 },
     { id: 8, Name: 'OLD JAMAICA GINGER Sting', size: '4 x 6 x 250 ml', Image: drink3 },
-    { id: 9, Name: 'OLD JAMAICA GINGER 7up', size: '4 x 6 x 250 ml', Image: drink2 },
-    { id: 10, Name: 'OLD JAMAICA GINGER Coca COla', size: '4 x 6 x 250 ml', Image: drink2 },
-    { id: 11, Name: 'OLD JAMAICA GINGER Fanta', size: '4 x 6 x 250 ml', Image: drink1 },
-    { id: 12, Name: 'OLD JAMAICA GINGER Marinda', size: '4 x 6 x 250 ml', Image: drink2 },
-    { id: 13, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
-    { id: 14, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic2 },
-    { id: 15, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic3 },
-    { id: 16, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic4 },
-    { id: 17, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
-    { id: 18, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
-    { id: 19, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic2 },
-    { id: 20, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
     { id: 21, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
     { id: 22, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic3 },
-    { id: 23, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
-    { id: 24, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
-    { id: 25, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
-    { id: 26, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
-    { id: 27, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair3 },
-    { id: 28, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
-    { id: 29, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
-    { id: 30, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
-    { id: 31, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
-    { id: 32, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
-    { id: 33, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
-    { id: 34, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
-    { id: 35, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair3 },
-    { id: 36, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
+    { id: 1, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
 ];
-export const categories = ['Category', 'Oliver Hansen', 'Van Henry', 'April Tucker', 'Ralph Hubbard', 'Omar Alexander', 'Carlos Abbott'];
-export const sub_categories = ['Sub Category', 'Oliver Hansen', 'Van Henry', 'April Tucker', 'Ralph Hubbard', 'Omar Alexander', 'Carlos Abbott'];
-export const brand = ['Brand', 'Oliver Hansen', 'Van Henry', 'April Tucker', 'Ralph Hubbard', 'Omar Alexander', 'Carlos Abbott'];
+
+export const hair_data = [
+    { id: 2, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
+    { id: 3, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
+    { id: 4, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
+    { id: 5, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair3 },
+    { id: 6, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
+    { id: 7, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
+    { id: 8, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
+    { id: 9, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
+    { id: 10, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
+    { id: 12, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
+    { id: 13, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
+    { id: 14, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair3 },
+    { id: 15, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
+]
+
+export const cosmetic_data = [
+    { id: 1, Name: 'OLD JAMAICA GINGER Coca COla', size: '4 x 6 x 250 ml', Image: drink2 },
+    { id: 2, Name: 'OLD JAMAICA GINGER Fanta', size: '4 x 6 x 250 ml', Image: drink1 },
+    { id: 3, Name: 'OLD JAMAICA GINGER Marinda', size: '4 x 6 x 250 ml', Image: drink2 },
+    { id: 4, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
+    { id: 5, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic2 },
+    { id: 6, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic3 },
+    { id: 7, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic4 },
+    { id: 8, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
+    { id: 9, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
+    { id: 10, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic2 },
+    { id: 11, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
+]
+export const categories = ['Category', 'Food', 'Cosmetics', 'Hair'];
+export const Food_Sub = ['Sub Category', 'Drinks', 'Preserved Food', 'Fresh Food', 'Frozen Food']
+export const Cosmetic_Sub = ['Sub Category', 'Hair Care', 'Body Care', 'Men Care', 'Child Care']
+export const Hair_Sub = ['Sub Category', 'Synthetic Hair', 'Natural Hair', 'Mixed Hair', 'Accessories']
+export const brand = ['Brand', 'Africa Village', 'Mr Exotic', 'Exotic Nuts', 'Royal See Food', 'Thai Village', 'Desi Finest Food', 'Care and Clear', 'De Chez Nous', 'Congo Nature', 'Exotic Foods', 'UTouch', 'Royal Village'];
 export const About_Data = {
     "About_Title": "L’HISTOIRE D’UN HOMME",
     "Exotic_Description": "Exotic City, c’est d’abord le rêve de Javed Kausar. Il y a 25 ans, ce fils d’épicier d’origine pakistanaise a compris, avant que le concept soit en vogue, l’importance de fédérer différentes cultures autour de la cuisine du monde. De nightshop à épicerie du monde En 1993, 4 ans après son arrivée en Belgique, Javed Kausar apprend le métier de commerçant en travaillant aux côtés de son père dans le magasin d’alimentation familial.Dès 1998, il en reprend les rennes, affine le concept initié par son père, développe une communauté qui partage ses valeurs et sa vision du métissage culturel.Une communauté qui trouve dans son offre de produits une porte ouverte vers le monde, mais surtout des solutions centrées sur les attentes et les besoins des particuliers, ainsi que des professionnels de la distribution ou de la restauration",

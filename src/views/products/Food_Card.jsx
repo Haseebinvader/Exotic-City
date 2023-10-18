@@ -1,6 +1,6 @@
 import { Box, Card, Grid, Typography, Button } from "@mui/material";
 import { useState } from "react";
-import { food_data } from "../../Data/Project_Data";
+import { food_data, cosmetic_data , hair_data} from "../../Data/Project_Data";
 import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
