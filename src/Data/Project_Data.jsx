@@ -34,12 +34,12 @@ export const food_data = [
     { id: 6, Name: 'OLD JAMAICA GINGER Fanta', size: '4 x 6 x 250 ml', Image: drink2 },
     { id: 7, Name: 'OLD JAMAICA GINGER Marinda', size: '4 x 6 x 250 ml', Image: drink3 },
     { id: 8, Name: 'OLD JAMAICA GINGER Sting', size: '4 x 6 x 250 ml', Image: drink3 },
-    { id: 21, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
-    { id: 22, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic3 },
-    { id: 1, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
+    { id: 9, Name: 'OLD JAMAICA GINGER Fanta', size: '4 x 6 x 250 ml', Image: drink2 },
+    { id: 10, Name: 'OLD JAMAICA GINGER Coca Cola', size: '4 x 6 x 250 ml', Image: drink3 },
 ];
 
 export const hair_data = [
+    { id: 1, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
     { id: 2, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic5 },
     { id: 3, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
     { id: 4, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
@@ -49,10 +49,10 @@ export const hair_data = [
     { id: 8, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
     { id: 9, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
     { id: 10, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair4 },
-    { id: 12, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
-    { id: 13, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
-    { id: 14, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair3 },
-    { id: 15, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
+    { id: 11, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
+    { id: 12, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair1 },
+    { id: 13, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair3 },
+    { id: 14, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: hair2 },
 ]
 
 export const cosmetic_data = [
