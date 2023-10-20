@@ -16,6 +16,7 @@ import brand9 from '../../assets/brands/royal.jpg';
 import brand10 from '../../assets/brands/thai.jpg';
 import brand11 from '../../assets/brands/utouch.jpg';
 import brand12 from '../../assets/brands/village.jpg';
+import './style.css'
 
 // Array of dummy image URLs
 const dummyImages = [
@@ -35,11 +36,11 @@ const BrandCarousel = () => {
 
   return (
     <>
-      <div style={{ maxWidth: '95%', margin: '0 auto' }}>
+      <div style={{ maxWidth: '95%', margin: '0 auto', height: '10rem' }} >
         <Slider {...settings}>
           {dummyImages.map((image, index) => (
             <Box key={index} textAlign="center">
-              <img src={image} alt={`Brand ${index}`} style={{ maxWidth: '100%' }} />
+              <img className="hover-zoom"  src={image} alt={`Brand ${index}`} style={{ maxWidth: '100%', cursor: 'pointer',transition: 'transform 0.2s', }} />
             </Box>
           ))}
         </Slider>

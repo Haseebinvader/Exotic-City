@@ -51,7 +51,7 @@ const Products = () => {
                     {itemsInRow1.map((item, index) => (
                         <Grid item key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pt: '3rem' }}>
                             <Box sx={{ border: '2px solid orange', borderRadius: '50px', width: '6rem', height: '6rem', textAlign: 'center', backgroundColor: 'White' }} >
-                                <img src={item.image} width={90} alt={`Item ${index}`} />
+                                <img src={item.image} width={90} alt={`Item ${index}`} style={{ cursor: 'pointer' }} />
                                 <Typography sx={{ color: 'orange', pt: '10px', fontSize: '12px' }}> {item.label} </Typography>
                             </Box>
                         </Grid>
@@ -63,8 +63,8 @@ const Products = () => {
                     {itemsInRow2.map((item, index) => (
                         <Grid item key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pt: '3rem' }}>
                             <Box sx={{ border: '2px solid orange', borderRadius: '50px', width: '6rem', height: '6rem', textAlign: 'center', backgroundColor: 'White' }} >
-                                <img src={item.image} width={90} alt={`Item ${index}`} />
-                                <Typography sx={{ color: 'orange', pt: '10px', fontSize: '12px'  }} >{item.label} </Typography>
+                                <img src={item.image} width={90} alt={`Item ${index}`} style={{ cursor: 'pointer' }} />
+                                <Typography sx={{ color: 'orange', pt: '10px', fontSize: '12px' }} >{item.label} </Typography>
                             </Box>
                         </Grid>
                     ))}
@@ -73,7 +73,7 @@ const Products = () => {
                 {/* Request Price Quotation Button */}
                 <Grid container justifyContent="center" alignItems="center">
                     <Grid item sx={{ backgroundColor: 'orange', borderRadius: '30px', mt: '4rem', mb: '2rem', alignItems: 'center', width: 'auto' }}>
-                        <Button sx={{ color: '#fff', padding: '15px', fontSize: '12px'  }}>  REQUEST PRICE QUOTATION → </Button>
+                        <Button sx={{ color: '#fff', padding: '15px', fontSize: '12px' }}>  REQUEST PRICE QUOTATION → </Button>
                     </Grid>
                 </Grid>
             </Grid>

@@ -19,17 +19,8 @@ export default function Filter({ handleSearch }) {
     const [query, setQuery] = useState('');
 
     // Functions
-
-    const search = () => {
-        handleSearch(query);
-    };
-
-    const handleCategoryChange = (e) => {
-        setCategory(e.target.value);
-
-        // Reset the sub-category when the category changes
-        setSubCategory('Sub Category');
-    };
+    const search = () => { handleSearch(query) };
+    const handleCategoryChange = (e) => { setCategory(e.target.value); setSubCategory('Sub Category'); };
     return (
         <Fragment>
             <Grid container>
@@ -40,24 +31,10 @@ export default function Filter({ handleSearch }) {
                             <Box sx={{ width: '90vw', height: '2px', backgroundColor: 'orange', margin: '8px 0' }} ></Box>
                         </Box>
                         <Box sx={{ ml: '4rem', mt: '1rem' }}>
-                            <TextField
-                                sx={{ backgroundColor: '#F5F5F5', border: 'none', width: 'auto' }}
-                                size='small'
-                                variant="outlined"
-                                placeholder="Search Products"
+                            <TextField sx={{ backgroundColor: '#F5F5F5', border: 'none', width: 'auto' }} size='small' variant="outlined" placeholder="Search Products"
                                 InputProps={{
-                                    endAdornment: (
-                                        <IconButton
-                                            sx={{ backgroundColor: '#E6E6E6', color: '#fff' }}
-                                            onClick={search}
-                                        >
-                                            <SearchIcon />
-                                        </IconButton>
-                                    ),
-                                }}
-                                value={query}
-                                onChange={(e) => setQuery(e.target.value)}
-                            />
+                                    endAdornment: (<IconButton sx={{ backgroundColor: '#E6E6E6', color: '#fff' }} onClick={search} > <SearchIcon />
+                                    </IconButton>)}} value={query} onChange={(e) => setQuery(e.target.value)} />
                         </Box>
                     </Grid>
                 </Hidden >
@@ -72,63 +49,25 @@ export default function Filter({ handleSearch }) {
                         <Grid item sx={{ display: 'flex', gap: '1rem' }}>
                             <Box>
                                 <FormControl>
-                                    <Select
-                                        size='small'
-                                        value={category}
-                                        onChange={handleCategoryChange}
-                                        sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}
-                                    >
-                                        {categories.map((name) => (
-                                            <MenuItem key={name} value={name}>
-                                                {name}
-                                            </MenuItem>
-                                        ))}
+                                    <Select size='small' value={category} onChange={handleCategoryChange} sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}>
+                                        {categories.map((name) => (<MenuItem key={name} value={name}>  {name} </MenuItem>))}
                                     </Select>
                                 </FormControl>
                             </Box>
                             <Box>
                                 <FormControl>
-                                    <Select
-                                        size='small'
-                                        value={subCategory}
-                                        onChange={(e) => setSubCategory(e.target.value)}
-                                        sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}
-                                    >
+                                    <Select size='small' value={subCategory} onChange={(e) => setSubCategory(e.target.value)} sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}>
                                         {category === 'Food'
-                                            ? Food_Sub.map((name) => (
-                                                <MenuItem key={name} value={name}>
-                                                    {name}
-                                                </MenuItem>
-                                            ))
-                                            : category === 'Cosmetics'
-                                                ? Cosmetic_Sub.map((name) => (
-                                                    <MenuItem key={name} value={name}>
-                                                        {name}
-                                                    </MenuItem>
-                                                ))
-                                                : category === 'Hair'
-                                                    ? Hair_Sub.map((name) => (
-                                                        <MenuItem key={name} value={name}>
-                                                            {name}
-                                                        </MenuItem>
-                                                    ))
-                                                    : null}
+                                            ? Food_Sub.map((name) => (<MenuItem key={name} value={name}>{name} </MenuItem>))
+                                            : category === 'Cosmetics' ? Cosmetic_Sub.map((name) => (<MenuItem key={name} value={name}>{name} </MenuItem>))
+                                                : category === 'Hair' ? Hair_Sub.map((name) => (<MenuItem key={name} value={name}>{name}</MenuItem>)) : null}
                                     </Select>
                                 </FormControl>
                             </Box>
                             <Box>
                                 <FormControl>
-                                    <Select
-                                        size='small'
-                                        value={selectedBrand}
-                                        onChange={(e) => setSelectedBrand(e.target.value)}
-                                        sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}
-                                    >
-                                        {brand.map((name) => (
-                                            <MenuItem key={name} value={name}>
-                                                {name}
-                                            </MenuItem>
-                                        ))}
+                                    <Select size='small' value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)} sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }} >
+                                        {brand.map((name) => (<MenuItem key={name} value={name}>{name} </MenuItem>))}
                                     </Select>
                                 </FormControl>
                             </Box>
@@ -138,7 +77,7 @@ export default function Filter({ handleSearch }) {
                     <Hidden lgDown>
                         <Grid item>
                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                <Typography> Per Page: <span style={{ border: '2px solid #000', padding: '5px' }}>{page}</span> </Typography>
+                                <Typography> Page: <span style={{ border: '2px solid #000', padding: '5px' }}>{page}</span> </Typography>
                                 <Pagination count={10} page={page} onChange={handleChange} />
                             </Box>
                         </Grid>

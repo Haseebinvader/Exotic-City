@@ -15,9 +15,9 @@ const Food = () => {
         setQuery(newQuery);
     };
     return (
-        <Grid container>
-            <Grid item  >
-                <img src={Drinks_Img} style={{ maxWidth: '100%' }} />
+        <Grid container sx={{width: '98.9vw'}}>
+            <Grid item  sx={{width: '100%'}}>
+                <img src={Drinks_Img} style={{ width: '100%' }} />
                 <Typography sx={{ textAlign: 'center', fontSize: '30px', fontWeight: '600', color: '#fff', backgroundColor: 'orange' }}>DRINKS</Typography>
             </Grid>
             <Filters handleSearch={handleSearch} />
@@ -25,7 +25,7 @@ const Food = () => {
             <Hidden lgUp>
                 <Grid item>
                     <Box sx={{ width: '100%', pl: '1rem' }}>
-                        <Typography textAlign='center'> Per Page: <span style={{ border: '2px solid #000' }}>{page}</span> </Typography>
+                        <Typography textAlign='center'>Page: <span style={{ border: '2px solid #000' }}>{page}</span> </Typography>
                         <Pagination count={10} page={page} onChange={handleChange} />
                     </Box>
                 </Grid>

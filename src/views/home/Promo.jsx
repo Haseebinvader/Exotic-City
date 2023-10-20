@@ -40,7 +40,7 @@ const Promo = () => {
                 <Box className="text-box">
                     <Typography sx={{ fontSize: '3rem', width: '100%', textAlign: 'center', fontWeight: '600' }}> Discover Our Exclusive Brands!</Typography>
                 </Box>
-                <Box> <img src={Image} alt="" /> </Box>
+                <Box> <img src={Image} alt="" style={{cursor: 'pointer'}}/> </Box>
             </Grid>
         </Grid>
     );

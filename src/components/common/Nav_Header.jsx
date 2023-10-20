@@ -7,13 +7,13 @@ import MenuItem from '@mui/material/MenuItem';
 import { Typography } from '@mui/material';
 import Hidden from '@mui/material/Hidden';
 import LanguageIcon from '@mui/icons-material/Language';
-import Product_Dropdown from './Product_Dropdown';
+import Product_Dropdown from '../../views/home/Product_Dropdown';
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom';
 
 import './Styles.css'
 
-import Brand_Dropdown from './Brand_Dropdown';
+import Brand_Dropdown from '../../views/home/Brand_Dropdown';
 
 const Nav_Header = () => {
     // States
