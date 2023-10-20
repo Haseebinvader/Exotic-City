@@ -25,6 +25,8 @@ import Express from '../assets/png/Express.png'
 import International from '../assets/png/International.png'
 import Logistic from '../assets/png/Logistique.png'
 import winwin from '../assets/png/Win-Win.png'
+import logo from '../assets/jpeg/footer-logo.jpg'
+
 
 export const food_data = [
     { id: 2, Name: 'OLD JAMAICA GINGER 7up', size: '4 x 6 x 250 ml', Image: drink2 },
@@ -103,3 +105,42 @@ export const Services_Data = {
     "Relation_Description": "Outre une saine relation commerciale, Exotic City tient à entretenir ce qui constitue son ancrage de proximité, afin que chacun reparte gagnant. L’équipe d’Exotic City est présente pour aider, conseiller, guider et soutenir le client dans les démarches qu’il entreprend. Nous souhaitons faire profiter le commerçant d’aujourd’hui de l’expérience acquise dans la gestion des différents magasins de proximité en notre possession. Pour qu’il devienne le vendeur leader de demain, et nous permette à notre tour de grandir. Cette relation d’échange vaut aussi pour les fournisseurs, qui nous permettent d’exister et d’évoluer.",
     "Relation_Image": winwin
 }
+
+export const FooterData = [
+    {
+      title: 'Contact Us',
+      items: ['Av. de l Expansion 1', '4432 Alleur', '04 228 04 00', 'info@exoticcity.be'],
+    },
+    {
+      title: 'Food Products',
+      items: ['DRINKS', 'PRESERVED FOOD', 'FRESH FOOD', 'FROZEN FOODs'],
+    },
+    {
+      title: 'Cosmetics Products',
+      items: ['BODY CARE', 'MEN CARE', 'CHILDREN CARE'],
+    },
+    {
+      title: 'Hair Products',
+      items: ['HAIR CARE', 'ACCESSORIES', 'MIXED HAIR', 'SYNTHETIC HAIR', 'NATURAL HAIR'],
+    },
+    {
+      title: 'Nominated',
+      items: [<img src={logo} alt="Nominated Logo" key="logo" />],
+    },
+  ];
+
+ export const ProductItemsData = [
+    {
+      title: 'FOOD',
+      items: ['Drinks', 'Preserved Food', 'Fresh Food', 'Frozen Food'],
+    },
+    {
+      title: 'COSMETICS',
+      items: ['Hair Care', 'Body Care', 'Child Care', 'Men Care'],
+    },
+    {
+      title: 'HAIR',
+      items: ['Synthetic Hair', 'Natural Hair', 'Mixed Hair', 'Accessories'],
+    },
+  ];
+  

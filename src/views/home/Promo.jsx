@@ -3,7 +3,8 @@ import Image from '../../assets/png/mrexotic.png'
 import background from '../../assets/png/background.jpg'
 
 const Promo = () => {
-    const containerStyle = { position: "relative",
+    const containerStyle = {
+        position: "relative",
         minHeight: "300px",
         display: "flex",
         alignItems: "center",
@@ -29,7 +30,9 @@ const Promo = () => {
 
     return (
         <Grid container style={containerStyle}>
+
             <Box style={overlayStyle}></Box>
+            <Box sx={{ backgroundColor: "rgba(0, 0, 0, 0.5)", position: "absolute", top: 0, right: 0, bottom: 0, left: 0, }} ></Box>
             <Grid item
                 sx={{
                     flexDirection: { xs: 'column', md: 'row', lg: 'row' }, gap: '22rem', justifyContent: "space-evenly",
@@ -40,7 +43,8 @@ const Promo = () => {
                 <Box className="text-box">
                     <Typography sx={{ fontSize: '3rem', width: '100%', textAlign: 'center', fontWeight: '600' }}> Discover Our Exclusive Brands!</Typography>
                 </Box>
-                <Box> <img src={Image} alt="" style={{cursor: 'pointer'}}/> </Box>
+                <Box> <img src={Image} alt="" style={{ cursor: 'pointer' }} />
+                </Box>
             </Grid>
         </Grid>
     );

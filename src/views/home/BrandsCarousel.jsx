@@ -36,7 +36,7 @@ const BrandCarousel = () => {
 
   return (
     <>
-      <div style={{ maxWidth: '95%', margin: '0 auto', height: '10rem' }} >
+      <div style={{ maxWidth: '95vw', margin: '0 auto', height: '10rem' }} >
         <Slider {...settings}>
           {dummyImages.map((image, index) => (
             <Box key={index} textAlign="center">

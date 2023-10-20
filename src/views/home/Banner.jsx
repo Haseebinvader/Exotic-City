@@ -14,12 +14,12 @@ const images = [image5, image1, image2, image3, image4, image6, image7, image8];
 
 const ImageCarousel = () => {
     return (
-        <Grid container sx={{width: '98.9vw', backgroundColor: 'red'}}>
+        <Grid container sx={{ width: '98.9vw', overflowX: "hidden" }}>
             <Grid item>
                 <Carousel autoPlay animation="slide" indicators={false} navButtonsAlwaysVisible>
                     {images.map((image, index) => (
                         <CarouselItem key={index}>
-                            <img src={image} alt={`Image ${index}`} className="img-responsive" style={{ maxWidth: '100%' }} />
+                            <img src={image} alt={`Image ${index}`} className="img-responsive" style={{ width: '100%' }} />
                         </CarouselItem>
                     ))}
                 </Carousel>

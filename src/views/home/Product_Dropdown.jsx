@@ -5,22 +5,8 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useState } from "react";
 import { Link } from 'react-router-dom';
+import { ProductItemsData } from "../../Data/Project_Data";
 
-const items = [
-  {
-    title: 'FOOD',
-    items: ['Drinks', 'Preserved Food', 'Fresh Food', 'Frozen Food'],
-  },
-  {
-    title: 'COSMETICS',
-    items: ['Hair Care', 'Body Care', 'Child Care', 'Men Care'],
-  },
-  {
-    title: 'HAIR',
-    items: ['Synthetic Hair', 'Natural Hair', 'Mixed Hair', 'Accessories'],
-  },
-
-];
 
 const Product_Dropdown = ({ product, language }) => {
   // States
@@ -37,7 +23,7 @@ const Product_Dropdown = ({ product, language }) => {
 
   return (
     <Grid container sx={{ display: 'flex', flexDirection: 'column' }}>
-      {items.map((section, index) => (
+      {ProductItemsData.map((section, index) => (
         <Grid item key={index} sx={{ width: '100%' }}>
           <Typography
             sx={{ '&:hover': { color: '#000' }, color: 'red', fontWeight: '600', fontSize: '12px', justifyContent: 'space-between', pt: '10px' }}

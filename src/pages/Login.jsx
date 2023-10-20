@@ -5,11 +5,14 @@ const Login = () => {
     return (
         <Grid container sx={{ width: '98vw', pt: '2rem', mb: '2rem' }}>
             <Grid item xs={12} sm={8} md={6} lg={4}>
+                <Typography sx={{ textAlign: 'center', fontSize: '30px', fontWeight: '600', color: '#fff', backgroundColor: 'orange', width: '98.9vw' }} variant='h6'>ACCOUNT</Typography>
+
                 <Card sx={{
                     mx: { xs: '1rem', lg: '29rem' },
                     width: { xs: '90vw', lg: '40vw' },
                     height: 'auto',
-                    p: '2.5rem'
+                    p: '2.5rem',
+                    mt: '2rem'
                 }}>
                     <Box>
                         <Typography variant='h4' sx={{ fontWeight: '600', pt: '2rem' }}>LOGIN</Typography>

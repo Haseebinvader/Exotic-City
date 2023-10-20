@@ -5,18 +5,13 @@ import Food_Card from "../../views/products/Food_Card"
 import { useState } from "react"
 const Food = () => {
     const [page, setPage] = useState(1);
-    const handleChange = (event, value) => {
-        setPage(value);
-    };
-
     const [query, setQuery] = useState('');
 
-    const handleSearch = (newQuery) => {
-        setQuery(newQuery);
-    };
+    const handleChange = (event, value) => { setPage(value); };
+    const handleSearch = (newQuery) => { setQuery(newQuery); };
     return (
-        <Grid container sx={{width: '98.9vw'}}>
-            <Grid item  sx={{width: '100%'}}>
+        <Grid container sx={{ width: '98.9vw' }}>
+            <Grid item sx={{ width: '100%' }}>
                 <img src={Drinks_Img} style={{ width: '100%' }} />
                 <Typography sx={{ textAlign: 'center', fontSize: '30px', fontWeight: '600', color: '#fff', backgroundColor: 'orange' }}>DRINKS</Typography>
             </Grid>

@@ -8,11 +8,14 @@ import Services from "./pages/Services"
 import Contact from "./pages/Contact"
 import Product_Description from "./pages/Product_Pages/Product_Description"
 import Login from "./pages/Login"
+import RequestQuote from "./pages/RequestQuote"
+import './App.css'
+import LegalNotice from "./pages/LegalNotice"
 
 function App() {
 
   return (
-    <Fragment>
+    <Fragment >
       <BrowserRouter>
         <Layout>
           <Routes>
@@ -23,6 +26,8 @@ function App() {
             <Route path="/Services" element={<Services />} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Login" element={<Login />} />
+            <Route path="/Requestaquote" element={<RequestQuote />} />
+            <Route path="/Legalnotice" element={<LegalNotice />} />
           </Routes>
         </Layout>
       </BrowserRouter>
