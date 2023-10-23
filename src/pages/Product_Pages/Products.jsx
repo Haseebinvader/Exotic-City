@@ -4,7 +4,7 @@ import Filters from "../../views/products/filters"
 import Food_Card from "../../views/products/Food_Card"
 import { useState } from "react"
 
-const Food = () => {
+const Products = () => {
     const [page, setPage] = useState(1);
     const [query, setQuery] = useState('');
 
@@ -12,7 +12,7 @@ const Food = () => {
     const dataAfterBaseUrl = currentURL.split('http://localhost:5173/')[1];
 
     console.log("Current URL: ", dataAfterBaseUrl);
-    
+
 
     const handleChange = (event, value) => { setPage(value); };
     const handleSearch = (newQuery) => { setQuery(newQuery); };
@@ -37,4 +37,4 @@ const Food = () => {
     )
 }
 
-export default Food
+export default Products

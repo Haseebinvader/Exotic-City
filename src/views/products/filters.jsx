@@ -34,7 +34,8 @@ export default function Filter({ handleSearch }) {
                             <TextField sx={{ backgroundColor: '#F5F5F5', border: 'none', width: 'auto' }} size='small' variant="outlined" placeholder="Search Products"
                                 InputProps={{
                                     endAdornment: (<IconButton sx={{ backgroundColor: '#E6E6E6', color: '#fff' }} onClick={search} > <SearchIcon />
-                                    </IconButton>)}} value={query} onChange={(e) => setQuery(e.target.value)} />
+                                    </IconButton>)
+                                }} value={query} onChange={(e) => setQuery(e.target.value)} />
                         </Box>
                     </Grid>
                 </Hidden >

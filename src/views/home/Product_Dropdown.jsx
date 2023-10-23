@@ -43,7 +43,7 @@ const Product_Dropdown = ({ product, language }) => {
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
-                  <Link to="/Drinks" style={{ textDecoration: 'none' }}>
+                  <Link to="/Products/Food" style={{ textDecoration: 'none' }}>
                     <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
                   </Link>
                   <Box />
@@ -56,7 +56,7 @@ const Product_Dropdown = ({ product, language }) => {
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
-                  <Link to="/Drinks" style={{ textDecoration: 'none' }}>
+                  <Link to="/Products/Cosmetics" style={{ textDecoration: 'none' }}>
                     <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
                   </Link>
                   <Box />
@@ -69,7 +69,7 @@ const Product_Dropdown = ({ product, language }) => {
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
-                  <Link to="/Drinks" style={{ textDecoration: 'none' }}>
+                  <Link to="/Products/Hair" style={{ textDecoration: 'none' }}>
                     <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
                   </Link>
                   <Box />
