@@ -51,7 +51,6 @@ const Product_Dropdown = ({ product, language }) => {
               ))}
             </Box>
           )}
-
           {/* Cosmetics Dropdown */}
           {isCosmetics && section.title === 'COSMETICS' && (
             <Box>
