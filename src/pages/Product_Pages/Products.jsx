@@ -30,7 +30,6 @@ const Products = () => {
             </Grid>
             <Filters handleSearch={handleSearch} />
             <Food_Card query={query} />
-
             <Hidden lgUp>
                 <Grid item>
                     <Box sx={{ width: '100%', pl: '1rem' }}>

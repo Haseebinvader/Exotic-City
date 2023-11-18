@@ -11,6 +11,7 @@ import Product_Dropdown from '../../views/home/Product_Dropdown';
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom';
 
+
 import './Styles.css'
 
 import Brand_Dropdown from '../../views/home/Brand_Dropdown';
@@ -56,7 +57,6 @@ const Nav_Header = () => {
                                     <Brand_Dropdown />
                                 </Box>)}
                         </Box>
-
                         <Box>
                             <Link to='/About' style={{ textDecoration: 'none' }}>
                                 <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >

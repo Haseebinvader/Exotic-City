@@ -1,13 +1,15 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Card, Grid, Typography, Button } from '@mui/material';
 import { food_data } from '../../Data/Project_Data';
 import { useNavigate } from 'react-router-dom';
-
 const Food_Card = ({ query }) => {
     // States
-    const [isIncrement, setisIncrement] = useState(Array(food_data.length).fill(0));
-    const [cart, setCart] = useState([]); // State to store items in the cart
+    const [isIncrement, setisIncrement] = useState(() => {
+        const storedIncrements = localStorage.getItem('increments');
+        return storedIncrements ? JSON.parse(storedIncrements) : Array(food_data.length).fill(0);
+    }); const [cart, setCart] = useState([]);
     const navigate = useNavigate();
     const [selectedItem, setSelectedItem] = useState(null);
 
@@ -17,8 +19,17 @@ const Food_Card = ({ query }) => {
         newisIncrement[index] += 1;
         setisIncrement(newisIncrement);
 
-        // Add the item to the cart
-        setCart([...cart, food_data[index]]);
+        // Add item to the cart state
+        const updatedCart = [...cart, filteredFoodData[index]];
+        setCart(updatedCart);
+
+        // Save the entire cart in local storage
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+        // Log the cart in the console
+        console.log('Cart:', updatedCart);
+        localStorage.setItem('increments', JSON.stringify(newisIncrement));
+
     };
 
     const handleDecrement = (index) => {
@@ -27,21 +38,49 @@ const Food_Card = ({ query }) => {
             newIncrements[index] -= 1;
             setisIncrement(newIncrements);
 
-            // Remove the item from the cart
-            setCart(cart.filter((item, i) => i !== index));
+            // Remove item from the cart state
+            const updatedCart = cart.filter((item) => item.id !== filteredFoodData[index].id);
+            setCart(updatedCart);
+
+            // Save the entire cart in local storage
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+            // Log the cart in the console
+            console.log('Cart:', updatedCart);
+
+            // Log the updated local storage
+            console.log('Local Storage:', localStorage);
+            localStorage.setItem('increments', JSON.stringify(newIncrements));
+
         }
     };
 
     const handleItemClick = (item) => {
+        // Save the selected item to local storage
+        localStorage.setItem('selectedItem', JSON.stringify(item));
+    
+        // Save the image of the selected item to local storage
+        localStorage.setItem('selectedItemImage', item.Image);
+    
         setSelectedItem(item);
         console.log('Selected item:', item);
         navigate('/ProductDescription', { state: { selectedItem: item } });
     };
+    
+
+    // Effect to retrieve cart from local storage on component mount
+    useEffect(() => {
+        const storedCart = localStorage.getItem('cart');
+        if (storedCart) {
+            setCart(JSON.parse(storedCart));
+        }
+    }, []);
 
     // Filter the food_data based on the search query
     const filteredFoodData = food_data.filter((item) =>
         item.Name.includes(query)
     );
+
 
     return (
         <Grid container sx={{ display: 'flex', justifyContent: 'center', p: '4rem' }}>

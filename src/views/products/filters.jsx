@@ -73,7 +73,6 @@ export default function Filter({ handleSearch }) {
                                 </FormControl>
                             </Box>
                         </Grid>
-
                     </Grid>
                     <Hidden lgDown>
                         <Grid item>
