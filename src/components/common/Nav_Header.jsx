@@ -18,6 +18,8 @@ import Brand_Dropdown from '../../views/home/Brand_Dropdown';
 const Nav_Header = () => {
     // States
     const [islanguage, setisLanguage] = useState(false)
+    const [selectedLanguage, setSelectedLanguage] = useState(''); // New state for selected language
+
     const [isProduct, setisProduct] = useState(false)
     const [isBrand, setisBrand] = useState(false)
     const language = ['DEUTSCH', 'ENGLISH', 'FRANCIAS', 'NEDERLANDS']
@@ -26,6 +28,10 @@ const Nav_Header = () => {
     const toggleProduct = () => { setisProduct(!isProduct); setisLanguage(false); setisBrand(false) }
     const toggleLanguage = () => { setisLanguage(!islanguage); setisProduct(false); setisBrand(false) }
     const toggleBrand = () => { setisBrand(!isBrand); setisLanguage(false); setisProduct(false) }
+    const handleLanguageSelect = (selected) => {
+        setSelectedLanguage(selected);
+        setisLanguage(false);
+    };
     return (
         <Hidden lgDown>
             <Grid container xs={12} sx={{ pl: '8rem', paddingTop: '1.8rem' }}>
@@ -38,7 +44,7 @@ const Nav_Header = () => {
                             </Typography>
                             {isProduct && (
                                 <Box sx={{ backgroundColor: '#fff', border: '1px solid lightgrey', position: 'absolute', color: '#000', padding: '1rem', borderRadius: '4px', zIndex: 10, ml: '4rem', width: '12rem' }}>
-                                    <Product_Dropdown product={setisProduct} language={setisLanguage}/>
+                                    <Product_Dropdown product={setisProduct} language={setisLanguage} />
                                 </Box>)}
                         </Box>
                         <Box sx={{ position: 'relative' }}>
@@ -52,21 +58,21 @@ const Nav_Header = () => {
                         </Box>
 
                         <Box>
-                            <Link to='/About' style={{textDecoration: 'none'}}>
+                            <Link to='/About' style={{ textDecoration: 'none' }}>
                                 <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     ABOUT US
                                 </Typography>
                             </Link>
                         </Box>
                         <Box>
-                            <Link to='/Services' style={{textDecoration: 'none'}}>
+                            <Link to='/Services' style={{ textDecoration: 'none' }}>
                                 <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     SERVICES
                                 </Typography>
                             </Link>
                         </Box>
                         <Box>
-                            <Link to='/Contact' style={{textDecoration: 'none'}}>
+                            <Link to='/Contact' style={{ textDecoration: 'none' }}>
                                 <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     CONTACT US
                                 </Typography>
@@ -75,14 +81,39 @@ const Nav_Header = () => {
 
                         <Box>
                             <InputLabel
-                                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#5B5B5B', fontWeight: '600' }}
-                                onClick={toggleLanguage} >
-                                <LanguageIcon sx={{ fontSize: '17px' }} /> {islanguage} <KeyboardArrowDownIcon />
+                                sx={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    color: '#5B5B5B',
+                                    fontSize: '13px',
+                                    fontWeight: '600'
+                                }}
+                                onClick={toggleLanguage}
+                            >
+                                <LanguageIcon sx={{ fontSize: '15px' }} /> {selectedLanguage || 'ENGLISH'}{' '}
+                                <KeyboardArrowDownIcon />
                             </InputLabel>
                             {islanguage && (
-                                <Box sx={{ border: '1px solid #ccc', borderRadius: '4px', position: 'absolute', backgroundColor: '#fff', zIndex: 1, marginTop: '5px', color: 'red' }} >
+                                <Box
+                                    sx={{
+                                        border: '1px solid #ccc',
+                                        borderRadius: '4px',
+                                        position: 'absolute',
+                                        backgroundColor: '#fff',
+                                        zIndex: 1,
+                                        marginTop: '5px',
+                                        color: 'red',
+                                    }}
+                                >
                                     {language.map((category) => (
-                                        <MenuItem key={category} onClick={() => (setisLanguage(false))} sx={{ borderTop: 'none', fontSize: '12px', fontWeight: '600' }}> {category}  </MenuItem>
+                                        <MenuItem
+                                            key={category}
+                                            onClick={() => handleLanguageSelect(category)} // Call the new function to handle language selection
+                                            sx={{ borderTop: 'none', fontSize: '12px', fontWeight: '600' }}
+                                        >
+                                            {category}
+                                        </MenuItem>
                                     ))}
                                 </Box>
                             )}

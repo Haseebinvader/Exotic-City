@@ -15,6 +15,7 @@ import SEASONING from '../../assets/svg/SEASONING.svg'
 import VEGETABLES from '../../assets/svg/VEGETABLES.svg'
 import FROZEN from '../../assets/svg/FROZEN.svg'
 import SNACK from '../../assets/svg/SNACKS.svg'
+import { Link } from "react-router-dom";
 
 // Array of Products
 const productItems = [
@@ -50,10 +51,12 @@ const Products = () => {
                 <Grid container item xs={4} md={12} lg={12} justifyContent="space-evenly" height='100%'>
                     {itemsInRow1.map((item, index) => (
                         <Grid item key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pt: '3rem' }}>
-                            <Box sx={{ border: '2px solid orange', borderRadius: '50px', width: '6rem', height: '6rem', textAlign: 'center', backgroundColor: 'White' }} >
-                                <img src={item.image} width={90} alt={`Item ${index}`} style={{ cursor: 'pointer' }} />
-                                <Typography sx={{ color: 'orange', pt: '10px', fontSize: '12px' }}> {item.label} </Typography>
-                            </Box>
+                            <Link to={`/Products/${item.label.replace(/[^a-zA-Z]/g, '')}`} style={{ color: '#000', textDecoration: "none" }}>
+                                <Box sx={{ border: '2px solid orange', borderRadius: '50px', width: '6rem', height: '6rem', textAlign: 'center', backgroundColor: 'White' }}>
+                                    <img src={item.image} width={90} alt={`Item ${index}`} style={{ cursor: 'pointer' }} />
+                                    <Typography sx={{ color: 'orange', pt: '10px', fontSize: '12px' }}> {item.label} </Typography>
+                                </Box>
+                            </Link>
                         </Grid>
                     ))}
                 </Grid>
@@ -62,13 +65,17 @@ const Products = () => {
                 <Grid container item xs={4} md={12} lg={12} justifyContent="space-evenly" height='100%'>
                     {itemsInRow2.map((item, index) => (
                         <Grid item key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pt: '3rem' }}>
-                            <Box sx={{ border: '2px solid orange', borderRadius: '50px', width: '6rem', height: '6rem', textAlign: 'center', backgroundColor: 'White' }} >
-                                <img src={item.image} width={90} alt={`Item ${index}`} style={{ cursor: 'pointer' }} />
-                                <Typography sx={{ color: 'orange', pt: '10px', fontSize: '12px' }} >{item.label} </Typography>
-                            </Box>
+                            <Link to={`/Products/${item.label.replace(/[^a-zA-Z]/g, '')}`} style={{ color: '#000', textDecoration: "none" }}>
+                                <Box sx={{ border: '2px solid orange', borderRadius: '50px', width: '6rem', height: '6rem', textAlign: 'center', backgroundColor: 'White' }}>
+                                    <img src={item.image} width={90} alt={`Item ${index}`} style={{ cursor: 'pointer' }} />
+                                    <Typography sx={{ color: 'orange', pt: '10px', fontSize: '12px' }} >{item.label} </Typography>
+                                </Box>
+                            </Link>
                         </Grid>
                     ))}
                 </Grid>
+
+
 
                 {/* Request Price Quotation Button */}
                 <Grid container justifyContent="center" alignItems="center">
@@ -76,7 +83,7 @@ const Products = () => {
                         <Button sx={{ color: '#fff', padding: '15px', fontSize: '12px' }}>  REQUEST PRICE QUOTATION → </Button>
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid >
         </>
     );
 };

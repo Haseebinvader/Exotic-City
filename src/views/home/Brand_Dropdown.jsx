@@ -37,7 +37,6 @@ const Brand_Dropdown = () => {
                     </Grid>
                 ))}
             </Grid>
-
             <Grid container sx={{ display: 'flex', justifyContent: 'space-around', textAlign: 'left', height: '10rem', width: '100%' }}>
                 {items.slice(6, 12).map((item, index) => (
                     <Grid item key={index}>

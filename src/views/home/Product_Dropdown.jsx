@@ -43,11 +43,14 @@ const Product_Dropdown = ({ product, language }) => {
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
-                  <Link to="/Products/Food" style={{ textDecoration: 'none' }}>
-                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
+                  <Link to={`/Products/${item.replace(/[^a-zA-Z]/g, '')}`} style={{ textDecoration: 'none' }}>
+                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>
+                      {item}
+                    </Typography>
                   </Link>
                   <Box />
                 </Box>
+
               ))}
             </Box>
           )}
@@ -56,11 +59,14 @@ const Product_Dropdown = ({ product, language }) => {
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
-                  <Link to="/Products/Cosmetics" style={{ textDecoration: 'none' }}>
-                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
+                  <Link to={`/Products/${item.replace(/[^a-zA-Z]/g, '')}`} style={{ textDecoration: 'none' }}>
+                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>
+                      {item}
+                    </Typography>
                   </Link>
                   <Box />
                 </Box>
+
               ))}
             </Box>
           )}
@@ -69,11 +75,14 @@ const Product_Dropdown = ({ product, language }) => {
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
-                  <Link to="/Products/Hair" style={{ textDecoration: 'none' }}>
-                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
+                  <Link to={`/Products/${item.replace(/[^a-zA-Z]/g, '')}`} style={{ textDecoration: 'none' }}>
+                    <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>
+                      {item}
+                    </Typography>
                   </Link>
                   <Box />
                 </Box>
+
               ))}
             </Box>
           )}
@@ -82,9 +91,14 @@ const Product_Dropdown = ({ product, language }) => {
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
-                  <Typography sx={{ '&:hover': { color: 'red' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>{item}</Typography>
+                  <Link to={`/Products/${item.replace(/[^a-zA-Z]/g, '')}`} style={{ textDecoration: 'none' }}>
+                    <Typography sx={{ '&:hover': { color: 'red' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>
+                      {item}
+                    </Typography>
+                  </Link>
                   <Box />
                 </Box>
+
               ))}
             </Box>
           )}
