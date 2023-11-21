@@ -27,8 +27,8 @@ const Nav_Header = () => {
             console.error("i18next is not initialized properly.");
         }
     }
-    // States
 
+    // States
     const [isProduct, setisProduct] = useState(false)
     const [isBrand, setisBrand] = useState(false)
     // Functions
@@ -42,7 +42,7 @@ const Nav_Header = () => {
                         <Typography sx={{ fontSize: '14px' }}> <Link to='/'><HomeIcon sx={{ color: '#000' }} /></Link>  </Typography>
                         <Box >
                             <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleProduct}>
-                                {t('PRODUCTS')}  <KeyboardArrowDownIcon />
+                               {t('PRODUCTS')}  <KeyboardArrowDownIcon />
                             </Typography>
                             {isProduct && (
                                 <Box sx={{ backgroundColor: '#fff', border: '1px solid lightgrey', position: 'absolute', color: '#000', padding: '1rem', borderRadius: '4px', zIndex: 10, ml: '4rem', width: '12rem' }}>

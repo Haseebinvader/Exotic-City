@@ -85,7 +85,7 @@ const Food_Card = ({ query }) => {
     return (
         <Grid container sx={{ display: 'flex', justifyContent: 'center', p: '4rem' }}>
             {filteredFoodData.map((item, index) => (
-                <Grid item xs={8} sm={6} md={4} lg={3} key={item.id}>
+                <Grid item xs={12}  md={8} lg={4} key={item.id}>
                     <Card sx={{ maxWidth: 330, height: 'auto', textAlign: 'center', mb: '2rem', mt: '2rem' }}>
                         <img src={item.Image} alt={item.Name} width="80%" onClick={() => handleItemClick(item)} />
                         <Typography sx={{ fontSize: '14px' }}>{item.Name}</Typography>

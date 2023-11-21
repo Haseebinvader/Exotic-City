@@ -1,29 +1,29 @@
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select from '@mui/material/Select';
 import { Box, Grid, Hidden, IconButton, TextField, Typography } from '@mui/material';
 import { Fragment, useState } from 'react';
-import Pagination from '@mui/material/Pagination';
+// import Pagination from '@mui/material/Pagination';
 import SearchIcon from '@mui/icons-material/Search';
-import { categories, Food_Sub, brand, Cosmetic_Sub, Hair_Sub } from '../../Data/Project_Data';
+import { categories, sub_categories, brand, } from '../../Data/Project_Data';
 
 
 // eslint-disable-next-line react/prop-types
 export default function Filter({ handleSearch }) {
     // States
-    const [page, setPage] = useState(1);
-    const handleChange = (event, value) => { setPage(value); };
-    const [category, setCategory] = useState('Category');
-    const [subCategory, setSubCategory] = useState('Sub Category');
-    const [selectedBrand, setSelectedBrand] = useState('Brand');
+    // const [page, setPage] = useState(1);
+    // const handleChange = (event, value) => { setPage(value); };
+    // const [category, setCategory] = useState('Category');
+    // const [subCategory, setSubCategory] = useState('Sub Category');
+    // const [selectedBrand, setSelectedBrand] = useState('Brand');
     const [query, setQuery] = useState('');
 
     // Functions
     const search = () => { handleSearch(query) };
-    const handleCategoryChange = (e) => { setCategory(e.target.value); setSubCategory('Sub Category'); };
+    // const handleCategoryChange = (e) => { setCategory(e.target.value); setSubCategory('Sub Category'); };
     return (
         <Fragment>
-            <Grid container>
+            <Grid container sx={{}}>
                 <Hidden mdDown>
                     <Grid item>
                         <Box sx={{ ml: '4rem', mt: '1rem' }}>
@@ -31,7 +31,7 @@ export default function Filter({ handleSearch }) {
                             <Box sx={{ width: '90vw', height: '2px', backgroundColor: 'orange', margin: '8px 0' }} ></Box>
                         </Box>
                         <Box sx={{ ml: '4rem', mt: '1rem' }}>
-                            <TextField sx={{ backgroundColor: '#F5F5F5', border: 'none', width: 'auto' }} size='small' variant="outlined" placeholder="Search Products"
+                            <TextField sx={{ backgroundColor: '#F5F5F5', width: '100%' }} size='small' variant="outlined" placeholder="Search Products"
                                 InputProps={{
                                     endAdornment: (<IconButton sx={{ backgroundColor: '#E6E6E6', color: '#fff' }} onClick={search} > <SearchIcon />
                                     </IconButton>)
@@ -39,49 +39,57 @@ export default function Filter({ handleSearch }) {
                         </Box>
                     </Grid>
                 </Hidden >
-                <Grid item>
+                {/* <Grid item>
                     <Box sx={{ ml: '4rem', mt: '1rem' }}>
                         <Typography sx={{ textAlign: 'left', fontSize: '25px', fontWeight: '600' }}>Order Before</Typography>
                     </Box>
-                </Grid>
-                <Box sx={{ width: '90vw', height: '2px', backgroundColor: 'orange', margin: '8px 0', ml: '4rem', mt: '1rem', mr: '4rem' }} ></Box>
-                <Grid container sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', mt: '1.5rem' }}>
-                    <Grid container sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '2%', }} >
-                        <Grid item sx={{ display: 'flex', gap: '1rem' }}>
-                            <Box>
-                                <FormControl>
-                                    <Select size='small' value={category} onChange={handleCategoryChange} sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}>
-                                        {categories.map((name) => (<MenuItem key={name} value={name}>  {name} </MenuItem>))}
-                                    </Select>
-                                </FormControl>
-                            </Box>
-                            <Box>
-                                <FormControl>
-                                    <Select size='small' value={subCategory} onChange={(e) => setSubCategory(e.target.value)} sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }}>
-                                        {category === 'Food'
-                                            ? Food_Sub.map((name) => (<MenuItem key={name} value={name}>{name} </MenuItem>))
-                                            : category === 'Cosmetics' ? Cosmetic_Sub.map((name) => (<MenuItem key={name} value={name}>{name} </MenuItem>))
-                                                : category === 'Hair' ? Hair_Sub.map((name) => (<MenuItem key={name} value={name}>{name}</MenuItem>)) : null}
-                                    </Select>
-                                </FormControl>
-                            </Box>
-                            <Box>
-                                <FormControl>
-                                    <Select size='small' value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)} sx={{ backgroundColor: 'orange', color: '#fff', width: 'auto' }} >
-                                        {brand.map((name) => (<MenuItem key={name} value={name}>{name} </MenuItem>))}
-                                    </Select>
-                                </FormControl>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                    <Hidden lgDown>
-                        <Grid item>
-                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                <Typography> Page: <span style={{ border: '2px solid #000', padding: '5px' }}>{page}</span> </Typography>
-                                <Pagination count={10} page={page} onChange={handleChange} />
-                            </Box>
-                        </Grid>
-                    </Hidden>
+                </Grid> */}
+                {/* <Box sx={{ width: '90vw', height: '2px', backgroundColor: 'orange', margin: '8px 0', ml: '4rem', mt: '1rem', mr: '4rem' }} ></Box> */}
+
+                <Grid sx={{ textAlign: 'center', width: '100%', border: '1px solid #f2f2f2', ml: '3.7rem', backgroundColor: '#fff', mt: '2rem' }} xs={12} md={8} lg={12}>
+                    <Box>
+                        <Typography variant='h6' sx={{ fontWeight: '600' }}>Categories</Typography>
+                        <Box sx={{ width: '9rem', height: '2px', backgroundColor: 'orange', margin: '8px 0', ml: '4rem', mt: '1rem', mr: '4rem' }} ></Box>
+                        {categories.map((item) => (
+                            <div key={item}>
+                                <ul style={{ listStyle: 'none', padding: '1px', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '6rem', marginLeft: '6rem' }}>
+                                    <li style={{ marginRight: '8px', textAlign: 'left'  }}>{item}</li>
+                                    <div style={{ marginLeft: 'auto', alignItems: 'flex-end' }}>
+                                        <input type="checkbox" style={{ marginLeft: '4px' }} />
+                                    </div>
+                                </ul>
+                            </div>
+                        ))}
+
+                    </Box>
+                    <Box>
+                        <Typography variant='h6' sx={{ fontWeight: '600' }}>Sub Categories</Typography>
+                        <Box sx={{ width: '9rem', height: '2px', backgroundColor: 'orange', margin: '8px 0', ml: '4rem', mt: '1rem', mr: '4rem' }} ></Box>
+                        {sub_categories.map((item) => (
+                            <div key={item}>
+                                <ul style={{ listStyle: 'none', padding: '1px', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '6rem', marginLeft: '6rem' }}>
+                                    <li style={{ marginRight: '8px', textAlign: 'left'  }}>{item}</li>
+                                    <div style={{ marginLeft: 'auto', alignItems: 'flex-end' }}>
+                                        <input type="checkbox" style={{ marginLeft: '4px' }} />
+                                    </div>
+                                </ul>
+                            </div>
+                        ))}
+                    </Box>
+                    <Box>
+                        <Typography variant='h6' sx={{ fontWeight: '600' }}>Brands</Typography>
+                        <Box sx={{ width: '9rem', height: '2px', backgroundColor: 'orange', margin: '8px 0', ml: '4rem', mt: '1rem', mr: '4rem' }} ></Box>
+                        {brand.map((item) => (
+                            <div key={item}>
+                                <ul style={{ listStyle: 'none', padding: '1px', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '6rem', marginLeft: '6rem' }}>
+                                    <li style={{ marginRight: '8px', textAlign: 'left' }}>{item}</li>
+                                    <div style={{ marginLeft: 'auto', alignItems: 'flex-end' }}>
+                                        <input type="checkbox" style={{ marginLeft: '4px' }} />
+                                    </div>
+                                </ul>
+                            </div>
+                        ))}
+                    </Box>
                 </Grid>
             </Grid >
         </Fragment >

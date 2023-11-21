@@ -24,23 +24,21 @@ const RequestQuote = () => {
           <Typography>Items:</Typography>
           {/* Render the cart items */}
           {cart.map((item) => (
-            <Card key={item.id}>
+            <Card key={item.id} sx={{width: '50rem', margin: '20px'}}>
               {/* Display the image stored in local storage */}
               <img src={localStorage.getItem(`image_${item.id}`)} alt="" />
               <Typography sx={{ fontSize: '14px' }}>{item.Name}</Typography>
               <Typography sx={{ fontSize: '12px' }}>{item.size}</Typography>
-              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', mt: '2rem', pb: '1rem' }}>
-                <Box>
+                {/* <Box>
                   <Button sx={{ backgroundColor: 'orange', color: 'white', '&:hover': { backgroundColor: 'orange' } }}> - </Button>
-                </Box>
-                <Box>
+               </Box> */}
+                {/* <Box> */}
                   {/* You can uncomment the following line if you have 'isIncrement' state */}
                   {/* <Typography>{isIncrement[index]}</Typography> */}
-                </Box>
-                <Box>
+                {/* </Box> */}
+                {/* <Box>
                   <Button sx={{ backgroundColor: 'green', color: 'white', '&:hover': { backgroundColor: 'green' } }}> +</Button>
-                </Box>
-              </Box>
+                </Box> */}
             </Card>
           ))}
         </Box>

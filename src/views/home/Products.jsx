@@ -16,6 +16,7 @@ import VEGETABLES from '../../assets/svg/VEGETABLES.svg'
 import FROZEN from '../../assets/svg/FROZEN.svg'
 import SNACK from '../../assets/svg/SNACKS.svg'
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next'
 
 // Array of Products
 const productItems = [
@@ -39,13 +40,15 @@ const productItems = [
 
 
 const Products = () => {
+    const { t } = useTranslation();
+
     // Split the productItems into two rows
     const itemsInRow1 = productItems.slice(0, 8); // First 8 items
     const itemsInRow2 = productItems.slice(8);    // Remaining items
 
     return (
         <>
-            <Typography sx={{ textAlign: 'center', pt: '2rem', color: 'orange', fontSize: '30px', fontWeight: '600', backgroundColor: '#17315B', mt: '0.1rem' }}>Products</Typography>
+            <Typography sx={{ textAlign: 'center', pt: '2rem', color: 'orange', fontSize: '30px', fontWeight: '600', backgroundColor: '#17315B', mt: '0.1rem' }}>{t('PRODUCTS')}</Typography>
             <Grid container sx={{ display: 'flex', justifyContent: 'space-evenly', pt: '2rem', width: '100%', backgroundColor: '#17315B' }}>
                 {/* Row 1 */}
                 <Grid container item xs={4} md={12} lg={12} justifyContent="space-evenly" height='100%'>
@@ -80,7 +83,7 @@ const Products = () => {
                 {/* Request Price Quotation Button */}
                 <Grid container justifyContent="center" alignItems="center">
                     <Grid item sx={{ backgroundColor: 'orange', borderRadius: '30px', mt: '4rem', mb: '2rem', alignItems: 'center', width: 'auto' }}>
-                        <Button sx={{ color: '#fff', padding: '15px', fontSize: '12px' }}>  REQUEST PRICE QUOTATION → </Button>
+                        <Button sx={{ color: '#fff', padding: '15px', fontSize: '12px' }}>  {t('REQUEST PRICE QUOTATION')} → </Button>
                     </Grid>
                 </Grid>
             </Grid >

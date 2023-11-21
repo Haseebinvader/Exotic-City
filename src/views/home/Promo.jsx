@@ -1,8 +1,11 @@
 import { Box, Grid, Typography } from "@mui/material";
 import Image from '../../assets/png/mrexotic.png'
 import background from '../../assets/png/background.jpg'
+import { useTranslation } from 'react-i18next'
 
 const Promo = () => {
+    const { t } = useTranslation();
+
     const containerStyle = {
         position: "relative",
         minHeight: "300px",
@@ -41,7 +44,7 @@ const Promo = () => {
                     "& .text-box": { width: { xs: '80%', md: '30rem', lg: '30rem' } }
                 }} >
                 <Box className="text-box">
-                    <Typography sx={{ fontSize: '3rem', width: '100%', textAlign: 'center', fontWeight: '600' }}> Discover Our Exclusive Brands!</Typography>
+                    <Typography sx={{ fontSize: '3rem', width: '100%', textAlign: 'center', fontWeight: '600' }}> {t('Discover Our Exclusive Brands')}!</Typography>
                 </Box>
                 <Box> <img src={Image} alt="" style={{ cursor: 'pointer' }} />
                 </Box>
