@@ -19,8 +19,6 @@ const Nav_Header = () => {
     const handleClick = (e) => {
         const selectedLanguage = e.target.value;
         console.log("Language changed to:", selectedLanguage);
-
-        // Ensure i18next is initialized properly before changing the language
         if (i18next.isInitialized) {
             i18next.changeLanguage(selectedLanguage);
         } else {

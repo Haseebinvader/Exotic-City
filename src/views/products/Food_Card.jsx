@@ -58,15 +58,15 @@ const Food_Card = ({ query }) => {
     const handleItemClick = (item) => {
         // Save the selected item to local storage
         localStorage.setItem('selectedItem', JSON.stringify(item));
-    
+
         // Save the image of the selected item to local storage
         localStorage.setItem('selectedItemImage', item.Image);
-    
+
         setSelectedItem(item);
         console.log('Selected item:', item);
         navigate('/ProductDescription', { state: { selectedItem: item } });
     };
-    
+
 
     // Effect to retrieve cart from local storage on component mount
     useEffect(() => {
@@ -80,13 +80,11 @@ const Food_Card = ({ query }) => {
     const filteredFoodData = food_data.filter((item) =>
         item.Name.includes(query)
     );
-
-
     return (
-        <Grid container sx={{ display: 'flex', justifyContent: 'center', p: '4rem' }}>
+        <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
             {filteredFoodData.map((item, index) => (
-                <Grid item xs={12}  md={8} lg={4} key={item.id}>
-                    <Card sx={{ maxWidth: 330, height: 'auto', textAlign: 'center', mb: '2rem', mt: '2rem' }}>
+                <Grid item xs={8} md={6} lg={3} key={item.id}>
+                    <Card sx={{ maxWidth: 250, height: 'auto', textAlign: 'center', mb: '2rem'}}>
                         <img src={item.Image} alt={item.Name} width="80%" onClick={() => handleItemClick(item)} />
                         <Typography sx={{ fontSize: '14px' }}>{item.Name}</Typography>
                         <Typography sx={{ fontSize: '12px' }}>{item.size}</Typography>
