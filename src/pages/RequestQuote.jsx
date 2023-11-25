@@ -4,14 +4,14 @@ import { Box, Button, Card, Grid, Typography } from '@mui/material';
 const RequestQuote = () => {
   const [cart, setCart] = useState([]);
 
-  // Retrieve cart from local storage on component mount
   useEffect(() => {
+    // Retrieve items from local storage
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     }
   }, []);
-
+  console.log("cart", cart);
   return (
     <Grid container sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
       <Grid item sx={{ backgroundColor: 'orange', width: '100%', textAlign: 'center', color: '#fff', height: '10rem' }}>
@@ -23,24 +23,17 @@ const RequestQuote = () => {
         <Box>
           <Typography>Items:</Typography>
           {/* Render the cart items */}
-          {cart.map((item) => (
-            <Card key={item.id} sx={{width: '50rem', margin: '20px'}}>
-              {/* Display the image stored in local storage */}
-              <img src={localStorage.getItem(`image_${item.id}`)} alt="" />
-              <Typography sx={{ fontSize: '14px' }}>{item.Name}</Typography>
-              <Typography sx={{ fontSize: '12px' }}>{item.size}</Typography>
-                {/* <Box>
-                  <Button sx={{ backgroundColor: 'orange', color: 'white', '&:hover': { backgroundColor: 'orange' } }}> - </Button>
-               </Box> */}
-                {/* <Box> */}
-                  {/* You can uncomment the following line if you have 'isIncrement' state */}
-                  {/* <Typography>{isIncrement[index]}</Typography> */}
-                {/* </Box> */}
-                {/* <Box>
-                  <Button sx={{ backgroundColor: 'green', color: 'white', '&:hover': { backgroundColor: 'green' } }}> +</Button>
-                </Box> */}
-            </Card>
-          ))}
+          {cart.length === 0 ? (
+            <Typography>No items in the cart</Typography> 
+          ) : (
+            cart.map((cartItem) => (
+              <Card key={cartItem.SystemId} sx={{ width: '50rem', margin: '20px' }}>
+                <Typography sx={{ fontSize: '13px', height: '2rem', pt: '10px' }}>{cartItem.Name}</Typography>
+                <Typography sx={{ fontSize: '13px', height: '2rem', pt: '10px' }}>{cartItem.size}</Typography>
+                {/* Add other properties you want to display */}
+              </Card>
+            ))
+          )}
         </Box>
         <Button variant="contained" color="info">
           Request Price Quotation

@@ -40,7 +40,7 @@ const Nav_Header = () => {
                         <Typography sx={{ fontSize: '14px' }}> <Link to='/'><HomeIcon sx={{ color: '#000' }} /></Link>  </Typography>
                         <Box >
                             <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleProduct}>
-                               {t('PRODUCTS')}  <KeyboardArrowDownIcon />
+                                {t('PRODUCTS')}  <KeyboardArrowDownIcon />
                             </Typography>
                             {isProduct && (
                                 <Box sx={{ backgroundColor: '#fff', border: '1px solid lightgrey', position: 'absolute', color: '#000', padding: '1rem', borderRadius: '4px', zIndex: 10, ml: '4rem', width: '12rem' }}>
@@ -58,30 +58,51 @@ const Nav_Header = () => {
                         </Box>
                         <Box>
                             <Link to='/About' style={{ textDecoration: 'none' }}>
-                                <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
+                                <Typography
+                                    onClick={() => {
+                                        setisBrand(false);
+                                        setisProduct(false);
+                                    }}
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        fontSize: '14px',
+                                        color: '#5B5B5B',
+                                        fontWeight: '600',
+                                        textDecoration: 'none',
+                                        cursor: 'pointer',
+                                    }}
+                                >
                                     {t('ABOUT US')}
                                 </Typography>
+
                             </Link>
                         </Box>
                         <Box>
                             <Link to='/Services' style={{ textDecoration: 'none' }}>
-                                <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
+                                <Typography onClick={() => {
+                                    setisBrand(false);
+                                    setisProduct(false);
+                                }} sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     {t('SERVICES')}
                                 </Typography>
                             </Link>
                         </Box>
                         <Box>
                             <Link to='/Contact' style={{ textDecoration: 'none' }}>
-                                <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
+                                <Typography onClick={() => {
+                                    setisBrand(false);
+                                    setisProduct(false);
+                                }} sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     {t('CONTACT US')}
                                 </Typography>
                             </Link>
                         </Box>
-                        <Dropdown onChange={(e) => handleClick(e)} />
+                        <Dropdown brand={setisBrand} product={setisProduct} onChange={(e) => handleClick(e)} />
                     </Box>
                 </Grid>
             </Grid>
-        </Hidden>
+        </Hidden >
     )
 }
 

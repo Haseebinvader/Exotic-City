@@ -1,21 +1,12 @@
-/* eslint-disable react/prop-types */
-import { useState } from 'react';
-import { Box, Grid, Hidden, IconButton, Paper, TextField, Typography } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import { Box, Paper, Typography } from '@mui/material';
 import { categories, sub_categories, brand } from '../../Data/Project_Data';
 
-export default function Filter({ handleSearch }) {
-    // States
-    const [query, setQuery] = useState('');
+export default function Filter() {
 
-    // Functions
-    const search = () => {
-        handleSearch(query);
-    };
 
     return (
         <>
-            <Paper sx={{ width: { xs: '12rem', md: '16rem', lg: '16rem' }, mr: '1rem', ml: { xs: '0.5rem', md: '0.5rem', lg: '1rem' } }}>
+            <Paper sx={{ width: { xs: '16rem', md: '16rem', lg: '16rem' }, mr: '1rem', ml: { xs: '0.5rem', md: '0.5rem', lg: '1rem' } }}>
                 <Box sx={{ textAlign: 'center', border: '1px solid #f2f2f2', backgroundColor: '#fff', p: '2rem' }}>
                     <Box>
                         <Typography variant='h6' sx={{ fontWeight: '600' }}>
