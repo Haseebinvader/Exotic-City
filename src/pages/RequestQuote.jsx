@@ -11,7 +11,7 @@ const RequestQuote = () => {
       setCart(JSON.parse(storedCart));
     }
   }, []);
-  console.log("cart", cart);
+  console.log("CART", cart);
   return (
     <Grid container sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
       <Grid item sx={{ backgroundColor: 'orange', width: '100%', textAlign: 'center', color: '#fff', height: '10rem' }}>
@@ -24,13 +24,12 @@ const RequestQuote = () => {
           <Typography>Items:</Typography>
           {/* Render the cart items */}
           {cart.length === 0 ? (
-            <Typography>No items in the cart</Typography> 
+            <Typography>No items in the cart</Typography>
           ) : (
             cart.map((cartItem) => (
               <Card key={cartItem.SystemId} sx={{ width: '50rem', margin: '20px' }}>
-                <Typography sx={{ fontSize: '13px', height: '2rem', pt: '10px' }}>{cartItem.Name}</Typography>
-                <Typography sx={{ fontSize: '13px', height: '2rem', pt: '10px' }}>{cartItem.size}</Typography>
-                {/* Add other properties you want to display */}
+                <Typography>{cartItem.Description}</Typography>
+                <Typography>{cartItem.Packaging}</Typography>
               </Card>
             ))
           )}
