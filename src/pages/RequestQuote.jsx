@@ -1,42 +1,53 @@
 import { useState, useEffect } from 'react';
-import { Box, Button, Card, Grid, Typography } from '@mui/material';
-
+import { Box, Button, Grid, Paper, Typography } from '@mui/material';
+import logo from '.././assets/jpeg/drink.jpg'
 const RequestQuote = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    // Retrieve items from local storage
     const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
+    if (storedCart) { setCart(JSON.parse(storedCart)); }
   }, []);
-  console.log("CART", cart);
+
+  // Calculate the total quantity for each item
+  const calculateTotalQuantity = (itemId) => {
+    return cart.reduce((total, cartItem) => (cartItem.SystemId === itemId ? total + 1 : total), 0);
+  };
+
   return (
-    <Grid container sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-      <Grid item sx={{ backgroundColor: 'orange', width: '100%', textAlign: 'center', color: '#fff', height: '10rem' }}>
-        <Typography variant="h4" sx={{ fontWeight: '600', pl: '3rem', pt: '2rem' }}>REQUEST PRICE QUOTATION</Typography>
-        <Typography sx={{ pl: '3rem' }}>The following products are listed for the quotation.</Typography>
-        <Typography sx={{ pl: '3rem' }}>Click on the button on the bottom to request a price quote.</Typography>
+    <Grid container justifyContent="center" alignItems="center" minHeight="100vh" spacing={2}>
+      <Grid item xs={12} textAlign="center">
+        <Typography variant="h4" fontWeight="bold" mb={2}>   REQUEST PRICE QUOTATION   </Typography>
+        <Typography color="textSecondary">  The following products are listed for the quotation. Click on the button below to request a price quote.  </Typography>
       </Grid>
-      <Grid item>
-        <Box>
-          <Typography>Items:</Typography>
-          {/* Render the cart items */}
+
+      <Grid item xs={12} md={8} lg={6}>
+        <Paper elevation={3} sx={{ padding: 3 }}>
+          <Typography variant="h5" mb={2}>Cart:  </Typography>
           {cart.length === 0 ? (
             <Typography>No items in the cart</Typography>
           ) : (
             cart.map((cartItem) => (
-              <Card key={cartItem.SystemId} sx={{ width: '50rem', margin: '20px' }}>
-                <Typography>{cartItem.Description}</Typography>
-                <Typography>{cartItem.Packaging}</Typography>
-              </Card>
+              <Paper key={cartItem.SystemId} elevation={2} sx={{ p: 2, mb: 2, display: 'flex', alignItems: 'center' }}>
+                <Box>
+                  <img src={logo} width={"100px"} alt="" />
+                </Box>
+                <Box>
+                  <Typography variant="h6" mb={1}>  {cartItem.Description}  </Typography>
+                  <Typography>{cartItem.Packaging}</Typography>
+                  {calculateTotalQuantity(cartItem.SystemId) > 1 && (
+                    <Typography variant="caption" color="textSecondary">
+                      Total Quantity: {calculateTotalQuantity(cartItem.SystemId)}
+                    </Typography>
+                  )}
+                </Box>
+              </Paper>
             ))
           )}
-        </Box>
-        <Button variant="contained" color="info">
-          Request Price Quotation
-        </Button>
+          <Button variant="contained" color="primary" sx={{ mt: 3, width: '100%' }}>
+            Request Price Quotation
+          </Button>
+        </Paper>
       </Grid>
     </Grid>
   );
