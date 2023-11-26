@@ -8,13 +8,12 @@ import { Link } from 'react-router-dom';
 import { ProductItemsData } from "../../Data/Project_Data";
 
 
-const Product_Dropdown = ({ product, language, onSelectSubcategory }) => {
+const Product_Dropdown = ({ product, language }) => {
   // States
   const [isFood, setIsFood] = useState(false);
   const [isCosmetics, setIsCosmetics] = useState(false);
   const [isHair, setisHair] = useState(false);
   const [isBrand, setisBrand] = useState(false);
-  
 
   // Functions
   const toggleFood = () => { setIsFood(!isFood); setIsCosmetics(false); setisHair(false); setisBrand(false) }

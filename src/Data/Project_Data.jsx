@@ -70,10 +70,10 @@ export const cosmetic_data = [
   { id: 10, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic2 },
   { id: 11, Name: 'OLD JAMAICA GINGER BEER', size: '4 x 6 x 250 ml', Image: cosmetic1 },
 ]
-export const categories = [ 'Food', 'Cosmetics', 'Hair'];
-export const sub_categories = [ 'Drinks', 'Preserved Food', 'Fresh Food', 'Frozen Food',  'Hair Care', 'Body Care', 'Men Care', 'Child Care',
-   'Synthetic Hair', 'Natural Hair', 'Mixed Hair', 'Accessories',]
-export const brand = ['Brand', 'Africa Village', 'Mr Exotic', 'Exotic Nuts', 'Royal See Food', 'Thai Village', 'Desi Finest Food', 'Care and Clear', 'De Chez Nous', 'Congo Nature', 'Exotic Foods', 'UTouch', 'Royal Village'];
+// export const categories = [ 'Food', 'Cosmetics', 'Hair'];
+// export const sub_categories = [ 'Drinks', 'Preserved Food', 'Fresh Food', 'Frozen Food',  'Hair Care', 'Body Care', 'Men Care', 'Child Care',
+//    'Synthetic Hair', 'Natural Hair', 'Mixed Hair', 'Accessories',]
+// export const brand = ['Brand', 'Africa Village', 'Mr Exotic', 'Exotic Nuts', 'Royal See Food', 'Thai Village', 'Desi Finest Food', 'Care and Clear', 'De Chez Nous', 'Congo Nature', 'Exotic Foods', 'UTouch', 'Royal Village'];
 export const About_Data = {
   "About_Title": "L’HISTOIRE D’UN HOMME",
   "Exotic_Description": "Exotic City, c’est d’abord le rêve de Javed Kausar. Il y a 25 ans, ce fils d’épicier d’origine pakistanaise a compris, avant que le concept soit en vogue, l’importance de fédérer différentes cultures autour de la cuisine du monde. De nightshop à épicerie du monde En 1993, 4 ans après son arrivée en Belgique, Javed Kausar apprend le métier de commerçant en travaillant aux côtés de son père dans le magasin d’alimentation familial.Dès 1998, il en reprend les rennes, affine le concept initié par son père, développe une communauté qui partage ses valeurs et sa vision du métissage culturel.Une communauté qui trouve dans son offre de produits une porte ouverte vers le monde, mais surtout des solutions centrées sur les attentes et les besoins des particuliers, ainsi que des professionnels de la distribution ou de la restauration",
