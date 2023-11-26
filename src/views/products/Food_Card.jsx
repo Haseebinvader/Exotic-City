@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Box, Card, Grid, Typography, Button, CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import imaged from '../../assets/jpeg/olive.jpg'
 
 const FoodCard = ({ query, selectedSubcategory }) => {
     // Constants
@@ -24,7 +25,7 @@ const FoodCard = ({ query, selectedSubcategory }) => {
         try {
             const res = await axios.get('https://api.businesscentral.dynamics.com/v2.0/7c885fa6-8571-4c76-9e28-8e51744cf57a/Sandbox1/ODataV4/Company(%27My%20Company%27)/ItemApi', {
                 headers: { "Authorization": `Bearer ${accessToken}` },
-                params: { '$top': 23 }
+                params: { '$top': 24 }
             });
             setData(res.data.value);
         } catch (error) {
@@ -72,14 +73,8 @@ const FoodCard = ({ query, selectedSubcategory }) => {
     useEffect(() => {
         const storedCart = localStorage.getItem('cart');
         const storedIncrements = localStorage.getItem('increments');
-        
-        if (storedCart) {
-            setCart(JSON.parse(storedCart));
-        }
-
-        if (storedIncrements) {
-            setIsIncrement(JSON.parse(storedIncrements));
-        }
+        if (storedCart) { setCart(JSON.parse(storedCart)) }
+        if (storedIncrements) { setIsIncrement(JSON.parse(storedIncrements)) }
     }, []);
 
     useEffect(() => {
@@ -101,10 +96,10 @@ const FoodCard = ({ query, selectedSubcategory }) => {
             {filteredFoodData.map((item, index) => (
                 <Grid item xs={12} sm={8} md={5} lg={3} key={item.id} sx={{ mb: 2 }}>
                     <Card sx={{ maxWidth: 250, height: 'auto', textAlign: 'center', mb: '2rem' }}>
-                        <img src={item.Image} alt={item.Name} width="80%" onClick={() => handleItemClick(item)} />
-                        <Typography sx={{ fontSize: '14px' }}>{item.Description}</Typography>
-                        <Typography sx={{ fontSize: '12px' }}>{item.Packaging}</Typography>
-                        <Typography sx={{ fontSize: '12px' }}>{item.SearchDescription}</Typography>
+                        <img src={imaged} alt="" width="80%" onClick={() => handleItemClick(item)} />
+                        <Typography sx={{ fontSize: '14px', height: '50px'}}>{item.Description}</Typography>
+                        {/* <Typography sx={{ fontSize: '12px' }}>{item.Packaging}</Typography> */}
+                        <Typography sx={{ fontSize: '12px', height: '50px', fontWeight: '600'  }}>{item.Brand}</Typography>
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', pb: '1rem', mt: '10px' }}>
                             <Box>
                                 <Button onClick={() => handleDecrement(index)} sx={{ backgroundColor: 'orange', color: 'white', '&:hover': { backgroundColor: 'orange' } }} > - </Button>
