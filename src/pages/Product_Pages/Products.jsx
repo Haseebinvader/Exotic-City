@@ -1,18 +1,11 @@
 import { Box, Grid } from "@mui/material";
 import Filters from "../../views/products/filters";
 import Food_Card from "../../views/products/Food_Card";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Search from "../../views/products/Search";
 
 const Products = () => {
     const [query, setQuery] = useState("");
-
-    useEffect(() => {
-        const currentURL = window.location.href;
-        const dataAfterBaseUrl = currentURL.split("http://localhost:5173/")[1];
-        console.log("Current URL:", currentURL);
-        console.log("Data After Base URL:", dataAfterBaseUrl);
-    }, []);
 
     const handleSearch = (newQuery) => {
         setQuery(newQuery);

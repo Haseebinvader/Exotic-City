@@ -1,19 +1,13 @@
-import { Grid, Typography, Box, Button } from "@mui/material"; // Correct import
+import { Grid, Typography, Box, Button } from "@mui/material";
 import { useState } from "react";
-import { Card } from "react-bootstrap"; // You might want to remove this import
+import { Card } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { food_data } from "../../Data/Project_Data";
-import brand4 from '../../assets/brands/congo.jpg';
 
 const Product_Description = () => {
     const [isIncrement, setisIncrement] = useState(Array(food_data.length).fill(0));
-
     const location = useLocation();
     const selectedItem = location.state?.selectedItem;
-
-    if (!selectedItem) {
-        return <div>No item selected.</div>;
-    }
 
     const handleIncrement = (index) => {
         const newisIncrement = [...isIncrement];
@@ -29,7 +23,6 @@ const Product_Description = () => {
         }
     };
 
-
     return (
         <Grid container sx={{ height: '80vh', backgroundColor: '#F8F8F9' }}>
             <Grid item sx={{ display: 'flex', pl: '20rem', gap: '2rem', height: '70vh', pt: '4rem', width: '100%' }}>
@@ -37,22 +30,18 @@ const Product_Description = () => {
                     <img src={selectedItem.Image} alt={selectedItem.Name} style={{ width: '20rem', paddingTop: '4rem' }} />
                 </Card>
                 <Box>
-                    <Typography sx={{ fontWeight: '600' }} variant="h5">{selectedItem.Name}</Typography>
+                    <Typography sx={{ fontWeight: '600' }} variant="h5">{selectedItem.Description}</Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Typography sx={{ paddingTop: '10px', fontWeight: '600' }}>Product Number:</Typography>
-                        <Typography>M006515</Typography>
+                        <Typography sx={{ paddingTop: '10px', fontWeight: '600' }}>Item Number:</Typography>
+                        <Typography>{selectedItem.ItemNo}</Typography>
                     </Box>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ paddingTop: '10px', fontWeight: '600' }}>Packaging:</Typography>
-                        <Typography>4 x 6 x 250 ml</Typography>
+                        <Typography>{selectedItem.Packaging}</Typography>
                     </Box>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Typography sx={{ paddingTop: '10px', fontWeight: '600' }}>Block pallet:</Typography>
-                        <Typography>90.00</Typography>
-                    </Box >
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography sx={{ paddingTop: '10px', fontWeight: '600' }}>Brand:</Typography>
-                        <img src={brand4} />
+                        <Typography>{selectedItem.Brand}</Typography>
                     </Box>
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '7rem', mt: '8rem' }}>
                         <Box>
@@ -66,9 +55,6 @@ const Product_Description = () => {
                         </Box>
                     </Box>
                 </Box>
-            </Grid>
-            <Grid item>
-
             </Grid>
         </Grid>
     );

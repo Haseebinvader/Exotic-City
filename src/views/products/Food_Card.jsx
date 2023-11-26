@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import imaged from '../../assets/jpeg/olive.jpg'
 
-const FoodCard = ({ query, selectedSubcategory }) => {
+const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     // Constants
-    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMDk4ODQxMywibmJmIjoxNzAwOTg4NDEzLCJleHAiOjE3MDA5OTIzMTMsImFpbyI6IkUyVmdZRGc0L2VwV28zT1RQeGRuUFg4Nmo3WDRIZ0E9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoic0ZDQUJSNGREa2UxZ0NmcGtXMjVBUSIsInZlciI6IjEuMCJ9.PHZrR5Wxic3w-pMkBrvfViBs-2VysL9FY_sBatr7pLclH4qjdsbzUYEqOkNvECzWsRd_09Qb3462wtdM2uSCo5b_45N2IKJ7hfTLTfHSyENQTTODNMp2U8eRd_slcLXUqnucUjg-Vb66YpST_n4fYOFSIac5LuVkU4gB7tG73NY0IVBRVLj1f0sYVlz6HtyOXjJEiLkduyVNf4NGiKZ4PT8F8S7aaePhE14HSr-17PRw9IYldhDSCzY8jrNXnyQNicRi8xpcI1IT4z_L1vQO7U2yxlAntymROxl9OMBYPuwPQMGRCx7lJU-66Q-jtCQj4MEv4-DrArtOQrMPC3zCBA';
+    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMDk5MjMyOSwibmJmIjoxNzAwOTkyMzI5LCJleHAiOjE3MDA5OTYyMjksImFpbyI6IkUyVmdZTENTV1haeXpjSk5nWE1QMTlzcDNMdDhEZ0E9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiaEdzQm5GYUxLMHllVGVjbUtFT2NBUSIsInZlciI6IjEuMCJ9.Puvg_yRloniq2TpE4Mt3xvPsysqxkMHydpCPPHSg291GBHZ4M26fFQXafPD0egzzx_aaOWLcjnv0Okj-UNQPw4i8eJZ0r4qiAAHsz3zsh8K639YBrISnVkOllCzjBy9yU8y8yWS6q5pBEZFPLTzdBq9sDBDlqOcVzzx4rXbvCUXT_s2dWQNyOVIbnKhGxwYP2WtkVy0siKH-oLWc8EwhuyQjMFdr-mo0w9_glc_zucx9xpPosYBD80n9yx8Ci815G89Ts1Nav2Zjgh7AKKUDmHcYBlPHsz4GEvtc8tXAQMhBWbVk03ZBkbRDty6m4cptIkRKSXjnG5tch48KhoeduA';
 
     // States
     const [data, setData] = useState([]);
@@ -19,6 +19,7 @@ const FoodCard = ({ query, selectedSubcategory }) => {
         const storedIncrements = localStorage.getItem('increments');
         return storedIncrements ? JSON.parse(storedIncrements) : [];
     });
+
 
     // Functions
     const fetchData = async () => {
@@ -85,10 +86,15 @@ const FoodCard = ({ query, selectedSubcategory }) => {
         localStorage.setItem('increments', JSON.stringify(isIncrement));
     }, [isIncrement]);
 
-    const filteredFoodData = data.filter((item) => item.Description.includes(query));
-
+    // Use the selected category to filter the items
+    const filteredFoodData = data.filter((item) => {
+        if (selectedSubcategory) {
+            return item.ItemSubCategoryCode === selectedSubcategory;
+        }
+        return item.Description.includes(query);
+    });
     if (loading) {
-        return <CircularProgress style={{ marginLeft: '38rem' }} />;
+        return <CircularProgress style={{ marginLeft: '38rem' }} />
     }
 
     return (
@@ -97,9 +103,9 @@ const FoodCard = ({ query, selectedSubcategory }) => {
                 <Grid item xs={12} sm={8} md={5} lg={3} key={item.id} sx={{ mb: 2 }}>
                     <Card sx={{ maxWidth: 270, height: 'auto', textAlign: 'center', mb: '2rem' }}>
                         <img src={imaged} alt="" width="80%" onClick={() => handleItemClick(item)} />
-                        <Typography sx={{ fontSize: '14px', height: '65px'}}>{item.Description}</Typography>
+                        <Typography sx={{ fontSize: '14px', height: '65px' }}>{item.Description}</Typography>
                         {/* <Typography sx={{ fontSize: '12px' }}>{item.Packaging}</Typography> */}
-                        <Typography sx={{ fontSize: '12px', height: '50px', fontWeight: '600'  }}>{item.Brand}</Typography>
+                        <Typography sx={{ fontSize: '12px', height: '50px', fontWeight: '600' }}>{item.Brand}</Typography>
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', pb: '1rem', mt: '10px' }}>
                             <Box>
                                 <Button onClick={() => handleDecrement(index)} sx={{ backgroundColor: 'orange', color: 'white', '&:hover': { backgroundColor: 'orange' } }} > - </Button>
