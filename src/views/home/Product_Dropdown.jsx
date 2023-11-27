@@ -21,12 +21,14 @@ const Product_Dropdown = ({ product, language }) => {
   const toggleHair = () => { setisHair(!isHair); setIsCosmetics(false); setIsFood(false); setisBrand(false) }
   const toggleBrand = () => { setIsCosmetics(false); setisHair(false); setIsFood(false); setisBrand(!isBrand) }
 
+  
+
   return (
     <Grid container sx={{ display: 'flex', flexDirection: 'column' }}>
       {ProductItemsData.map((section, index) => (
         <Grid item key={index} sx={{ width: '100%' }}>
           <Typography
-            sx={{ '&:hover': { color: '#000' }, color: 'red', fontWeight: '600', fontSize: '12px', justifyContent: 'space-between', pt: '10px' }}
+            sx={{ '&:hover': { color: '#000' }, color: 'orange', fontWeight: '600', fontSize: '12px', justifyContent: 'space-between', pt: '10px' }}
             onClick={() => {
               if (section.title === 'FOOD') { toggleFood(); } else if (section.title === 'COSMETICS') { toggleCosmetics() } else if (section.title === 'HAIR') {
                 toggleHair();
@@ -70,7 +72,7 @@ const Product_Dropdown = ({ product, language }) => {
             </Box>
           )}
           {/* Hair Dropdown */}
-          {isHair && section.title === 'HAIR' && (
+          {/* {isHair && section.title === 'HAIR' && (
             <Box>
               {section.items.map((item, itemIndex) => (
                 <Box key={itemIndex}>
@@ -84,7 +86,7 @@ const Product_Dropdown = ({ product, language }) => {
 
               ))}
             </Box>
-          )}
+          )} */}
           {/* Brand Dropdown */}
           {isBrand && section.title === 'EXCLUSIVE BRANDS' && (
             <Box>

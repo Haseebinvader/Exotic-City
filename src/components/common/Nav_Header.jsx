@@ -44,7 +44,7 @@ const Nav_Header = () => {
                                 {t('PRODUCTS')}  <KeyboardArrowDownIcon />
                             </Typography>
                             {isProduct && (
-                                <Box sx={{ backgroundColor: '#fff', border: '1px solid lightgrey', position: 'absolute', color: '#000', padding: '1rem', borderRadius: '4px', zIndex: 10, ml: '4rem', width: '12rem' }}>
+                                <Box sx={{ backgroundColor: '#fff', border: '1px solid lightgrey', position: 'absolute', color: '#000', padding: '1rem', borderRadius: '4px', zIndex: 10, ml: '4rem', width: '14rem', marginLeft: '-1rem' }}>
                                     <Product_Dropdown product={setisProduct} />
                                 </Box>)}
                         </Box>

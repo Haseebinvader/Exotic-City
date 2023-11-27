@@ -131,14 +131,10 @@ export const FooterData = [
 export const ProductItemsData = [
   {
     title: 'FOOD',
-    items: ['Drinks', 'Preserved Food', 'Fresh Food', 'Frozen Food'],
+    items: ['Snacks & Sweets', 'Flour, Oats & Cereals', 'Frozen Food', 'Fish & Meat Preserves', "Rice", "Drinks", "Paste & Pickles", "Oil & Butter Product", "Non Food", "Beans & Pulses", "Fruits & vegetables", "Noodles"],
   },
   {
     title: 'COSMETICS',
-    items: ['Hair Care', 'Body Care', 'Child Care', 'Men Care'],
-  },
-  {
-    title: 'HAIR',
-    items: ['Synthetic Hair', 'Natural Hair', 'Mixed Hair', 'Accessories'],
+    items: ['Hair Care', 'Skin Care', 'Child Care', 'Hair & Makeup'],
   },
 ];
