@@ -28,7 +28,7 @@ export default function Filter() {
         <>
             <Paper sx={{ width: { xs: '16rem', md: '16rem', lg: '16rem' }, mr: '1rem', ml: { xs: '0.5rem', md: '0.5rem', lg: '1rem' } }}>
                 <Box sx={{ textAlign: 'center', border: '1px solid #f2f2f2', backgroundColor: '#fff', p: '2rem' }}>
-                    <Box >
+                    <Box>
                         <Typography variant='h6' sx={{ fontWeight: '600' }}> Categories </Typography>
                         <Box sx={{ width: '100%', height: '2px', backgroundColor: 'orange', margin: '8px 0', mt: '1rem', mr: '4rem' }}></Box>
                         <div style={{ backgroundColor: '#f2f2f2', padding: '10px', borderRadius: '3px' }}>

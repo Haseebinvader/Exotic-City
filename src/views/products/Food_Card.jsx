@@ -117,7 +117,7 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     }
 
     return (
-        <Grid container sx={{ display: 'flex', justifyContent: 'center', width: '112%', px: 2 }}>
+        <Grid container sx={{ display: 'flex', justifyContent: 'center', width: '81vw', px: 2, height: '180vh', overflowY: 'scroll' }}>
             {paginatedFoodData.map((item, index) => (
                 <Grid item xs={12} sm={8} md={5} lg={3} key={item.id} sx={{ mb: 2 }}>
                     <Card sx={{ maxWidth: 270, height: 'auto', textAlign: 'center', mb: '2rem' }}>
