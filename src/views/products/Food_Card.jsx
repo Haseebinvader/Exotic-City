@@ -8,7 +8,7 @@ import imaged from '../../assets/jpeg/olive.jpg'
 
 const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     // Constants
-    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTA3NTk0MiwibmJmIjoxNzAxMDc1OTQyLCJleHAiOjE3MDEwNzk4NDIsImFpbyI6IkUyVmdZR2hrbW1yT1kxclJiR0JaZmJmQTVkMTBBQT09IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiRmRiZHlYbFRfMFdWZVA4aGptdklBUSIsInZlciI6IjEuMCJ9.fOiZSRz000qlnb_OGaK7CNqWKdUZOJR4aqJTaCya8xZLowyP7Eq1n2wJqabFG8Kjheb93Hras_Pc27nC_jKoJoLqmEh_UY-7REJUvpOt7Da2t6-i8liGIC811zZkh1_Om5BcmiusryqeuH_urpOpDTniNwJL7W7ArL0ekuBvRFj1vTVcGBJcjaXNDcYjINWMLxBt-iwyQ6wvrhTn3_GAmps35Dcrdk4V7HgYfuLzvwf04Ot986j0JHrvkvhIUH2R2NkGmA_PomOzWQqvoA87f-yNbJ1H29EY1mcbrkQ93y8S6KXij6uzR18co6uT1EH7ePKPmI2_a5FCnm35Pn_M6w';
+    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTA4MDE4MSwibmJmIjoxNzAxMDgwMTgxLCJleHAiOjE3MDEwODQwODEsImFpbyI6IkUyVmdZQkNyczZodFl1RzczdmQ5N2ZhSWZlNFZBQT09IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiSEV1N3FVVVpQazZPbXNfT0RncDZBUSIsInZlciI6IjEuMCJ9.lnaHRrrvDmcxYZn3glNWAHcWu7H1hj9WJ-rHuXBX20w4jTVD3NzZSaw322RHuJ1HJOlWh8gkHwr-CMmzEonDaClUy0wnwxqOP1BIosiwctJ2F4-nJ9SJcokhMzvojW0feXkqxeV92ueGlrUDMHGglhZr8TuWWbDUEivrkutTwy_jLa3q6JI_dFtJPrKp4Z18YkztAolBtwxWJbx60iaSB24fJgjWP1bLeC5LY3RKXiBllQox0sdUFzM3dMAINWNjViBoDNmJENi423pNme8D6gJHLHLFBUWrsn_3jwA_Ss-6owwKkl3eSI5GftLOOewHaMUp6UAilsuTlBdnWdrEAQ';
 
     // States
     const [data, setData] = useState([]);
@@ -19,6 +19,32 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
         const storedIncrements = localStorage.getItem('increments');
         return storedIncrements ? JSON.parse(storedIncrements) : [];
     });
+    // Use the selected category to filter the items
+    const filteredFoodData = data.filter((item) => {
+        if (selectedSubcategory) {
+            return item.ItemSubCategoryCode === selectedSubcategory;
+        }
+        return item.Description.includes(query);
+    });
+    // Pagination state variables
+    const itemsPerPage = 10;
+    const [currentPage, setCurrentPage] = useState(1);
+
+    // Calculate the index range for the current page
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    // Use the selected category to filter the items and apply pagination
+    const paginatedFoodData = filteredFoodData.slice(startIndex, endIndex);
+
+    // Functions for pagination
+    const handleNextPage = () => {
+        setCurrentPage((prevPage) => prevPage + 1);
+    };
+
+    const handlePrevPage = () => {
+        setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+    };
 
 
     // Functions
@@ -86,20 +112,14 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
         localStorage.setItem('increments', JSON.stringify(isIncrement));
     }, [isIncrement]);
 
-    // Use the selected category to filter the items
-    const filteredFoodData = data.filter((item) => {
-        if (selectedSubcategory) {
-            return item.ItemSubCategoryCode === selectedSubcategory;
-        }
-        return item.Description.includes(query);
-    });
+
     if (loading) {
         return <CircularProgress style={{ marginLeft: '38rem' }} />
     }
 
     return (
         <Grid container sx={{ display: 'flex', justifyContent: 'center', width: '112%', px: 2 }}>
-            {filteredFoodData.map((item, index) => (
+            {paginatedFoodData.map((item, index) => (
                 <Grid item xs={12} sm={8} md={5} lg={3} key={item.id} sx={{ mb: 2 }}>
                     <Card sx={{ maxWidth: 270, height: 'auto', textAlign: 'center', mb: '2rem' }}>
                         <img src={imaged} alt="" width="80%" onClick={() => handleItemClick(item)} />
@@ -120,6 +140,17 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
                     </Card>
                 </Grid>
             ))}
+            <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                <Box sx={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
+                    <Button onClick={handlePrevPage} disabled={currentPage === 1}>
+                        Previous
+                    </Button>
+                    <Typography>Page {currentPage}</Typography>
+                    <Button onClick={handleNextPage} disabled={endIndex >= filteredFoodData.length}>
+                        Next
+                    </Button>
+                </Box>
+            </Grid>
         </Grid>
     );
 };

@@ -14,13 +14,13 @@ const Product_Dropdown = ({ product, language }) => {
   const [isCosmetics, setIsCosmetics] = useState(false);
   const [isHair, setisHair] = useState(false);
   const [isBrand, setisBrand] = useState(false);
+  
 
   // Functions
   const toggleFood = () => { setIsFood(!isFood); setIsCosmetics(false); setisHair(false); setisBrand(false) }
   const toggleCosmetics = () => { setIsCosmetics(!isCosmetics); setIsFood(false); setisHair(false); setisBrand(false) }
   const toggleHair = () => { setisHair(!isHair); setIsCosmetics(false); setIsFood(false); setisBrand(false) }
   const toggleBrand = () => { setIsCosmetics(false); setisHair(false); setIsFood(false); setisBrand(!isBrand) }
-
   
 
   return (
@@ -48,6 +48,7 @@ const Product_Dropdown = ({ product, language }) => {
                   <Link to={`/Products/${item.replace(/[^a-zA-Z]/g, '')}`} style={{ textDecoration: 'none' }}>
                     <Typography sx={{ '&:hover': { color: '#000' }, color: 'grey', fontSize: '12px', paddingTop: '10px' }} onClick={() => (product(false))}>
                       {item}
+                      
                     </Typography>
                   </Link>
                   <Box />
