@@ -83,7 +83,7 @@ const Login = () => {
         }
     };
 
-    const attemptLogin = async (userId, password) => {
+    const attemptLogin = async () => {
         try {
             const response = await fetch('https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer', {
                 method: 'GET',
