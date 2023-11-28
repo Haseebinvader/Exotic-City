@@ -10,7 +10,6 @@ const Login = () => {
     const [userId, setuserId] = useState('');
     const [password, setPassword] = useState('')
     const [isLoggingIn, setIsLoggingIn] = useState(false);
-    const [customerData, setCustomerData] = useState([]);
 
     const usenavigate = useNavigate()
     useEffect(() => {

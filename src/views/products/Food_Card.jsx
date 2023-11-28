@@ -56,13 +56,25 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
             const customerRes = await axios.get('https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer', {
                 headers: { "top": 30, "Authorization": `Bearer ${accessToken}` },
             });
-            return customerRes.data.value;
+    
+            const customerData = customerRes.data.value;
+    
+            // Assuming you have a way to identify the current user, replace 'YOUR_USER_ID' with the actual user ID or any other identifier
+            const userId = sessionStorage.getItem('useriD');
+            const user = customerData.find(customer => customer.UserId === userId);
+    
+            if (user) {
+                return user.CustomerPriceGroup;
+            } else {
+                console.error("User not found in customer data");
+                return null;
+            }
         } catch (error) {
             console.error("Error fetching customer data", error);
-            return [];
+            return null;
         }
     };
-
+    
     // Fetch Items
     const fetchData = async () => {
         try {
@@ -79,16 +91,26 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     // Prices API
     const fetchPrices = async () => {
         try {
-            const customerData = await fetchCustomerData();
+            const userCustomerPriceGroup = await fetchCustomerData();
+    
+            if (!userCustomerPriceGroup) {
+                console.error("User's CustomerPriceGroup not available");
+                return;
+            }
+    
             const priceRes = await axios.get('https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/SalesPrice', {
                 headers: { "top": 30, "Authorization": `Bearer ${accessToken}` },
             });
-
+    
             const updatedPriceData = priceRes.data.value.map(price => {
-                const customerPrice = customerData.find(customer => customer.CustomerPriceGroup === price.SalesCode);
-                return { ...price, customerPrice };
-            });
-
+                // Check if the price belongs to the user's CustomerPriceGroup
+                if (price.SalesCode === userCustomerPriceGroup) {
+                    return { ...price };
+                }
+    
+                return null;
+            }).filter(Boolean);
+    
             setPriceData(updatedPriceData);
         } catch (error) {
             console.error("Error fetching prices", error);
@@ -96,6 +118,7 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
             setLoadingPrices(false);
         }
     };
+    
     useEffect(() => {
         fetchData();
     }, []);
