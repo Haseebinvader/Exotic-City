@@ -14,22 +14,15 @@ import Brand_Dropdown from '../../views/home/Brand_Dropdown';
 import i18next from 'i18next';
 import './Styles.css'
 const Nav_Header = () => {
+    // Language Translation
     const { t } = useTranslation();
     const handleClick = (e) => {
         const selectedLanguage = e.target.value;
-        if (i18next.isInitialized) {
-            i18next.changeLanguage(selectedLanguage);
-        } else {
-            console.error("i18next is not initialized properly.");
-        }
+        if (i18next.isInitialized) { i18next.changeLanguage(selectedLanguage); } else { console.error("i18next is not initialized properly."); }
     }
-
-
-
     // States
     const [isProduct, setisProduct] = useState(false)
     const [isBrand, setisBrand] = useState(false)
-
     // Functions
     const toggleProduct = () => { setisProduct(!isProduct); setisBrand(false) }
     const toggleBrand = () => { setisBrand(!isBrand); setisProduct(false) }
@@ -59,42 +52,24 @@ const Nav_Header = () => {
                         </Box>
                         <Box>
                             <Link to='/About' style={{ textDecoration: 'none' }}>
-                                <Typography
-                                    onClick={() => {
-                                        setisBrand(false);
-                                        setisProduct(false);
-                                    }}
-                                    sx={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        fontSize: '14px',
-                                        color: '#5B5B5B',
-                                        fontWeight: '600',
-                                        textDecoration: 'none',
-                                        cursor: 'pointer',
-                                    }}
-                                >
+                                <Typography onClick={() => { setisBrand(false); setisProduct(false); }}
+                                    sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: 'none', cursor: 'pointer', }}>
                                     {t('ABOUT US')}
                                 </Typography>
-
                             </Link>
                         </Box>
                         <Box>
                             <Link to='/Services' style={{ textDecoration: 'none' }}>
-                                <Typography onClick={() => {
-                                    setisBrand(false);
-                                    setisProduct(false);
-                                }} sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
+                                <Typography onClick={() => { setisBrand(false); setisProduct(false); }}
+                                    sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     {t('SERVICES')}
                                 </Typography>
                             </Link>
                         </Box>
                         <Box>
                             <Link to='/Contact' style={{ textDecoration: 'none' }}>
-                                <Typography onClick={() => {
-                                    setisBrand(false);
-                                    setisProduct(false);
-                                }} sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
+                                <Typography onClick={() => { setisBrand(false); setisProduct(false); }}
+                                    sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     {t('CONTACT US')}
                                 </Typography>
                             </Link>

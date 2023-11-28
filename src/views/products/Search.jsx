@@ -5,7 +5,7 @@ import { Box, Paper, TextField, Typography, Dialog, DialogTitle, DialogContent, 
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const Search = ({ handleSearch}) => {
+const Search = ({ handleSearch }) => {
     // States
     const [query, setQuery] = useState('');
     const [productName, setProductName] = useState('');
@@ -15,36 +15,13 @@ const Search = ({ handleSearch}) => {
     const [isAdvancedSearchOpen, setAdvancedSearchOpen] = useState(false);
     const location = useLocation();
     // Functions
-    const handleInputChange = (e) => {
-        const inputValue = e.target.value;
-        setQuery(inputValue);
-    };
-
-    const handleAdvancedSearch = () => {
-        setAdvancedSearchOpen(true);
-    };
-
-    const handleCloseAdvancedSearch = () => {
-        setAdvancedSearchOpen(false);
-    };
-
-    const handleApplyAdvancedSearch = () => {
-        const advancedSearchCriteria = {
-            name: productName.toLowerCase(),
-            minPrice,
-            maxPrice,
-        };
-        console.log("Advanced Search Criteria:", advancedSearchCriteria);
-        handleSearch(query.toLowerCase(), advancedSearchCriteria);
-        handleCloseAdvancedSearch();
-    };
-
-
-
+    const handleInputChange = (e) => { const inputValue = e.target.value; setQuery(inputValue); };
+    const handleAdvancedSearch = () => { setAdvancedSearchOpen(true); };
+    const handleCloseAdvancedSearch = () => { setAdvancedSearchOpen(false); };
+    const handleApplyAdvancedSearch = () => { const advancedSearchCriteria = { name: productName.toLowerCase(), minPrice, maxPrice, }; handleSearch(query.toLowerCase(), advancedSearchCriteria); handleCloseAdvancedSearch(); };
+    // UseEffects
     useEffect(() => {
-        const currentUrl = location.pathname;
-        const urlSegments = currentUrl.split('/');
-        const currentLastUrlSegment = urlSegments[urlSegments.length - 1];
+        const currentUrl = location.pathname; const urlSegments = currentUrl.split('/'); const currentLastUrlSegment = urlSegments[urlSegments.length - 1];
         setLastUrlSegment(currentLastUrlSegment);
     }, [location.pathname]);
     useEffect(() => {
@@ -52,7 +29,7 @@ const Search = ({ handleSearch}) => {
             query.toLowerCase(),
             { name: productName.toLowerCase(), minPrice, maxPrice }
         );
-    }, [query, productName, minPrice, maxPrice,handleSearch]);
+    }, [query, productName, minPrice, maxPrice, handleSearch]);
 
     return (
         <>
@@ -61,20 +38,11 @@ const Search = ({ handleSearch}) => {
                     <div>
                         <h1>Search</h1>
                         <Box sx={{ width: '100%', height: '2px', backgroundColor: 'orange' }}></Box>
-                        <TextField
-                            sx={{ marginTop: '10px', width: '16vw' }}
-                            id="standard-basic"
-                            label="Search products"
-                            variant="outlined"
-                            htmlFor="search"
-                            size='small'
-                            fullWidth
-                            value={query}
-                            onChange={handleInputChange}
+                        <TextField sx={{ marginTop: '10px', width: '16vw' }} id="standard-basic" label="Search products" variant="outlined" htmlFor="search" size='small' fullWidth value={query} onChange={handleInputChange}
                             InputProps={{
                                 endAdornment: (
                                     <>
-                                        <SearchIcon style={{ cursor: 'pointer' }} onClick={() => handleSearch(query.toLowerCase(), )} />
+                                        <SearchIcon style={{ cursor: 'pointer' }} onClick={() => handleSearch(query.toLowerCase(),)} />
                                         <FilterListIcon style={{ cursor: 'pointer', marginLeft: '5px' }} onClick={handleAdvancedSearch} />
                                     </>
                                 ),
@@ -88,36 +56,14 @@ const Search = ({ handleSearch}) => {
                     </div>
                 </Paper>
             </div>
-
             {/* Advanced Search Dialog */}
             <Dialog open={isAdvancedSearchOpen} onClose={handleCloseAdvancedSearch}>
                 <DialogTitle>Advanced Search</DialogTitle>
                 <DialogContent>
                     {/* Add input fields for advanced search criteria (e.g., name and price) */}
-                    <TextField
-                        label="Product Name"
-                        variant="outlined"
-                        value={productName}
-                        onChange={(e) => setProductName(e.target.value)}
-                        fullWidth
-                        margin="normal"
-                    />
-                    <TextField
-                        label="Minimum Price"
-                        variant="outlined"
-                        value={minPrice}
-                        onChange={(e) => setMinPrice(e.target.value)}
-                        fullWidth
-                        margin="normal"
-                    />
-                    <TextField
-                        label="Maximum Price"
-                        variant="outlined"
-                        value={maxPrice}
-                        onChange={(e) => setMaxPrice(e.target.value)}
-                        fullWidth
-                        margin="normal"
-                    />
+                    <TextField label="Product Name" variant="outlined" value={productName} onChange={(e) => setProductName(e.target.value)} fullWidth margin="normal" />
+                    <TextField label="Minimum Price" variant="outlined" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} fullWidth margin="normal" />
+                    <TextField label="Maximum Price" variant="outlined" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} fullWidth margin="normal" />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleCloseAdvancedSearch}>Cancel</Button>

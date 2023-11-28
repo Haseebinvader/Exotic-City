@@ -13,7 +13,6 @@ const Message = () => {
                 </Box>
                 <Box sx={{ width: '100%', height: '2px', backgroundColor: 'orange', margin: '8px 0', ml: '4rem', mt: '1rem' }} ></Box>
             </Grid>
-
             <Grid item sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', backgroundColor: '#ECF0F1', padding: '2rem', gap: '2rem' }}>
                 <Box width="65%">
                     <Typography sx={{ textAlign: 'center', fontSize: '40px', color: '#646464' }}>{t('About Title')}</Typography>
@@ -62,8 +61,6 @@ const Message = () => {
                 </Box>
             </Grid>
             <Box sx={{ width: '100%', height: '2px', backgroundColor: 'orange', margin: '8px 0', mt: '1rem' }} ></Box>
-
-
         </Grid>
     )
 }

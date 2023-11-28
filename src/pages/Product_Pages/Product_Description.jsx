@@ -6,29 +6,16 @@ import { useLocation } from "react-router-dom";
 import { food_data } from "../../Data/Project_Data";
 
 const Product_Description = () => {
+    // States
     const [isIncrement, setisIncrement] = useState(Array(food_data.length).fill(0));
     const location = useLocation();
     const selectedItem = location.state?.selectedItem;
     const [isLogin, setisLogin] = useState(false)
-
-
-
-    const handleIncrement = (index) => {
-        const newisIncrement = [...isIncrement];
-        newisIncrement[index] += 1;
-        setisIncrement(newisIncrement);
-    };
-
-    const handleDecrement = (index) => {
-        if (isIncrement[index] > 0) {
-            const newIncrements = [...isIncrement];
-            newIncrements[index] -= 1;
-            setisIncrement(newIncrements);
-        }
-    };
+    // Functions
+    const handleIncrement = (index) => { const newisIncrement = [...isIncrement]; newisIncrement[index] += 1; setisIncrement(newisIncrement); };
+    const handleDecrement = (index) => { if (isIncrement[index] > 0) { const newIncrements = [...isIncrement]; newIncrements[index] -= 1; setisIncrement(newIncrements); } };
 
     return (
-
         <Grid container sx={{ height: '100vh', backgroundColor: '#F8F8F9', p: '20px', justifyContent: 'center', alignItems: 'center' }}>
             <Paper elevation={3} sx={{ p: '20px', width: '70%' }}>
                 <Grid item sx={{ display: 'flex', gap: '2rem', height: '70vh', width: '100%' }}>
@@ -60,7 +47,6 @@ const Product_Description = () => {
                                 <Button onClick={() => handleIncrement(0)} sx={{ backgroundColor: 'green', color: 'white', '&:hover': { backgroundColor: 'green' } }}>+</Button>
                             </Box>
                         </Box>) : <Typography>Login to add to Cart</Typography>}
-
                     </Box>
                 </Grid>
             </Paper>

@@ -23,13 +23,8 @@ const Nav_Search = () => {
             </Grid>
             <Hidden mdDown>
                 <Grid item >
-                    <TextField
-                        sx={{ backgroundColor: '#F5F5F5', width: '30rem', border: 'none', position: 'end' }}
-                        size='small'
-                        variant="outlined"
-                        placeholder="Search Catalog"
-                        InputProps={{ endAdornment: (<IconButton sx={{ backgroundColor: '#E6E6E6', color: '#fff' }}><SearchIcon /></IconButton>) }}
-                    />
+                    <TextField sx={{ backgroundColor: '#F5F5F5', width: '30rem', border: 'none', position: 'end' }} size='small' variant="outlined" placeholder="Search Catalog"
+                        InputProps={{ endAdornment: (<IconButton sx={{ backgroundColor: '#E6E6E6', color: '#fff' }}><SearchIcon /></IconButton>) }} />
                 </Grid>
             </Hidden>
             <Hidden mdDown>
