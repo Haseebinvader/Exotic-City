@@ -11,13 +11,16 @@ import Login from "./pages/Login";
 import RequestQuote from "./pages/RequestQuote";
 import './App.css';
 import LegalNotice from "./pages/LegalNotice";
-
+import { ToastContainer } from "react-toastify";
 function App() {
+
+
   return (
     <Fragment>
       <BrowserRouter>
         <Suspense fallback={<div>Loading...</div>}>
           <Layout>
+            <ToastContainer />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Products/:category" element={<Products />} />
