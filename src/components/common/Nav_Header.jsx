@@ -13,7 +13,6 @@ import Dropdown from './dropdown';
 import Brand_Dropdown from '../../views/home/Brand_Dropdown';
 import i18next from 'i18next';
 import './Styles.css'
-
 const Nav_Header = () => {
     const { t } = useTranslation();
     const handleClick = (e) => {
@@ -24,6 +23,8 @@ const Nav_Header = () => {
             console.error("i18next is not initialized properly.");
         }
     }
+
+
 
     // States
     const [isProduct, setisProduct] = useState(false)

@@ -8,7 +8,7 @@ import imaged from '../../assets/jpeg/olive.jpg'
 
 const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     // Constants
-    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTE3MzcwOSwibmJmIjoxNzAxMTczNzA5LCJleHAiOjE3MDExNzc2MDksImFpbyI6IkUyVmdZRENZdVducjZsMnh5am9wTDlsNEN5WXdBQUE9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiRlJhXy0zd0tZa3FKMXpLX1NxanhBUSIsInZlciI6IjEuMCJ9.P8gd5Yyh0hJ9z8fXlQiaYTUdjEceSKN86fEzEmKVn5ZEgO12q680zPlY_aLRRAY27axvk7cQ_v-7FR0nBiRmPT1U2w-gIHq_NS4opvKrIVEKiefLtMgRi8VKtaOo7L17Ew2wtT9o71Q7vEV3btY866jav9KOPpuxF3NC6QMZUu_lGhCv0aH0cGi-K6O99KHCMuYgCY7KzdfqaQrSl5FFNUoM-EB6wCwqtzEyZI6bwp6KSWoqaWkrk5DnoOvBLBaRIRXX76uqBoHN8923UaTRJcesm88I-BQ_a0Lg6snx89H3ikpMGn8-GNZl1fEliukLQ-IgnkEMs8a1cNPQL-0hcw';
+    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTE5NzE5OCwibmJmIjoxNzAxMTk3MTk4LCJleHAiOjE3MDEyMDEwOTgsImFpbyI6IkUyVmdZUGgyOGNWbDR5NitCN3JYdDg4OElyVE9DZ0E9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoidHg3cktDZzZsa0tQX2RWdmZvQnBBUSIsInZlciI6IjEuMCJ9.aWO0v3eFRfUU63ZBGmQkfO178d-gsJbE5Bm7UhXeEF3LJT3N9nByFvHLdBkCwWMPztPSET__j7lV9wFrboqyHsttGxkqbCpvTcUCPcgOWV6Z-CNAtIkzcfeVK3KnkRVuf-VRqTdUrw0MxKA7V1WLFdX0KRJ8JQucTM9lXi66h7qC1Kj2UqsYrpx-MBWa44MzEJgz5tXdS7VqEngrsZ3GPSuXqHIeyp7kNrpbrVoC0LwGO0P9YAZdhzGSO3DVBbMczo1OnywTFFcIYevH-HaaAT5jTlNszjjj1gYkuxeoyWjmrfslnxoE8_jgLWuN_Gj_CXGcM9YxoeW0Kdk5ITt_kw';
 
     // States
     const [priceData, setPriceData] = useState([]);
@@ -50,6 +50,20 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
 
 
     // Functions
+    // Fetch Customers
+    const fetchCustomerData = async () => {
+        try {
+            const customerRes = await axios.get('https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer', {
+                headers: { "top": 30, "Authorization": `Bearer ${accessToken}` },
+            });
+            return customerRes.data.value;
+        } catch (error) {
+            console.error("Error fetching customer data", error);
+            return [];
+        }
+    };
+
+    // Fetch Items
     const fetchData = async () => {
         try {
             const res = await axios.get('https://api.businesscentral.dynamics.com/v2.0/7c885fa6-8571-4c76-9e28-8e51744cf57a/Sandbox1/ODataV4/Company(\'My%20Company\')/ItemApi', {
@@ -65,16 +79,29 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     // Prices API
     const fetchPrices = async () => {
         try {
+            const customerData = await fetchCustomerData();
             const priceRes = await axios.get('https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/SalesPrice', {
                 headers: { "top": 30, "Authorization": `Bearer ${accessToken}` },
             });
-            setPriceData(priceRes.data.value);
+
+            const updatedPriceData = priceRes.data.value.map(price => {
+                const customerPrice = customerData.find(customer => customer.CustomerPriceGroup === price.SalesCode);
+                return { ...price, customerPrice };
+            });
+
+            setPriceData(updatedPriceData);
         } catch (error) {
             console.error("Error fetching prices", error);
         } finally {
             setLoadingPrices(false);
         }
     };
+    useEffect(() => {
+        fetchData();
+    }, []);
+    useEffect(() => {
+        fetchPrices();
+    }, []);
     useEffect(() => {
         fetchPrices();
     }, []);
@@ -152,19 +179,22 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     }
 
     return (
-        <Grid container sx={{ display: 'flex', justifyContent: 'center', width: '81vw', px: 2, height: '180vh', overflowY: 'scroll' }}>
+        <Grid container sx={{ display: 'flex', justifyContent: 'center', width: '81vw', px: 2, height: '180vh' }}>
             {paginatedFoodData.map((item, index) => (
                 <Grid item xs={12} sm={8} md={5} lg={3} key={item.id} sx={{ mb: 2 }}>
                     <Card sx={{ maxWidth: 270, height: 'auto', textAlign: 'center', mb: '2rem' }}>
-                        <img src={imaged} alt="" width="80%" onClick={() => handleItemClick(item)} />
+                        {/* <img src={imaged} alt="" width="80%" onClick={() => handleItemClick(item)} /> */}
                         <Typography sx={{ fontSize: '14px', height: '65px' }}>{item.Description}</Typography>
                         {/* <Typography sx={{ fontSize: '12px' }}>{item.Packaging}</Typography> */}
                         <Typography sx={{ fontSize: '12px', height: '50px', fontWeight: '600' }}>{item.Brand}</Typography>
                         {item.prices && item.prices.map(price => (
-                            <Typography key={price.SalesCode} sx={{ fontSize: '12px' }}>
-                                {`Price (${price.SalesCode}): ${price.UnitPrice}`}
-                            </Typography>
+                            price && (
+                                <Typography key={price.SalesCode} sx={{ fontSize: '12px' }}>
+                                    {`Price$ ${price.customerPrice ? price.customerPrice.UnitPrice : price.UnitPrice}`}
+                                </Typography>
+                            )
                         ))}
+
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', pb: '1rem', mt: '10px' }}>
                             <Box>
                                 <Button onClick={() => handleDecrement(index)} sx={{ backgroundColor: 'orange', color: 'white', '&:hover': { backgroundColor: 'orange' } }} > - </Button>
