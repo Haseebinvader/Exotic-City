@@ -55,16 +55,15 @@ export default function Filter() {
                             <div key={uniqueParentCategory} >
                                 <ul style={{ listStyle: 'none', padding: '1px', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                                     <li style={{ marginRight: '8px', textAlign: 'left' }}>
-                                        {uniqueParentCategory}
+                                        <label>
+                                            <input
+                                                type='checkbox'
+                                                checked={selectedCategories.includes(uniqueParentCategory)}
+                                                onChange={() => handleCategoryChange(uniqueParentCategory)}
+                                            />
+                                            {uniqueParentCategory}
+                                        </label>
                                     </li>
-                                    <div style={{ marginLeft: 'auto', alignItems: 'flex-end' }}>
-                                        <input
-                                            style={{ marginLeft: '4px' }}
-                                            type='checkbox'
-                                            checked={selectedCategories.includes(uniqueParentCategory)}
-                                            onChange={() => handleCategoryChange(uniqueParentCategory)}
-                                        />
-                                    </div>
                                 </ul>
                             </div>
                         ))}
@@ -78,9 +77,7 @@ export default function Filter() {
                             <div key={uniqueItemSubCategoryCode}>
                                 <ul style={{ listStyle: 'none', padding: '1px', display: 'flex', justifyContent: 'center', width: '100%' }}>
                                     <li style={{ marginRight: '8px', textAlign: 'left' }}>{uniqueItemSubCategoryCode}</li>
-                                    <div style={{ marginLeft: 'auto', alignItems: 'flex-end' }}>
-                                        <input type='checkbox' style={{ marginLeft: '4px' }} />
-                                    </div>
+                                    {/* Other subcategory-related content */}
                                 </ul>
                             </div>
                         ))}
@@ -94,9 +91,7 @@ export default function Filter() {
                             <div key={uniqueBrand}>
                                 <ul style={{ listStyle: 'none', padding: '1px', display: 'flex', justifyContent: 'center', width: '100%' }}>
                                     <li style={{ marginRight: '8px', textAlign: 'left' }}>{uniqueBrand}</li>
-                                    <div style={{ marginLeft: 'auto', alignItems: 'flex-end' }}>
-                                        <input type='checkbox' style={{ marginLeft: '4px' }} />
-                                    </div>
+                                    {/* Other brand-related content */}
                                 </ul>
                             </div>
                         ))}
