@@ -8,9 +8,11 @@ import imaged from '../../assets/jpeg/olive.jpg'
 
 const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     // Constants
-    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTE2MDc5MiwibmJmIjoxNzAxMTYwNzkyLCJleHAiOjE3MDExNjQ2OTIsImFpbyI6IkUyVmdZSWhUeWQ1dzY5VDVvUE9WWWh5cnp6VE1BUUE9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoia0xSMl9UNGhGMGljSnlvMkV1dG5BUSIsInZlciI6IjEuMCJ9.OIlZcdQJypfLY7hG_R0kRs7JhoDJG6_ho0pbAFgPweKIckYbK_lLqlqD7xFTX23LOd_27CpZwONj4VlJh0RWTvQWXeZWtK_enQuAF7ZFK_SL--sD7zLCr-003AkbP_Q2luY4CrlXRhS8UHiy5QKQEqK4S5Bqfe0szMbeuRhdSxas3btkGAr5apqEmJGwqdE0eG6Y17xV1Xu7xov6_iRvMexxzbQePqiMYcjJ_P7iGOoIkzD81cz188CTk7dSQVneWhPO3Nu44BQWZ_2Z1A0rJ410ic1r-rJjABVeXtUTXTh20tr1X2livmk54lxn_6-4bKGyYA_0dOeSaW7-0BfzFw';
+    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTE2ODg3NSwibmJmIjoxNzAxMTY4ODc1LCJleHAiOjE3MDExNzI3NzUsImFpbyI6IkUyVmdZSGd1WWJGSUlkRlY4ZmIxSS9NZS9TcllCUUE9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoib0lrbzE0YVhQRWV1SkZQM3dXMEFBZyIsInZlciI6IjEuMCJ9.e3VLFAuJ4WzmjUaH2BekLysYFC7qcqlzrl4Km8QSCBwcOAvclJMjEFV04_Z8BUBqPmV-RlMMJzJWzm8wr0JT5DXPOx9DOay7dd-pTWquORChRCQbsjdYM9kHC3MgI7AQ4Hc1IttOoTTMGJSJwgeOnbaJh5uJ9F-VE0G9aJZv8O9HqmR7sRJXE66eVCvWbHxjvJlUI5688N7SyJnXs-zX5YwyAsy4B0RJ0Da9_y4ippHZmaBu6ynmSmVlZbFl-X2ZY_RZdQfsJBRHe8BL4VOtx2EyTA8Fvom5c5xluRMAlpsijm_eu0Aw1ODCqUTw-8pw9NVLrokPT_-Ppn28081y6g';
 
     // States
+    const [priceData, setPriceData] = useState([]);
+    const [loadingPrices, setLoadingPrices] = useState(true);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
@@ -51,7 +53,7 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     const fetchData = async () => {
         try {
             const res = await axios.get('https://api.businesscentral.dynamics.com/v2.0/7c885fa6-8571-4c76-9e28-8e51744cf57a/Sandbox1/ODataV4/Company(\'My%20Company\')/ItemApi', {
-                headers: { "Authorization": `Bearer ${accessToken}` },
+                headers: { "top": 30, "Authorization": `Bearer ${accessToken}` },
             });
             setData(res.data.value);
         } catch (error) {
@@ -60,6 +62,39 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
             setLoading(false);
         }
     };
+    // Prices API
+    const fetchPrices = async () => {
+        try {
+            const priceRes = await axios.get('https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/SalesPrice', {
+                headers: { "top": 30, "Authorization": `Bearer ${accessToken}` },
+            });
+            setPriceData(priceRes.data.value);
+        } catch (error) {
+            console.error("Error fetching prices", error);
+        } finally {
+            setLoadingPrices(false);
+        }
+    };
+    useEffect(() => {
+        fetchPrices();
+    }, []);
+    useEffect(() => {
+        const combineDataAndPrices = () => {
+            // Check if both data and priceData have data
+            if (data.length > 0 && priceData.length > 0) {
+                // Combine item data with prices
+                const updatedData = data.map(item => {
+                    const pricesForItem = priceData.filter(price => price.ItemNo === item.ItemNo);
+                    return { ...item, prices: pricesForItem };
+                });
+                setData(updatedData);
+            }
+        };
+
+        // Call the function to combine data and prices
+        combineDataAndPrices();
+    }, [priceData, data]);
+
 
     const handleIncrement = (index) => {
         const newIsIncrement = [...isIncrement];
@@ -125,6 +160,11 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
                         <Typography sx={{ fontSize: '14px', height: '65px' }}>{item.Description}</Typography>
                         {/* <Typography sx={{ fontSize: '12px' }}>{item.Packaging}</Typography> */}
                         <Typography sx={{ fontSize: '12px', height: '50px', fontWeight: '600' }}>{item.Brand}</Typography>
+                        {item.prices && item.prices.map(price => (
+                            <Typography key={price.SalesCode} sx={{ fontSize: '12px' }}>
+                                {`Price (${price.SalesCode}): ${price.UnitPrice}`}
+                            </Typography>
+                        ))}
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', pb: '1rem', mt: '10px' }}>
                             <Box>
                                 <Button onClick={() => handleDecrement(index)} sx={{ backgroundColor: 'orange', color: 'white', '&:hover': { backgroundColor: 'orange' } }} > - </Button>
