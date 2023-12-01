@@ -1,4 +1,4 @@
-import { Grid, Hidden, Typography } from '@mui/material';
+import { Box, Button, Grid, Hidden, Typography } from '@mui/material';
 import LOGO from '../../assets/jpeg/LOGO.jpg';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
@@ -6,12 +6,18 @@ import IconButton from '@mui/material/IconButton';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Nav_Search = () => {
+    const usenavigate = useNavigate()
     // Retrieve user ID from sessionStorage
     const userID = sessionStorage.getItem('useriD');
     console.log(userID);
+
+    const handleLogout = () => {
+        sessionStorage.clear()
+        usenavigate('/Login')
+    }
 
     return (
         <Grid container sx={{ width: '100%', display: 'flex', justifyContent: 'space-around', pt: '1.2rem', height: '6rem', textAlign: 'center' }} xs={12}>
@@ -31,7 +37,14 @@ const Nav_Search = () => {
                 <Grid item sx={{ display: 'flex', gap: '1rem', pt: '1rem', alignItems: 'center' }}>
                     {/* Check if userID is available in sessionStorage */}
                     {userID ? (
-                        <Typography sx={{ alignItems: 'center' }}>{`Welcome, ${(userID).toLowerCase()}`}<PersonIcon /></Typography>
+                        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <Box>
+                                <Typography sx={{ alignItems: 'center' }}>{`Welcome, ${(userID).toLowerCase()}`}<PersonIcon /></Typography>
+                            </Box>
+                            <Box>
+                                <Button variant='contained' size='small' color='error' onClick={handleLogout}>Logout</Button>
+                            </Box>
+                        </Box>
                     ) : (
                         <Link to='/Login' style={{ color: '#000', textDecoration: 'none' }}>
                             <Typography sx={{ alignItems: 'center' }}>Signin<PersonIcon /></Typography>

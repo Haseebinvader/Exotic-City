@@ -8,7 +8,7 @@ import imaged from '../../assets/jpeg/olive.jpg'
 
 const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     // Constants
-    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTE5NzE5OCwibmJmIjoxNzAxMTk3MTk4LCJleHAiOjE3MDEyMDEwOTgsImFpbyI6IkUyVmdZUGgyOGNWbDR5NitCN3JYdDg4OElyVE9DZ0E9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoidHg3cktDZzZsa0tQX2RWdmZvQnBBUSIsInZlciI6IjEuMCJ9.aWO0v3eFRfUU63ZBGmQkfO178d-gsJbE5Bm7UhXeEF3LJT3N9nByFvHLdBkCwWMPztPSET__j7lV9wFrboqyHsttGxkqbCpvTcUCPcgOWV6Z-CNAtIkzcfeVK3KnkRVuf-VRqTdUrw0MxKA7V1WLFdX0KRJ8JQucTM9lXi66h7qC1Kj2UqsYrpx-MBWa44MzEJgz5tXdS7VqEngrsZ3GPSuXqHIeyp7kNrpbrVoC0LwGO0P9YAZdhzGSO3DVBbMczo1OnywTFFcIYevH-HaaAT5jTlNszjjj1gYkuxeoyWjmrfslnxoE8_jgLWuN_Gj_CXGcM9YxoeW0Kdk5ITt_kw';
+    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTQwODU1MywibmJmIjoxNzAxNDA4NTUzLCJleHAiOjE3MDE0MTI0NTMsImFpbyI6IkUyVmdZRkNlekxPZ1p5Vi9qTWZyN3h0bHJpVGtBd0E9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiRlJhXy0zd0tZa3FKMXpLXzg0Q01BZyIsInZlciI6IjEuMCJ9.JX2qgbGKIIxJVbtsK9uhgo36JBgs7VQ5hUELMXs7UABBFa3HWnJpMicn7WMVe5-DRDJuBGqDXbItbjPvjoPr9c1Idg7rgbAaT5BJzpsZO874Gr5X8f4Rt6Sn1qOHG32P4dEdjE9l4sAcmWe3XcNbzKV2_GsaFuRXGtvYoaMya1bbjTU637uEBB9dx3N-kHltp4ZUQA8WBkscY2fjGwhHsXK_SBlW3MW20LWuiKmYlcgynxaZPsDPhm-utAkiTn0RHIGeEhTWhFNqIHUs5yAz2TEcdLgc-FhPfhzxLETRuYEBq1bfWqzV_QipkhaDv7rQXCUs3A7PVhF8qHFktrSaZw';
 
     // States
     const navigate = useNavigate();
@@ -18,6 +18,8 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
+    const [products, setProducts] = useState(10);
+
     const [isIncrement, setIsIncrement] = useState(() => { const storedIncrements = localStorage.getItem('increments'); return storedIncrements ? JSON.parse(storedIncrements) : []; });
     // Use the selected category to filter the items
     const filteredFoodData = data.filter((item) => { if (selectedSubcategory) { return item.ItemSubCategoryCode === selectedSubcategory; } return item.Description.includes(query); });
@@ -30,18 +32,17 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
     // Use the selected category to filter the items and apply pagination
     const paginatedFoodData = filteredFoodData.slice(startIndex, endIndex);
     // Functions for pagination
-    const handleNextPage = () => { setCurrentPage((prevPage) => prevPage + 1); };
-    const handlePrevPage = () => { setCurrentPage((prevPage) => Math.max(prevPage - 1, 1)); };
+    const handleNextPage = () => { setCurrentPage((prevPage) => prevPage + 1); setProducts((prev) => prev += 10) };
+    const handlePrevPage = () => { setCurrentPage((prevPage) => Math.max(prevPage - 1, 1)); setProducts((prev) => prev -= 10) };
 
     // Functions
     // Fetch Customers
     const fetchCustomerData = async () => {
         try {
-            const customerRes = await axios.get('https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer', {
-                headers: { "top": 30, "Authorization": `Bearer ${accessToken}` },
+            const customerRes = await axios.get(`https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer`, {
+                headers: { "Authorization": `Bearer ${accessToken}` },
             });
             const customerData = customerRes.data.value;
-            // Assuming you have a way to identify the current user, replace 'YOUR_USER_ID' with the actual user ID or any other identifier
             const userId = sessionStorage.getItem('useriD');
             const user = customerData.find(customer => customer.UserId === userId);
             if (user) { return user.CustomerPriceGroup; } else {
@@ -53,21 +54,23 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
             return null;
         }
     };
-    useEffect(() => { fetchData(); }, []);
     // Fetch Items
-    const fetchData = async () => {
-        try {
-            const res = await axios.get('https://api.businesscentral.dynamics.com/v2.0/7c885fa6-8571-4c76-9e28-8e51744cf57a/Sandbox1/ODataV4/Company(\'My%20Company\')/ItemApi', {
-                headers: { "top": 30, "Authorization": `Bearer ${accessToken}` },
-            });
-            setData(res.data.value);
-        } catch (error) {
-            console.error("Error fetching data", error);
-        } finally {
-            setLoading(false);
-        }
-    };
-    useEffect(() => { fetchData(); }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(`https://api.businesscentral.dynamics.com/v2.0/7c885fa6-8571-4c76-9e28-8e51744cf57a/Sandbox1/ODataV4/Company(%27My%20Company%27)/ItemApi?$top=${products}`, {
+                    headers: { "Authorization": `Bearer ${accessToken}` },
+                });
+                setData(res.data.value);
+            } catch (error) {
+                console.error("Error fetching data", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [products, accessToken]);
     // Prices API
     const fetchPrices = async () => {
         try {
@@ -77,7 +80,7 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
                 return;
             }
             const priceRes = await axios.get('https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/SalesPrice', {
-                headers: { "top": 30, "Authorization": `Bearer ${accessToken}` },
+                headers: { "Authorization": `Bearer ${accessToken}` },
             });
             const updatedPriceData = priceRes.data.value.map(price => {
                 // Check if the price belongs to the user's CustomerPriceGroup
@@ -160,7 +163,7 @@ const FoodCard = ({ query, onCategorySelect, selectedSubcategory }) => {
                 <Box sx={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
                     <Button onClick={handlePrevPage} disabled={currentPage === 1}> Previous</Button>
                     <Typography>Page {currentPage}</Typography>
-                    <Button onClick={handleNextPage} disabled={endIndex >= filteredFoodData.length}> Next</Button>
+                    <Button onClick={handleNextPage} > Next</Button>
                 </Box>
             </Grid>
         </Grid>
