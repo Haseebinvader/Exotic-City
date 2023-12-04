@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Box, Button, Grid, Paper, Typography } from '@mui/material';
-import logo from '.././assets/jpeg/drink.jpg'
+import logo from '.././assets/jpeg/drink.jpg';
+
 const RequestQuote = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) { setCart(JSON.parse(storedCart)); }
+    const storedCart = localStorage.getItem('cartItems');
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
   }, []);
 
   // Calculate the total quantity for each item
@@ -14,30 +17,61 @@ const RequestQuote = () => {
     return cart.reduce((total, cartItem) => (cartItem.SystemId === itemId ? total + 1 : total), 0);
   };
 
+  // Group cart items by SystemId and calculate total quantity for each group
+  const groupedCart = cart.reduce((groups, cartItem) => {
+    const { SystemId, Description, Packaging } = cartItem;
+    const existingGroup = groups.find((group) => group.SystemId === SystemId);
+
+    if (existingGroup) {
+      existingGroup.quantity += 1;
+    } else {
+      groups.push({
+        SystemId,
+        Description,
+        Packaging,
+        quantity: 1,
+      });
+    }
+
+    return groups;
+  }, []);
+
   return (
     <Grid container justifyContent="center" alignItems="center" minHeight="100vh" spacing={2}>
       <Grid item xs={12} textAlign="center">
-        <Typography variant="h4" fontWeight="bold" mb={2}>   REQUEST PRICE QUOTATION   </Typography>
-        <Typography color="textSecondary">  The following products are listed for the quotation. Click on the button below to request a price quote.  </Typography>
+        <Typography variant="h4" fontWeight="bold" mb={2}>
+          REQUEST PRICE QUOTATION
+        </Typography>
+        <Typography color="textSecondary">
+          The following products are listed for the quotation. Click on the button below to request a price quote.
+        </Typography>
       </Grid>
 
       <Grid item xs={12} md={8} lg={6}>
         <Paper elevation={3} sx={{ padding: 3 }}>
-          <Typography variant="h5" mb={2}>Cart:  </Typography>
-          {cart.length === 0 ? (
+          <Typography variant="h5" mb={2}>
+            Cart:{' '}
+          </Typography>
+          {groupedCart.length === 0 ? (
             <Typography>No items in the cart</Typography>
           ) : (
-            cart.map((cartItem) => (
-              <Paper key={cartItem.SystemId} elevation={2} sx={{ p: 2, mb: 2, display: 'flex', alignItems: 'center' }}>
+            groupedCart.map((groupedCartItem) => (
+              <Paper
+                key={groupedCartItem.SystemId}
+                elevation={2}
+                sx={{ p: 2, mb: 2, display: 'flex', alignItems: 'center' }}
+              >
                 <Box>
-                  <img src={logo} width={"100px"} alt="" />
+                  <img src={logo} width={'100px'} alt="" />
                 </Box>
                 <Box>
-                  <Typography variant="h6" mb={1}>  {cartItem.Description}  </Typography>
-                  <Typography>{cartItem.Packaging}</Typography>
-                  {calculateTotalQuantity(cartItem.SystemId) > 1 && (
+                  <Typography variant="h6" mb={1}>
+                    {groupedCartItem.Description}
+                  </Typography>
+                  <Typography>{groupedCartItem.Packaging}</Typography>
+                  {groupedCartItem.quantity > 1 && (
                     <Typography variant="caption" color="textSecondary">
-                      Total Quantity: {calculateTotalQuantity(cartItem.SystemId)}
+                      Total Quantity: {groupedCartItem.quantity}
                     </Typography>
                   )}
                 </Box>

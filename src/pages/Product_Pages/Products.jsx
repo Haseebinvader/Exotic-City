@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { Box, Grid } from "@mui/material";
 import Filters from "../../views/products/filters";
 import Food_Card from "../../views/products/Food_Card";
 import { useState } from "react";
 import Search from "../../views/products/Search";
-
+import ProductCards from "../../views/products/ProductCards";
 const Products = () => {
     const [query, setQuery] = useState("");
 
@@ -21,7 +22,7 @@ const Products = () => {
                     <Filters />
                 </Box>
                 <Box>
-                    <Food_Card query={query} />
+                    <ProductCards />
                 </Box>
             </Grid>
         </Grid>

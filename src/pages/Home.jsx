@@ -3,16 +3,8 @@ import Products from '../views/home/Products'
 import BrandCarousel from '../views/home/BrandsCarousel'
 import Promo from '../views/home/Promo'
 import Services from '../views/home/Services'
-import { Fragment, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Fragment } from 'react'
 const Home = () => {
-    const usenavigate = useNavigate()
-    useEffect(() => {
-        let userId = sessionStorage.getItem('useriD');
-        if (userId === '' || userId === null) {
-            usenavigate('/Login')
-        }
-    }, [])
     return (
         <Fragment>
             <Banner />

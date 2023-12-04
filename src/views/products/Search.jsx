@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { Box, Paper, TextField, Typography, Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 const Search = ({ handleSearch }) => {
     // States
@@ -11,19 +11,19 @@ const Search = ({ handleSearch }) => {
     const [productName, setProductName] = useState('');
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
-    const [lastUrlSegment, setLastUrlSegment] = useState('');
+    // const [lastUrlSegment, setLastUrlSegment] = useState('');
     const [isAdvancedSearchOpen, setAdvancedSearchOpen] = useState(false);
-    const location = useLocation();
+    // const location = useLocation();
     // Functions
     const handleInputChange = (e) => { const inputValue = e.target.value; setQuery(inputValue); };
     const handleAdvancedSearch = () => { setAdvancedSearchOpen(true); };
     const handleCloseAdvancedSearch = () => { setAdvancedSearchOpen(false); };
     const handleApplyAdvancedSearch = () => { const advancedSearchCriteria = { name: productName.toLowerCase(), minPrice, maxPrice, }; handleSearch(query.toLowerCase(), advancedSearchCriteria); handleCloseAdvancedSearch(); };
     // UseEffects
-    useEffect(() => {
-        const currentUrl = location.pathname; const urlSegments = currentUrl.split('/'); const currentLastUrlSegment = urlSegments[urlSegments.length - 1];
-        setLastUrlSegment(currentLastUrlSegment);
-    }, [location.pathname]);
+    // useEffect(() => {
+    //     const currentUrl = location.pathname; const urlSegments = currentUrl.split('/'); const currentLastUrlSegment = urlSegments[urlSegments.length - 1];
+    //     setLastUrlSegment(currentLastUrlSegment);
+    // }, [location.pathname]);
     useEffect(() => {
         handleSearch(
             query.toLowerCase(),
@@ -52,7 +52,7 @@ const Search = ({ handleSearch }) => {
                 </Paper>
                 <Paper sx={{ padding: '5px', marginTop: '10px', py: '20px', ml: '1rem', height: '9rem', width: '76vw' }} elevation={2}>
                     <div style={{ textAlign: 'center', paddingTop: '2rem' }}>
-                        <Typography variant='h6' sx={{ fontWeight: '600', paddingLeft: '2rem', color: 'grey' }}> Products → {lastUrlSegment}</Typography>
+                        <Typography variant='h6' sx={{ fontWeight: '600', paddingLeft: '2rem', color: 'grey' }}>EXOTIC CITY - AFRICAN & ASIAN EXCLUSIVE PRODUCTS</Typography>
                     </div>
                 </Paper>
             </div>

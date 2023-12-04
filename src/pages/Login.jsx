@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Checkbox from '@mui/material/Checkbox';
 import { Box, Button, Card, Grid, TextField, Typography } from "@mui/material"
 import { useEffect, useState } from 'react';
@@ -11,15 +12,16 @@ const Login = () => {
     const [userId, setuserId] = useState('');
     const [password, setPassword] = useState('')
     const [isLoggingIn, setIsLoggingIn] = useState(false);
+    const [users, setUsers] = useState(1);
     useEffect(() => { sessionStorage.clear() }, [])
-    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTQwODU1MywibmJmIjoxNzAxNDA4NTUzLCJleHAiOjE3MDE0MTI0NTMsImFpbyI6IkUyVmdZRkNlekxPZ1p5Vi9qTWZyN3h0bHJpVGtBd0E9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiRlJhXy0zd0tZa3FKMXpLXzg0Q01BZyIsInZlciI6IjEuMCJ9.JX2qgbGKIIxJVbtsK9uhgo36JBgs7VQ5hUELMXs7UABBFa3HWnJpMicn7WMVe5-DRDJuBGqDXbItbjPvjoPr9c1Idg7rgbAaT5BJzpsZO874Gr5X8f4Rt6Sn1qOHG32P4dEdjE9l4sAcmWe3XcNbzKV2_GsaFuRXGtvYoaMya1bbjTU637uEBB9dx3N-kHltp4ZUQA8WBkscY2fjGwhHsXK_SBlW3MW20LWuiKmYlcgynxaZPsDPhm-utAkiTn0RHIGeEhTWhFNqIHUs5yAz2TEcdLgc-FhPfhzxLETRuYEBq1bfWqzV_QipkhaDv7rQXCUs3A7PVhF8qHFktrSaZw';
+    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTY4MDY0MCwibmJmIjoxNzAxNjgwNjQwLCJleHAiOjE3MDE2ODQ1NDAsImFpbyI6IkUyVmdZTmhoTUN2VjVWN01IcWRYWHdYaVRHODVBd0E9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiY0lhaVoyN2tDa0NHWlp1ejc2Z0pBQSIsInZlciI6IjEuMCJ9.ZPbWU5qFVM5zssUHWHy5bOTWBsGi3pGd3oKGtnsiLs4R0watiZreIbuP2Zj_9H_XuG1w_lEOQrlnTthi-KYvowzUCdiQuH87eRS_mUzUOSR3hj6tL15Mvehb2gKjZgvrtMDW0jZjMYL2irm3krJSDFs1NlFw9tgrqL91qthNC_7qYJu8MsbB2tk71Ty1jiwWbqob5fvG1DKEbgV7RyWGdBiMHvtt_LIsxMelzXo-qBFXLKsiLpnPrgXg7u4XCryp3JltPNfm9OMB37s0Ekfx_As-nDFXlwaAbehZ7wQO2kh144K4-I6XnwpKrk5CmvSzcOYHmUPiIPwyQkGWjptyFg';
     const ProceedLogin = async (e) => {
         e.preventDefault();
         if (!Validate() || isLoggingIn) { return; }
         setIsLoggingIn(true);
         try {
             const response = await fetch(
-                'https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer',
+                `https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer?$top=${users}`,
                 {
                     method: 'GET',
                     headers: {
@@ -43,7 +45,7 @@ const Login = () => {
                     // Attempt login
                     const loginResponse = await attemptLogin(UserId, Password);
                     if (loginResponse.success) {
-                        toast.success(`Login successful for user: ${UserId}`);
+                        toast.success(`Login successful, Welcome: ${UserId}`);
                         sessionStorage.setItem('useriD', UserId);
                         usenavigate('/');
                         return;
