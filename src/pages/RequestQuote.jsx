@@ -12,10 +12,7 @@ const RequestQuote = () => {
     }
   }, []);
 
-  // Calculate the total quantity for each item
-  const calculateTotalQuantity = (itemId) => {
-    return cart.reduce((total, cartItem) => (cartItem.SystemId === itemId ? total + 1 : total), 0);
-  };
+  
 
   // Group cart items by SystemId and calculate total quantity for each group
   const groupedCart = cart.reduce((groups, cartItem) => {
@@ -35,6 +32,9 @@ const RequestQuote = () => {
 
     return groups;
   }, []);
+
+
+
 
   return (
     <Grid container justifyContent="center" alignItems="center" minHeight="100vh" spacing={2}>

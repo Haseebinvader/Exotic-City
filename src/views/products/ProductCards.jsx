@@ -4,40 +4,38 @@ import { Box, Card, CardContent, Grid, Typography, Button, CircularProgress } fr
 import imaged from '../../assets/jpeg/olive.jpg';
 import { useContext, useEffect } from 'react';
 import { Context } from "../../App";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ProductCards = () => {
     // Context 
     const [counts, setCounts, data, setData, loading, setLoading, itemsPerPage, setItemsPerPage, currentPage, setCurrentPage] = useContext(Context)
     // UseEffects
+    // UseEffects
     useEffect(() => {
-        // Load counts from localStorage
         const storedCounts = JSON.parse(localStorage.getItem('itemCounts')) || {};
-        setCounts(storedCounts);
 
-        // Load itemsPerPage and currentPage from localStorage
+        // If counts are already initialized, don't overwrite them
+        if (Object.keys(storedCounts).length === 0) {
+            const initialCounts = data.reduce((acc, _, index) => {
+                acc[index] = 0;
+                return acc;
+            }, {});
+            setCounts(initialCounts);
+        } else {
+            setCounts(storedCounts);
+        }
+
         const storedItemsPerPage = parseInt(localStorage.getItem('itemsPerPage'), 10) || 10;
         setItemsPerPage(storedItemsPerPage);
 
         const storedCurrentPage = parseInt(localStorage.getItem('currentPage'), 10) || 1;
         setCurrentPage(storedCurrentPage);
-
-        // Initialize counts if not present in localStorage
-        const initialCounts = data.reduce((acc, _, index) => {
-            acc[index] = 0;
-            return acc;
-        }, {});
-
-        setCounts(initialCounts);
     }, [data]);
-    useEffect(() => {
-        // Load counts from localStorage based on the current page
-        const storedCounts = JSON.parse(localStorage.getItem(`itemCountsPage${currentPage}`)) || {};
-        setCounts(storedCounts);
-
-        // ... rest of your useEffect logic
-    }, [currentPage, data]);
 
     // Functions
     const handleIncrement = (index) => {
+        toast.success("Item Added to Cart Successfully")
         setCounts((prevCounts) => {
             const currentCount = prevCounts[index] || 0;
             const newCounts = { ...prevCounts, [index]: currentCount + 1 };
@@ -55,7 +53,9 @@ const ProductCards = () => {
     };
 
     const handleDecrement = (index) => {
+
         if (counts[index] > 0) {
+            toast.success("Item Removed from Cart Successfully")
             setCounts((prevCounts) => ({ ...prevCounts, [index]: prevCounts[index] - 1 }));
 
             // Save counts to localStorage
@@ -65,6 +65,8 @@ const ProductCards = () => {
             const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             const updatedItems = storedItems.filter((_, i) => i !== index);
             localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+        } else {
+            toast.error("Quantity cannot be less then 0")
         }
     };
     const handleItemsPerPageChange = (event) => {
@@ -76,7 +78,6 @@ const ProductCards = () => {
         localStorage.setItem('itemsPerPage', newItemsPerPage);
         localStorage.setItem('currentPage', 1);
     };
-
     const handleNextPage = () => {
         setCurrentPage((prevPage) => prevPage + 1);
 

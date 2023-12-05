@@ -2,8 +2,8 @@
 import Checkbox from '@mui/material/Checkbox';
 import { Box, Button, Card, Grid, TextField, Typography } from "@mui/material"
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
