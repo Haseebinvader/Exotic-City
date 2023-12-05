@@ -2,33 +2,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Box, Card, CardContent, Grid, Typography, Button, CircularProgress } from "@mui/material";
 import imaged from '../../assets/jpeg/olive.jpg';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Context } from "../../App";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 const ProductCards = () => {
     // Context 
-    const [counts, setCounts, data, setData, loading, setLoading, itemsPerPage, setItemsPerPage, currentPage, setCurrentPage] = useContext(Context)
-    // UseEffects
+    const [counts, setCounts, data, setData, loading, setLoading, itemsPerPage, setItemsPerPage, currentPage, setCurrentPage, prices, setPrices] = useContext(Context)
+
+
+    const getPricesForItem = (itemNo) => {
+        const itemPrices = prices.filter(price => price.ItemNo === itemNo);
+        return itemPrices;
+    };
+
     // UseEffects
     useEffect(() => {
         const storedCounts = JSON.parse(localStorage.getItem('itemCounts')) || {};
-
         // If counts are already initialized, don't overwrite them
-        if (Object.keys(storedCounts).length === 0) {
-            const initialCounts = data.reduce((acc, _, index) => {
-                acc[index] = 0;
-                return acc;
-            }, {});
-            setCounts(initialCounts);
-        } else {
-            setCounts(storedCounts);
-        }
-
+        if (Object.keys(storedCounts).length === 0) { const initialCounts = data.reduce((acc, _, index) => { acc[index] = 0; return acc; }, {}); setCounts(initialCounts); } else { setCounts(storedCounts); }
         const storedItemsPerPage = parseInt(localStorage.getItem('itemsPerPage'), 10) || 10;
         setItemsPerPage(storedItemsPerPage);
-
         const storedCurrentPage = parseInt(localStorage.getItem('currentPage'), 10) || 1;
         setCurrentPage(storedCurrentPage);
     }, [data]);
@@ -39,65 +33,51 @@ const ProductCards = () => {
         setCounts((prevCounts) => {
             const currentCount = prevCounts[index] || 0;
             const newCounts = { ...prevCounts, [index]: currentCount + 1 };
-
             // Save counts to localStorage
             localStorage.setItem('itemCounts', JSON.stringify(newCounts));
-
             // Save item to cartItems in localStorage
             const storedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
             storedItems.push(data[index]);
             localStorage.setItem("cartItems", JSON.stringify(storedItems));
-
             return newCounts;
         });
     };
 
     const handleDecrement = (index) => {
-
         if (counts[index] > 0) {
             toast.success("Item Removed from Cart Successfully")
             setCounts((prevCounts) => ({ ...prevCounts, [index]: prevCounts[index] - 1 }));
-
             // Save counts to localStorage
             localStorage.setItem('itemCounts', JSON.stringify({ ...counts, [index]: counts[index] - 1 }));
-
             // Save updated items to cartItems in localStorage
             const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             const updatedItems = storedItems.filter((_, i) => i !== index);
             localStorage.setItem('cartItems', JSON.stringify(updatedItems));
-        } else {
-            toast.error("Quantity cannot be less then 0")
-        }
+        } else { toast.error("Quantity cannot be less then 0") }
     };
     const handleItemsPerPageChange = (event) => {
         const newItemsPerPage = parseInt(event.target.value, 10);
         setItemsPerPage(newItemsPerPage);
         setCurrentPage(1);
-
         // Save itemsPerPage and currentPage to localStorage
         localStorage.setItem('itemsPerPage', newItemsPerPage);
         localStorage.setItem('currentPage', 1);
     };
     const handleNextPage = () => {
         setCurrentPage((prevPage) => prevPage + 1);
-
         // Save currentPage to localStorage
         localStorage.setItem('currentPage', currentPage + 1);
-
         // Save counts to localStorage
         localStorage.setItem('itemCounts', JSON.stringify(counts));
     };
 
     const handlePrevPage = () => {
         setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-
         // Save currentPage to localStorage
         localStorage.setItem('currentPage', Math.max(currentPage - 1, 1));
-
         // Save counts to localStorage
         localStorage.setItem('itemCounts', JSON.stringify(counts));
     };
-
     if (loading) { return <CircularProgress style={{ marginLeft: '38rem' }} /> }
 
     return (
@@ -123,11 +103,17 @@ const ProductCards = () => {
                 {data.map((item, index) => (
                     <Grid key={`${item.id}-${index}`} item xs={12} sm={6} md={4} lg={3} >
                         <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <CardContent style={{ flex: 1, textAlign: 'center' }}>
-                                <img src={imaged} alt="" style={{ width: '90%', height: 'auto' }} />
-                                <Typography variant="body">{item.Description}</Typography>
-                                <Typography variant="body">{item.ParentCategory}</Typography>
-                                <Typography variant="body">{item.Brand}</Typography>
+                            <CardContent style={{ flex: 1, textAlign: 'center', display: 'flex', flexDirection: 'column' }}>
+                                <img src={imaged} alt="" style={{ width: '100%', height: 'auto' }} />
+                                <Typography variant="body" sx={{ fontSize: '14px' }}>{item.Description}</Typography>
+                                <Typography variant="body" sx={{ fontSize: '14px' }}>{item.ParentCategory}</Typography>
+                                <Typography variant="h6" sx={{ fontSize: '12px', fontWeight: '600' }}>{item.Brand}</Typography>
+                                {getPricesForItem(item.ItemNo).map((price, priceIndex) => (
+                                    <Typography key={`${price.SystemId}-${priceIndex}`} variant="body" sx={{ fontSize: '14px' }}>
+                                        {/* Code: {price.SalesCode}, */}
+                                        Price: € {price.UnitPrice}
+                                    </Typography>
+                                ))}
                             </CardContent>
                             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', padding: '10px', borderTop: '1px solid #f2f2f2' }}>
                                 <Button variant="contained" onClick={() => handleDecrement(index)} size="small" color="info">  -  </Button>

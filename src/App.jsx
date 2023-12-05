@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Suspense, createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from "./pages/Home";
@@ -15,11 +16,12 @@ import { ToastContainer } from "react-toastify";
 import axios from "axios";
 export const Context = createContext();
 function App() {
-  const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTc2Njc4NSwibmJmIjoxNzAxNzY2Nzg1LCJleHAiOjE3MDE3NzA2ODUsImFpbyI6IkUyVmdZRmhTNExQOTZ4N090NnF6dXl5U3A5bThCQUE9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiWTE0aUIwcjQxMFdJRzlrWUMyUVpBQSIsInZlciI6IjEuMCJ9.VJT5k8c-cM6GOqTMXZLDdbe8Vxbea-hbqN0u-EjGoJiwkt3Uu6MQbhvCg-s5wRhHr9RzFQoQAqwsfsY8rHlYb7g3R4hRay0O-fkGkycETWOAzjFbK_ynh1uJp1h-YNi70-QaJx84wgU9gIWGKhf83-qKFwQZ6HuQZyz57JQUcdaWVCe5ITXqvrJ45ZJPgHK4vp4Y1fwJrMykSGIuXj2aoozRT3MjhkI_EgRMGUlxECV3wysj4tMAyNKKKwPVBqoLiq0aFqYAhMXJt3jMmpgepAI6K5mcdcBvp9Uw41QyxbsFOI9QVGKTSQ2vleuwLRXqnKzLVpUIcL4nQ6O80kqEsA';
+  const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTc3Mzk5MiwibmJmIjoxNzAxNzczOTkyLCJleHAiOjE3MDE3Nzc4OTIsImFpbyI6IkUyVmdZSWhUeWQ1dzY5VDVvUE9WWWh5cnp6VE1BUUE9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiRWVfWlRBS0cxa21rbUJxMUp3d2dBQSIsInZlciI6IjEuMCJ9.Q4eGFQ_vvcZHyMMuQjNv3lJMUe1rIHzt2wq2c0EjTFQhmXLp2zD_IOIWbSdcfjPMgzjx_I1UasuHpiQtVtQ4WkZTOc1ezdX4eplZ1w76PxXfopFID6QqPtDpvvvOBL7tX9IXFytt48Ujr2NmS-REtte_z68ZXLWqVwYij9RQEtqO46JjnN_oi1l1I6wMhmuWqkDspj8Pypc_jwFBvCk2uJp3VxzFsNFwCcD0XmVIlWjjdeUCtfcCp2LdtkaOVtd40mjZLOhnIVY0RhWL79aFy6HmYRc6w1HYbZV_uR-N4BdlFhFh7ImYk9JEG4tw61ERAUlgXHkDFE4HN1klP6oGBA';
 
   //    States
   const [counts, setCounts] = useState({});
   const [data, setData] = useState([]);
+  const [prices, setPrices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [itemsPerPage, setItemsPerPage] = useState(parseInt(localStorage.getItem('itemsPerPage'), 10) || 10);
   const [currentPage, setCurrentPage] = useState(parseInt(localStorage.getItem('currentPage'), 10) || 1);
@@ -47,9 +49,32 @@ function App() {
     if (currentPage === 1) { fetchData(); }
   }, [currentPage, itemsPerPage, accessToken]);
 
+  // Price API
+  // Price API
+  useEffect(() => {
+    const fetchPrices = async () => {
+      try {
+        const pricesPerPage = (itemsPerPage * 70);
+        const pricesSkip = (currentPage - 1) * pricesPerPage;
+
+        const response = await fetch(`https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/SalesPrice?$top=${pricesPerPage}&$skip=${pricesSkip}`, {
+          headers: { "Authorization": `Bearer ${accessToken}` },
+        });
+
+        const data = await response.json();
+        console.log('Fetched prices:', data.value);
+        setPrices(data.value);
+      } catch (error) {
+        console.error('Error fetching prices:', error);
+      }
+    };
+
+    fetchPrices();
+  }, [currentPage, accessToken, itemsPerPage]);
+
   return (
     <Context.Provider value={
-      [counts, setCounts, data, setData, loading, setLoading, itemsPerPage, setItemsPerPage, currentPage, setCurrentPage]
+      [counts, setCounts, data, setData, loading, setLoading, itemsPerPage, setItemsPerPage, currentPage, setCurrentPage, prices, setPrices]
     }>
       <BrowserRouter>
         <Suspense fallback={<div>Loading...</div>}>
