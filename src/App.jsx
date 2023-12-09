@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Suspense, createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -16,7 +17,7 @@ import { ToastContainer } from "react-toastify";
 import axios from "axios";
 export const Context = createContext();
 function App() {
-  const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTc3Mzk5MiwibmJmIjoxNzAxNzczOTkyLCJleHAiOjE3MDE3Nzc4OTIsImFpbyI6IkUyVmdZSWhUeWQ1dzY5VDVvUE9WWWh5cnp6VE1BUUE9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiRWVfWlRBS0cxa21rbUJxMUp3d2dBQSIsInZlciI6IjEuMCJ9.Q4eGFQ_vvcZHyMMuQjNv3lJMUe1rIHzt2wq2c0EjTFQhmXLp2zD_IOIWbSdcfjPMgzjx_I1UasuHpiQtVtQ4WkZTOc1ezdX4eplZ1w76PxXfopFID6QqPtDpvvvOBL7tX9IXFytt48Ujr2NmS-REtte_z68ZXLWqVwYij9RQEtqO46JjnN_oi1l1I6wMhmuWqkDspj8Pypc_jwFBvCk2uJp3VxzFsNFwCcD0XmVIlWjjdeUCtfcCp2LdtkaOVtd40mjZLOhnIVY0RhWL79aFy6HmYRc6w1HYbZV_uR-N4BdlFhFh7ImYk9JEG4tw61ERAUlgXHkDFE4HN1klP6oGBA';
+  const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMjExNDc3OCwibmJmIjoxNzAyMTE0Nzc4LCJleHAiOjE3MDIxMTg2NzgsImFpbyI6IkUyVmdZSGd0Wk05eFN2NDlRL1F5RjUwZHU1K0dBUUE9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiQm9fMkVGVW0zVWE1Y3lGUW9md0xBQSIsInZlciI6IjEuMCJ9.Vw35Ese_pAbpCXkprfckFAvhlYnZnbcHRMTJRqqk7MyH_CW3QHSH8s00yLonDgCsCSmCoi-E9RHp5HhUaOCMh81V8q3AxDTdrMkbH-8gtP2qyIiRPggx4q49BiVMWo8SqTQ8y935mZqac4uAS_2me1pOBU9PuEmptgd9TJexwGCbg2iDgeCdntFUd7uJvzrWMf-vv-lKQqDedbyChm4AtOjLmw2yMmPRB9xhMC3Kv01n7vRKOUXWD9KGF2Ewn0QUwoX0lYfMOT9bu-HfawlAg5g3VQDjajwJdASkhrBsSbKY6l_p_ECJt0ZrtRxIdAXh-Ki1We1NS6SMhaMdnkq30g';
 
   //    States
   const [counts, setCounts] = useState({});
@@ -25,6 +26,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [itemsPerPage, setItemsPerPage] = useState(parseInt(localStorage.getItem('itemsPerPage'), 10) || 10);
   const [currentPage, setCurrentPage] = useState(parseInt(localStorage.getItem('currentPage'), 10) || 1);
+  const [pricePerPage, setPricePerPage] = useState(itemsPerPage * 50);
 
   // API CALLS
   useEffect(() => {
@@ -49,15 +51,15 @@ function App() {
     if (currentPage === 1) { fetchData(); }
   }, [currentPage, itemsPerPage, accessToken]);
 
-  // Price API
+
+
+
   // Price API
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const pricesPerPage = (itemsPerPage * 70);
-        const pricesSkip = (currentPage - 1) * pricesPerPage;
 
-        const response = await fetch(`https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/SalesPrice?$top=${pricesPerPage}&$skip=${pricesSkip}`, {
+        const response = await fetch(`https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/SalesPrice?$top=${pricePerPage}&$skip=${(currentPage - 1) * itemsPerPage}`, {
           headers: { "Authorization": `Bearer ${accessToken}` },
         });
 

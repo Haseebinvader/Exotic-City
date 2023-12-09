@@ -12,16 +12,16 @@ const Login = () => {
     const [userId, setuserId] = useState('');
     const [password, setPassword] = useState('')
     const [isLoggingIn, setIsLoggingIn] = useState(false);
-    const [users, setUsers] = useState(1);
+    const [users, setUsers] = useState(10);
     useEffect(() => { sessionStorage.clear() }, [])
-    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMTY4MDY0MCwibmJmIjoxNzAxNjgwNjQwLCJleHAiOjE3MDE2ODQ1NDAsImFpbyI6IkUyVmdZTmhoTUN2VjVWN01IcWRYWHdYaVRHODVBd0E9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiY0lhaVoyN2tDa0NHWlp1ejc2Z0pBQSIsInZlciI6IjEuMCJ9.ZPbWU5qFVM5zssUHWHy5bOTWBsGi3pGd3oKGtnsiLs4R0watiZreIbuP2Zj_9H_XuG1w_lEOQrlnTthi-KYvowzUCdiQuH87eRS_mUzUOSR3hj6tL15Mvehb2gKjZgvrtMDW0jZjMYL2irm3krJSDFs1NlFw9tgrqL91qthNC_7qYJu8MsbB2tk71Ty1jiwWbqob5fvG1DKEbgV7RyWGdBiMHvtt_LIsxMelzXo-qBFXLKsiLpnPrgXg7u4XCryp3JltPNfm9OMB37s0Ekfx_As-nDFXlwaAbehZ7wQO2kh144K4-I6XnwpKrk5CmvSzcOYHmUPiIPwyQkGWjptyFg';
+    const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMjExNTMwNiwibmJmIjoxNzAyMTE1MzA2LCJleHAiOjE3MDIxMTkyMDYsImFpbyI6IkUyVmdZSmdjSnFtOUpkQ0o5VlRjNTFVeDllWHhBQT09IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiaTFmdG50UU1PazItblRXa2Mtd1FBQSIsInZlciI6IjEuMCJ9.BXyuocDxPfpoFNEVbaHm9W4QCUcu-Rpt0KODvHrgpmS8LFhWFdpF7qyuRR9xV5GrARD__kcd6g4-jmCuI0F9JYTTVoC4yclG5g2W3L-_WNhi1mPsDXd9rPKs4leQFAdjeFu0xP865jLU3QagU91WU35yetsJwEUcyOp9tBoynMxyn9mO3qLvIaIfEGXGzlc3PMnR-4miBQo0j59ylqWh9vavEWZ-oY_kBdrZ2UsIMFa58T842BvEo_Xte4STAiS_qJdBhtJR88DFY0VUcFQE6mlc0TEWUpaJjwltcUWbXFpPW7dud_hHe9XNvGF8ubsXQZbImMyY8FXaG-iVDmk13Q';
     const ProceedLogin = async (e) => {
         e.preventDefault();
         if (!Validate() || isLoggingIn) { return; }
         setIsLoggingIn(true);
         try {
             const response = await fetch(
-                `https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer?$top=${users}`,
+                `https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer?$top=2`,
                 {
                     method: 'GET',
                     headers: {
@@ -35,37 +35,21 @@ const Login = () => {
             if (!data.value || data.value.length === 0) { toast.error("No users found"); return; }
             for (const user of data.value) {
                 const { UserId, Password } = user;
-                // Validate UserId and Password
-                if (!UserId || !Password) {
-                    toast.error(`Invalid credentials for user: ${UserId}`);
-                    continue;
-                }
-                // Check for a match with entered credentials
+                if (!UserId && !Password) { toast.error(`Invalid credentials for user: ${UserId}`); continue; }
                 if (UserId === userId && Password === password) {
-                    // Attempt login
                     const loginResponse = await attemptLogin(UserId, Password);
                     if (loginResponse.success) {
                         toast.success(`Login successful, Welcome: ${UserId}`);
-                        sessionStorage.setItem('useriD', UserId);
-                        usenavigate('/');
-                        return;
-                    } else {
-                        toast.error(`Login failed for user: ${UserId}`);
-                        break;
-                    }
+                        sessionStorage.setItem('useriD', UserId); usenavigate('/'); return;
+                    } else { toast.error(`Login failed for user: ${UserId}`); break; }
                 }
-            }
-            toast.error("Login failed for all users");
-        } catch (error) {
-            toast.error('Login Failed', error);
-        } finally {
-            setIsLoggingIn(false);
-        }
+            } toast.error("Login failed for all users");
+        } catch (error) { toast.error('Login Failed', error); } finally { setIsLoggingIn(false); }
     };
 
     const attemptLogin = async () => {
         try {
-            const response = await fetch('https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer', {
+            const response = await fetch(`https://api.businesscentral.dynamics.com/v2.0/Sandbox1/api/bctech/demo/v2.0/Companies(f03f6225-081c-ec11-bb77-000d3abcd65f)/customer?$top=2`, {
                 method: 'GET',
                 headers: {
                     "Authorization": `Bearer ${accessToken}`,
