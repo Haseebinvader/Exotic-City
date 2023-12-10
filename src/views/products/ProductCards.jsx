@@ -35,25 +35,36 @@ const ProductCards = () => {
         });
     };
 
+    const handleDecrement = (index) => {
+        setCounts((prevCounts) => {
+            const currentCount = prevCounts[index] || 0;
+
+            if (currentCount > 0) {
+                const newCounts = { ...prevCounts, [index]: currentCount - 1 };
+                localStorage.setItem('itemCounts', JSON.stringify(newCounts));
+
+                // Update cartItems in localStorage to reflect the decrease in quantity
+                const storedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+                const itemIndex = storedItems.findIndex(item => item.id === data[index].id);
+
+                if (itemIndex !== -1) {
+                    storedItems.splice(itemIndex, 1);
+                    localStorage.setItem("cartItems", JSON.stringify(storedItems));
+                }
+
+                return newCounts;
+            }
+
+            return prevCounts;
+        });
+    };
+
+
+
+
+
     // Checking user in session storage
     const userExist = sessionStorage.getItem("useriD")
-    const handleDecrement = (index) => {
-        if (counts[index] > 0) {
-            setCounts((prevCounts) => ({ ...prevCounts, [index]: prevCounts[index] - 1 }));
-            localStorage.setItem('itemCounts', JSON.stringify({ ...counts, [index]: counts[index] - 1 }));
-            const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            if (counts[index] > 1) {
-                const updatedItems = storedItems.map((item, i) => (i === index ? { ...item, count: item.count - 1 } : item));
-                localStorage.setItem('cartItems', JSON.stringify(updatedItems));
-            } else {
-                const updatedItems = storedItems.filter((_, i) => i !== index);
-                localStorage.setItem('cartItems', JSON.stringify(updatedItems));
-            }
-            toast.success("Item Removed from Cart Successfully");
-        } else {
-            toast.error("Quantity cannot be less than 0");
-        }
-    };
 
     const handleItemsPerPageChange = (event) => {
         const newItemsPerPage = parseInt(event.target.value, 10);

@@ -28,6 +28,7 @@ const Nav_Header = () => {
     const toggleBrand = () => { setisBrand(!isBrand); setisProduct(false) }
     return (
         <Hidden lgDown>
+
             <Grid container xs={12} sx={{ pl: '8rem', paddingTop: '1.8rem' }}>
                 <Grid item >
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem', cursor: 'pointer' }}>
