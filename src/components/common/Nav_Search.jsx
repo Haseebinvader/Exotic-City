@@ -20,7 +20,7 @@ const Nav_Search = () => {
     }
 
     return (
-        <Grid container sx={{ width: '100%', display: 'flex', justifyContent: 'space-around', pt: '1.2rem', height: '6rem', textAlign: 'center' }} xs={12}>
+        <Grid container sx={{ width: '100%', display: 'flex', justifyContent: 'space-around', pt: '1.2rem', height: '6rem', textAlign: 'center' }} sm={8} md={8} lg={12}>
             <Hidden mdUp><Grid item alignItems='center'><MenuIcon /></Grid></Hidden>
             <Grid item>
                 <Link to='/'>
@@ -34,7 +34,7 @@ const Nav_Search = () => {
                 </Grid>
             </Hidden>
             <Hidden mdDown>
-                <Grid item sx={{ display: 'flex', gap: '1rem', pt: '1rem', alignItems: 'center' }}>
+                <Grid item sx={{ display: 'flex', gap: '1rem', pt: '1rem', alignItems: 'center' }} >
                     {/* Check if userID is available in sessionStorage */}
                     {userID ? (
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

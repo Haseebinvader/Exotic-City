@@ -34,7 +34,6 @@ const ProductCards = () => {
             return newCounts;
         });
     };
-
     const handleDecrement = (index) => {
         setCounts((prevCounts) => {
             const currentCount = prevCounts[index] || 0;
@@ -58,61 +57,18 @@ const ProductCards = () => {
             return prevCounts;
         });
     };
-
-
-
-
-
     // Checking user in session storage
     const userExist = sessionStorage.getItem("useriD")
-
-    const handleItemsPerPageChange = (event) => {
-        const newItemsPerPage = parseInt(event.target.value, 10);
-        setItemsPerPage(newItemsPerPage);
-        setCurrentPage(1);
-        localStorage.setItem('itemsPerPage', newItemsPerPage);
-        localStorage.setItem('currentPage', 1);
-    };
-    const handleNextPage = () => {
-        setCurrentPage((prevPage) => prevPage + 1);
-        localStorage.setItem('currentPage', currentPage + 1);
-        localStorage.setItem('itemCounts', JSON.stringify(counts));
-    };
-
-    const handlePrevPage = () => {
-        setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-        localStorage.setItem('currentPage', Math.max(currentPage - 1, 1));
-        localStorage.setItem('itemCounts', JSON.stringify(counts));
-    };
-
-
     if (loading) { return <CircularProgress style={{ marginLeft: '38rem' }} /> }
 
     return (
         <>
-            <Grid container spacing={2} sx={{ ml: '2rem' }}>
-                <Grid item xs={12} sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                    <Box sx={{ display: 'flex' }}>
-                        <Typography sx={{ marginRight: '1rem', pt: '10px', borderRadius: '2px', backgroundColor: '#f2f2f2', height: '45px', p: '10px' }}>Items per page:</Typography>
-                        <select value={itemsPerPage} onChange={handleItemsPerPageChange} style={{ padding: '0.5rem', borderRadius: '4px', borderColor: 'lightgray', marginRight: '1rem', marginBottom: '1rem' }}>
-                            <option value={10}>10</option>
-                            <option value={20}>20</option>
-                            <option value={30}>30</option>
-                            <option value={40}>40</option>
-                            <option value={50}>50</option>
-                        </select>
-                    </Box>
-                    <Box sx={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
-                        <Button onClick={handlePrevPage} disabled={currentPage === 1} sx={{ backgroundColor: 'lightgray', '&:hover': { backgroundColor: 'darkgray' } }}>Previous</Button>
-                        <Typography sx={{ margin: '0 1rem' }}>Page {currentPage}</Typography>
-                        <Button onClick={handleNextPage} sx={{ backgroundColor: 'lightgray', '&:hover': { backgroundColor: 'darkgray' } }}>Next</Button>
-                    </Box>
-                </Grid>
+            <Grid container spacing={1} sx={{ pl: { sx: '4rem', md: '4rem', lg: '5rem' } }}>
                 {data.map((item, index) => (
-                    <Grid key={`${item.id}-${index}`} item xs={12} sm={6} md={4} lg={3} >
+                    <Grid key={`${item.id}-${index}`} item xs={10} sm={5} md={4} lg={2.5} sx={{ width: { xs: '20rem', md: '20rem', lg: '16rem' }, ml: '2rem' }}>
                         <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                             <CardContent style={{ flex: 1, textAlign: 'center', display: 'flex', flexDirection: 'column' }}>
-                                <img src={imaged} alt="" style={{ width: '100%', height: 'auto' }} />
+                                <img src={imaged} alt="" style={{ width: '95%', height: 'auto' }} />
                                 <Typography variant="body" sx={{ fontSize: '14px' }}>{item.Description}</Typography>
                                 <Typography variant="body" sx={{ fontSize: '14px' }}>{item.ParentCategory}</Typography>
                                 <Typography variant="h6" sx={{ fontSize: '12px', fontWeight: '600' }}>{item.Brand}</Typography>
