@@ -6,7 +6,7 @@ import { Typography } from '@mui/material';
 import Hidden from '@mui/material/Hidden';
 // import LanguageIcon from '@mui/icons-material/Language';
 import Product_Dropdown from '../../views/home/Product_Dropdown';
-import HomeIcon from '@mui/icons-material/Home';
+// import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 import Dropdown from './dropdown';
@@ -29,12 +29,12 @@ const Nav_Header = () => {
     return (
         <Hidden lgDown>
 
-            <Grid container xs={12} sx={{ pl: '8rem', paddingTop: '1.8rem' }}>
+            <Grid container xs={12} sx={{ fontSize: '13px' }}>
                 <Grid item >
                     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem', cursor: 'pointer' }}>
-                        <Typography sx={{ fontSize: '14px' }}> <Link to='/'><HomeIcon sx={{ color: '#000' }} /></Link>  </Typography>
+                        {/* <Typography sx={{ fontSize: '14px' }}> <Link to='/'><HomeIcon sx={{ color: '#000' }} /></Link>  </Typography> */}
                         <Box >
-                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleProduct}>
+                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '13px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleProduct}>
                                 {t('PRODUCTS')}  <KeyboardArrowDownIcon />
                             </Typography>
                             {isProduct && (
@@ -43,7 +43,7 @@ const Nav_Header = () => {
                                 </Box>)}
                         </Box>
                         <Box sx={{ position: 'relative' }}>
-                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleBrand}>
+                            <Typography sx={{ display: 'flex', alignItems: 'center', fontSize: '13px', color: '#5B5B5B', fontWeight: '600' }} onClick={toggleBrand}>
                                 {t('EXCLUSIVE BRANDS')}  <KeyboardArrowDownIcon />
                             </Typography>
                             {isBrand && (
@@ -54,7 +54,7 @@ const Nav_Header = () => {
                         <Box>
                             <Link to='/About' style={{ textDecoration: 'none' }}>
                                 <Typography onClick={() => { setisBrand(false); setisProduct(false); }}
-                                    sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: 'none', cursor: 'pointer', }}>
+                                    sx={{ display: 'flex', alignItems: 'center', fontSize: '13px', color: '#5B5B5B', fontWeight: '600', textDecoration: 'none', cursor: 'pointer', }}>
                                     {t('ABOUT US')}
                                 </Typography>
                             </Link>
@@ -62,7 +62,7 @@ const Nav_Header = () => {
                         <Box>
                             <Link to='/Services' style={{ textDecoration: 'none' }}>
                                 <Typography onClick={() => { setisBrand(false); setisProduct(false); }}
-                                    sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
+                                    sx={{ display: 'flex', alignItems: 'center', fontSize: '13px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     {t('SERVICES')}
                                 </Typography>
                             </Link>
@@ -70,7 +70,7 @@ const Nav_Header = () => {
                         <Box>
                             <Link to='/Contact' style={{ textDecoration: 'none' }}>
                                 <Typography onClick={() => { setisBrand(false); setisProduct(false); }}
-                                    sx={{ display: 'flex', alignItems: 'center', fontSize: '14px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
+                                    sx={{ display: 'flex', alignItems: 'center', fontSize: '13px', color: '#5B5B5B', fontWeight: '600', textDecoration: "none" }} >
                                     {t('CONTACT US')}
                                 </Typography>
                             </Link>
