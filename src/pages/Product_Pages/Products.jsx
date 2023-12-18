@@ -36,37 +36,45 @@ const Products = () => {
     };
 
     return (
-        <Grid container sx={{ backgroundColor: "#f9f9f9", width: { xs: '50rem', md: '62rem', lg: '100%' } }}>
-            <Grid item>
-                {/* <Search handleSearch={handleSearch} /> */}
-            </Grid>
-            <Grid item sx={{ width: "100%", display: "flex", mt: "2rem" }} >
-                <Box sx={{ width: { xs: "11rem" } }}>
-                    <Filters />
-                </Box>
-                <Box>
-                    <Grid item sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', pl: '3rem', maxWidth: { xs: '12rem', md: '25rem', lg: '94%' }, justifyContent: 'flex-end' }}>
-                        <Box sx={{ display: 'flex' }}>
-                            <Typography sx={{ marginRight: '1rem', pt: '10px', borderRadius: '2px', backgroundColor: '#f2f2f2', height: '45px', p: '10px' }}>Items per page:</Typography>
-                            <select value={itemsPerPage} onChange={handleItemsPerPageChange} style={{ padding: '0.5rem', borderRadius: '4px', borderColor: 'lightgray', marginRight: '1rem', marginBottom: '1rem' }}>
-                                <option value={10}>10</option>
-                                <option value={20}>20</option>
-                                <option value={30}>30</option>
-                                <option value={40}>40</option>
-                                <option value={50}>50</option>
-                            </select>
-                        </Box>
+        // <Grid container sx={{ backgroundColor: "#f9f9f9", width: { xs: '50rem', md: '62rem', lg: '100%' } }}>
+        //     <Grid item>
+        //         {/* <Search handleSearch={handleSearch} /> */}
+        //     </Grid>
+        //     <Grid item sx={{ width: "100%", display: "flex", mt: "2rem" }} >
+        //         <Box sx={{ width: { xs: "11rem" } }}>
+        //             <Filters />
+        //         </Box>
+        //         <Box>
+        //             <Grid item sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', pl: '3rem', justifyContent: 'flex-end' }}>
+        //                 <Box sx={{ display: 'flex' }}>
+        //                     <Typography sx={{ pt: '10px', borderRadius: '2px', backgroundColor: '#f2f2f2', height: '45px', p: '10px' }}>Items per page:</Typography>
+        //                     <select value={itemsPerPage} onChange={handleItemsPerPageChange} style={{ padding: '0.5rem', borderRadius: '4px', borderColor: 'lightgray', marginRight: '1rem', marginBottom: '1rem' }}>
+        //                         <option value={10}>10</option>
+        //                         <option value={20}>20</option>
+        //                         <option value={30}>30</option>
+        //                         <option value={40}>40</option>
+        //                         <option value={50}>50</option>
+        //                     </select>
+        //                 </Box>
 
-                    </Grid>
-                    <ProductCards />
-                    <Box sx={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'space-around', p: '10px', flexDirection: { xs: 'column', md: 'row', lg: 'row' }, width: { xs: '12.4rem', md: '100%', lg: '100%' } }}>
-                        <Button onClick={handlePrevPage} disabled={currentPage === 1} sx={{ backgroundColor: 'lightgray', '&:hover': { backgroundColor: 'darkgray' } }}>Previous</Button>
-                        <Typography sx={{ margin: '0 1rem' }}>Page {currentPage}</Typography>
-                        <Button onClick={handleNextPage} sx={{ backgroundColor: 'lightgray', '&:hover': { backgroundColor: 'darkgray' } }}>Next</Button>
-                    </Box>
-                </Box>
-            </Grid >
-        </Grid >
+        //             </Grid>
+        //             <ProductCards />
+        //             <Box sx={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'space-around', p: '10px', flexDirection: { xs: 'column', md: 'row', lg: 'row' }, width: { xs: '12.4rem', md: '100%', lg: '100%' } }}>
+        //                 <Button onClick={handlePrevPage} disabled={currentPage === 1} sx={{ backgroundColor: 'lightgray', '&:hover': { backgroundColor: 'darkgray' } }}>Previous</Button>
+        //                 <Typography sx={{ margin: '0 1rem' }}>Page {currentPage}</Typography>
+        //                 <Button onClick={handleNextPage} sx={{ backgroundColor: 'lightgray', '&:hover': { backgroundColor: 'darkgray' } }}>Next</Button>
+        //             </Box>
+        //         </Box>
+        //     </Grid >
+        // </Grid >
+        <Grid container sx={{ display: 'flex' }}>
+            <Grid item flex={0.7}>
+                <Filters />
+            </Grid>
+            <Grid item flex={3}>
+                <ProductCards />
+            </Grid>
+        </Grid>
     );
 };
 

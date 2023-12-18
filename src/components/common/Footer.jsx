@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <Grid container
-      sx={{ display: 'flex', justifyContent: 'space-around', backgroundColor: '#4A4A4A', color: '#fff', padding: '30px', gap: '4rem', }}>
+      sx={{ mt: '1rem', display: 'flex', justifyContent: 'space-around', backgroundColor: '#4A4A4A', color: '#fff', padding: '30px', gap: '4rem', }}>
       {FooterData.map((section, index) => (
         <Grid item key={index}>
           <Typography fontSize={'16px'} fontWeight={'600'} color={'#DADADA'}> {section.title} </Typography>

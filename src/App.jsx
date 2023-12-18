@@ -17,7 +17,7 @@ import { ToastContainer } from "react-toastify";
 import axios from "axios";
 export const Context = createContext();
 function App() {
-  const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMjI5MTgwMywibmJmIjoxNzAyMjkxODAzLCJleHAiOjE3MDIyOTU3MDMsImFpbyI6IkUyVmdZRGc0L2VwV28zT1RQeGRuUFg4Nmo3WDRIZ0E9IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoiR3V3cjlocUJvRUNWQ0FHRURXdG9BQSIsInZlciI6IjEuMCJ9.i0AJCZ3IrMo92p0rvUI_LF3dMOrufBkp5lUJUCj90j7J08jI9uY1dUETLnLJUpJbaoDqomum3RtC6-peoYckhHTxprEGsaONr3mosAYkpKPYy7T_CsmW91cWVwLbpT_zfYdJT-PqjsBo2jbBq65UDtWuqUN37YxK9S6TNkwCvjjQ2Y3CBmQ34QPOFvuGq0_JzsQvQ4D8YW9IxqPqZoFd3dV7kF2XwfQVSbSLt-8yrGT2yv0F4xueXBKeS-IFMmiqtgau9_oQ6OUG5OuIHBUk8vDrEXQUMQ3nou46idh3Q5DLBYUBfSUj-Mf_LHTCpmn0HaI3DAsSJ8aPL1JYGevXkQ';
+  const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2FwaS5idXNpbmVzc2NlbnRyYWwuZHluYW1pY3MuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhLyIsImlhdCI6MTcwMjg5MTEwNywibmJmIjoxNzAyODkxMTA3LCJleHAiOjE3MDI4OTUwMDcsImFpbyI6IkUyVmdZUGl3ZkQyUC85Ri8vYTVWdjltYWFpVHNBQT09IiwiYXBwaWQiOiJhODM5MWI5Yy00NTgzLTQ2YzMtYTQ0OS1hMGRlNmUxOTkxNjEiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Yzg4NWZhNi04NTcxLTRjNzYtOWUyOC04ZTUxNzQ0Y2Y1N2EvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI1ZmNkNzk2Yy1kNWE0LTRiYzAtOWRkMS02YmQyMmZhNWFlZjUiLCJyaCI6IjAuQVF3QXBsLUlmSEdGZGt5ZUtJNVJkRXoxZWozdmJabHNzMU5CaGdlbV9Ud0J1SjhNQUFBLiIsInJvbGVzIjpbIkF1dG9tYXRpb24uUmVhZFdyaXRlLkFsbCIsImFwcF9hY2Nlc3MiLCJBZG1pbkNlbnRlci5SZWFkV3JpdGUuQWxsIiwiQVBJLlJlYWRXcml0ZS5BbGwiXSwic3ViIjoiNWZjZDc5NmMtZDVhNC00YmMwLTlkZDEtNmJkMjJmYTVhZWY1IiwidGlkIjoiN2M4ODVmYTYtODU3MS00Yzc2LTllMjgtOGU1MTc0NGNmNTdhIiwidXRpIjoidVZuYXM2R2pTRWljWE5PLU1wQXhBQSIsInZlciI6IjEuMCJ9.dFOLPDV62obX2Olc6oIBUB6bsH8isMugoEwBp9KmvF0Y7B_o6EF6Kj_CRHo6eH50JeI1QEkOC0JUETSNtoTQtwdN2TAqUDgOkWgEYLMVkNfjYieLIXwOc4A7GrLBbA3aLb5XLqHmg7R2p14u4YrpxjNdFOJPqpdBN8F28mVq-MI5oUtGgcZmCfQNYaBW5YIUSgfFNzErdQAqOO4Yv5eIWViPwgCdv-fn3qnYhkCeSaeohDaQXoH4YtUuO9zhucmq14ODm4MTpds_IH50yaRsf_9iugKkdxRQxq3FEGlL8cY_AHwvQ4E731ld8ZVBiCw_s7mmRe2tRA48DuklAP4g_g';
 
   //    States
   const [counts, setCounts] = useState({});
@@ -52,7 +52,7 @@ function App() {
     if (currentPage === 1) { fetchData(); }
   }, [currentPage, itemsPerPage, accessToken]);
 
-
+  console.log("App Current", currentPage);
 
   // Price API
   useEffect(() => {
@@ -73,10 +73,10 @@ function App() {
 
     fetchPrices();
   }, [currentPage, accessToken, itemsPerPage]);
+  console.log("Count", counts);
+
   return (
-    <Context.Provider value={
-      [counts, setCounts, data, setData, loading, setLoading, itemsPerPage, setItemsPerPage, currentPage, setCurrentPage, prices, setPrices]
-    }>
+    <Context.Provider value={[counts, setCounts, data, setData, loading, setLoading, itemsPerPage, setItemsPerPage, currentPage, setCurrentPage, prices, setPrices]}>
       <BrowserRouter>
         <Suspense fallback={<div>Loading...</div>}>
           <Layout>

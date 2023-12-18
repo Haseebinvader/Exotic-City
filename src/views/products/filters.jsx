@@ -34,7 +34,7 @@ export default function Filter() {
     }, []);
 
     return (
-        <Paper sx={{ width: { xs: '12rem', md: '14rem', lg: '16rem' }, mr: '1rem', ml: { xs: '0.5rem', md: '0.5rem', lg: '1rem' } }}>
+        <Paper elevation={3} sx={{ height: '100vh', m: '1rem', p: '10px' }}>
             <Box sx={{ textAlign: 'center', border: '1px solid #f2f2f2', backgroundColor: '#fff', p: '2rem' }}>
                 <Box>
                     <Typography variant='h6' sx={{ fontWeight: '600' }}> Categories </Typography>
@@ -69,18 +69,6 @@ export default function Filter() {
                             </div>
                         ))}
                     </div>
-                    {/* <div style={{ backgroundColor: '#f2f2f2', padding: '10px', borderRadius: '3px', overflowY: 'scroll', height: '50vh' }}>
-                        {[...new Set(filteredSubCategories)].map((uniqueItemSubCategoryCode) => (
-                            <div key={uniqueItemSubCategoryCode}>
-                                <ul style={{ listStyle: 'none', padding: '1px', display: 'flex', justifyContent: 'center', width: '100%' }}>
-                                    <li style={{ marginRight: '8px', textAlign: 'left' }}>{uniqueItemSubCategoryCode}</li>
-                                    <div style={{ marginLeft: 'auto', alignItems: 'flex-end' }}>
-                                        <input type='checkbox' style={{ marginLeft: '4px' }} />
-                                    </div>
-                                </ul>
-                            </div>
-                        ))}
-                    </div> */}
                 </Box>
                 <Box>
                     <Typography variant='h6' sx={{ fontWeight: '600', mt: '1rem' }}>  Brands </Typography>
