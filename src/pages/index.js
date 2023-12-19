@@ -1,0 +1,8 @@
+export { default as Home } from './Home/Home'
+export { default as About } from './About/About'
+export { default as Contact } from './Contact/Contact'
+export { default as Legal } from './Legal/LegalNotice'
+export { default as Login } from './Login/Login'
+export { default as Services } from './Services/Services'
+export { default as Items } from './Product_Pages/Products'
+export { default as ItemsDescription } from './Product_Pages/ProductDescription'

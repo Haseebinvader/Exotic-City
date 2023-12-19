@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material"
-import Services_cards from "../views/services/services_cards"
+import Services_cards from "../../views/services/services_cards"
 const Services = () => {
   return (
     <Grid container>

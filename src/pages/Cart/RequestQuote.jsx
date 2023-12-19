@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Box, Button, Grid, Paper, Typography } from '@mui/material';
-import logo from '.././assets/jpeg/drink.jpg';
+import logo from '../../assets/jpeg/drinks.jpg'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Box, Grid, Typography } from "@mui/material";
-import Filters from "../../views/products/filters";
+import Filters from "../../views/products/Filters";
 import Food_Card from "../../views/products/Food_Card";
 import { useContext, useState } from "react";
 import Search from "../../views/products/Search";

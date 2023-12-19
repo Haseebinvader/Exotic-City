@@ -62,7 +62,7 @@ const ProductCards = () => {
     };
     // Checking user in session storage
     const userExist = sessionStorage.getItem("useriD")
-    if (loading) { return <CircularProgress style={{ marginLeft: '38rem' }} /> }
+    // if (loading) { return <CircularProgress style={{ marginLeft: '38rem' }} /> }
 
     return (
         <>

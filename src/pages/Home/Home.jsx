@@ -1,8 +1,8 @@
-import Banner from '../views/home/Banner'
-import Products from '../views/home/Products'
-import BrandCarousel from '../views/home/BrandsCarousel'
-import Promo from '../views/home/Promo'
-import Services from '../views/home/Services'
+import Banner from '../../views/home/Banner'
+import Products from '../../views/home/Products'
+import BrandCarousel from '../../views/home/BrandsCarousel'
+import Promo from '../../views/home/Promo'
+import Services from '../../views/home/Services'
 import { Fragment } from 'react'
 const Home = () => {
     return (
