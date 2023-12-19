@@ -85,7 +85,7 @@ const Nav_Search = () => {
                             <Typography sx={{ alignItems: 'center' }}>Sign in<PersonIcon /></Typography>
                         </Link>
                     )}
-                    <Link to='Requestaquote' style={{ color: '#000' }}>
+                    <Link to='/Cart' style={{ color: '#000' }}>
                         <ShoppingCartIcon sx={{ fontSize: '20px' }} />
                     </Link>
                 </Grid>
