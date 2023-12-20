@@ -1,7 +1,7 @@
 
 const dropdown = (props) => {
     return (
-        <select onChange={props.onChange} onClick={() => {
+        <select style={{ backgroundColor: '#f2f2f2', borderRadius: '6px', padding: '2px' }} onChange={props.onChange} onClick={() => {
             props.brand(false);
             props.product(false);
         }}>

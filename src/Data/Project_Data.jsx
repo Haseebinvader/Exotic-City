@@ -1,12 +1,5 @@
-export const Home_Data = {
-  "Propos_Title": "A PROPOS",
-  "Propos_Description": "Feel,To taste,To explore,Like, To share.Words that define the very essence of Exotic City, a major player in the production and distribution of food, beverages and personal care products from Asia and Africa. As a producer and distributor, we want to create a dialogue between cultures, encourage diversity and fully subscribe to the societal challenges of openness and integration. We are proud owners of brands like Africa Village, Congo nature, Royal Village, De Chez Nous, Care n Clear, Thai Village and many more. We also hold exclusive distribution rights of Shan, Rubicon, Regal, Crème of Nature, Dabur, ORS, Fair n White.",
-  "Services_Title": "SERVICES",
-  "Services_Description": "We specialize in African and Asian food products, operating as wholesaler and distributor in Belgium. We provide delivery across Europe and Scandinavian countries, our client portfolio exists in Germany, France, Netherlands, Austria, Switzerland, Sweden, Denmark, Finland and Norway. Exotic City offers over 6000 products in dry, frozen and fresh categories. Reserved for professionals (traders or restaurateurs), all our goods are available in self-service cash & carry that is a One Stop shop warehouse."
-}
 
-// Products Card Data
-
+// Images Imports
 import drink1 from '../assets/jpeg/DRINK1.jpg'
 import drink2 from '../assets/png/DRINK2.png';
 import drink3 from '../assets/png/DRINK3.png';
@@ -26,7 +19,24 @@ import International from '../assets/png/International.png'
 import Logistic from '../assets/png/Logistique.png'
 import winwin from '../assets/png/Win-Win.png'
 import logo from '../assets/jpeg/footer-logo.jpg'
+import image1 from '../assets/jpeg/banner.jpg'
+import image2 from '../assets/jpeg/banner2.jpg'
+import image3 from '../assets/jpeg/banner3.jpg'
+import image4 from '../assets/jpeg/banner4.jpg'
+import image5 from '../assets/jpeg/banner5.jpg'
+import image6 from '../assets/jpeg/banner6.jpg'
+import image7 from '../assets/jpeg/banner7.jpg'
+import image8 from '../assets/jpeg/banner8.jpg'
+export const Images = [
+  image1, image2, image3, image4, image5, image6, image7, image8
+]
 
+export const Home_Data = {
+  "Propos_Title": "A PROPOS",
+  "Propos_Description": "Feel,To taste,To explore,Like, To share.Words that define the very essence of Exotic City, a major player in the production and distribution of food, beverages and personal care products from Asia and Africa. As a producer and distributor, we want to create a dialogue between cultures, encourage diversity and fully subscribe to the societal challenges of openness and integration. We are proud owners of brands like Africa Village, Congo nature, Royal Village, De Chez Nous, Care n Clear, Thai Village and many more. We also hold exclusive distribution rights of Shan, Rubicon, Regal, Crème of Nature, Dabur, ORS, Fair n White.",
+  "Services_Title": "SERVICES",
+  "Services_Description": "We specialize in African and Asian food products, operating as wholesaler and distributor in Belgium. We provide delivery across Europe and Scandinavian countries, our client portfolio exists in Germany, France, Netherlands, Austria, Switzerland, Sweden, Denmark, Finland and Norway. Exotic City offers over 6000 products in dry, frozen and fresh categories. Reserved for professionals (traders or restaurateurs), all our goods are available in self-service cash & carry that is a One Stop shop warehouse."
+}
 
 export const food_data = [
   { id: 2, Name: 'OLD JAMAICA GINGER 7up', size: '4 x 6 x 250 ml', Image: drink2 },

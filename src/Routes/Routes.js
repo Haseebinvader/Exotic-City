@@ -1,4 +1,4 @@
-import { Home, About, Contact, Legal, Login, Services, Items, ItemsDescription, Cart } from "../Pages";
+import { Home, About, Contact, Legal, Login, Services, Items, ProductDescription, Cart } from "../Pages";
 
 const AllRoutes = [
     { path: '/', component: Home },
@@ -8,7 +8,7 @@ const AllRoutes = [
     { path: '/Login', component: Login },
     { path: '/Services', component: Services },
     { path: '/Products/:category', component: Items },
-    { path: '/ItemsDescription', component: ItemsDescription },
+    { path: '/ProductsDescription/:id', component: ProductDescription },
     { path: '/Cart', component: Cart }
 ]
 
